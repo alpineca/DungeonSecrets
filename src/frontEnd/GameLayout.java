@@ -5,17 +5,17 @@ import backEnd.utility.ScreenResolution;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameLayout{
+public class GameLayout extends JPanel{
 
     public GameLayout(){
         this.bootstrap();
     }
 
-    private JFrame bootstrap() {
+    private JPanel bootstrap() {
         //make the main frame
 
 
-        JFrame GameMenuPanel = new JFrame();
+//        JPanel GameMenuPanel = new JPanel();
 //        JPanel GameMenuPanel = new JPanel();
 //        GameMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        GameMenuFrame.setTitle("Chapter one");
@@ -23,15 +23,15 @@ public class GameLayout{
 //        GameMenuPanel.setLayout(null);
 //        GameMenuPanel.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        GameMenuPanel.setUndecorated(true);
-        GameMenuPanel.setBounds(0, 0 , ScreenResolution.getScreenWidth(), ScreenResolution.getScreenHeight());
-        GameMenuPanel.setLayout(null);
-        GameMenuPanel.setBackground(Color.darkGray);
-        GameMenuPanel.setVisible(true);
+        this.setBounds(0, 0 , ScreenResolution.getScreenWidth(), ScreenResolution.getScreenHeight());
+        this.setLayout(null);
+        this.setBackground(Color.darkGray);
+        this.setVisible(true);
 
         //layering panels
-        GameMenuPanel.add(MenuPanel.getMenuPanel());
+        this.add(MenuPanel.getMenuPanel());
 
-
+//
 
 //      1st try for game tile
 //        GameBoard GameBoardTile = new GameBoard();
@@ -45,30 +45,30 @@ public class GameLayout{
 
 
         MainPanel mainPanel = new MainPanel();
-        GameMenuPanel.add(mainPanel);
+        this.add(mainPanel);
 
         BackGround background = new BackGround();
-        GameMenuPanel.add(background);
+        this.add(background);
 
 
         //hero health overlaps side panel. I dont know how to do this better
-        GameMenuPanel.add(SidePanel.getHeroLabel());
-        GameMenuPanel.add(SidePanel.getHeroHealth());
-        GameMenuPanel.add(SidePanel.getHeroResources());
+        this.add(SidePanel.getHeroLabel());
+        this.add(SidePanel.getHeroHealth());
+        this.add(SidePanel.getHeroResources());
 
-        GameMenuPanel.add(SidePanel.getEnemyLabel());
-        GameMenuPanel.add(SidePanel.getEnemyHealth());
-        GameMenuPanel.add(SidePanel.getEnemyResources());
+        this.add(SidePanel.getEnemyLabel());
+        this.add(SidePanel.getEnemyHealth());
+        this.add(SidePanel.getEnemyResources());
 
-        GameMenuPanel.add(SidePanel.getEmptyLabel());
+        this.add(SidePanel.getEmptyLabel());
 
         //adding side panel to the main frame .. bars should be added in the side panel class
-        GameMenuPanel.add(SidePanel.getSidePanel());
+        this.add(SidePanel.getSidePanel());
 
 
         //refreshes the frame. otherwise the ui glitches    why is otherwise underlined?
-//        SwingUtilities.updateComponentTreeUI(GameMenuPanel);
-        return GameMenuPanel;
+        SwingUtilities.updateComponentTreeUI(this);
+        return this;
     }
 
 

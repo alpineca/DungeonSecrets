@@ -2,7 +2,7 @@ package frontEnd;
 
 import javax.swing.*;
 import java.awt.*;
-
+//unnecessary
 public class GameBoard extends JPanel {
 
     final int SIZE_OF_TILE = 100;

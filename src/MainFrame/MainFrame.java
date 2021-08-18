@@ -5,6 +5,7 @@ import MainMenu.MainMenuPanel;
 import MultiPlayerMenu.MultiPlayerMenuPanel;
 import OptionsMenu.OptionsMenuPanel;
 import SinglePlayerMenu.SinglePlayerMenuPanel;
+import frontEnd.GameLayout;
 
 import javax.swing.*;
 
@@ -16,6 +17,8 @@ public class MainFrame {
     private static MultiPlayerMenuPanel multiPlayerMenu = new MultiPlayerMenuPanel();
     private static CharactersMenuPanel charactersMenu = new CharactersMenuPanel();
     private static OptionsMenuPanel optionsMenu = new OptionsMenuPanel();
+    private static GameLayout mainLayout = new GameLayout();
+
 
     public MainFrame(){
 
@@ -24,18 +27,26 @@ public class MainFrame {
         mainFrame.setUndecorated(true);
         mainFrame.setLayout(null);
 
+        mainFrame.add(mainLayout);
         mainFrame.add(mainMenuPanel);
         mainFrame.add(singlePlayerMenu);
         mainFrame.add(multiPlayerMenu);
         mainFrame.add(charactersMenu);
         mainFrame.add(optionsMenu);
 
+        mainLayout.setVisible(false);
         singlePlayerMenu.setVisible(false);
         multiPlayerMenu.setVisible(false);
         charactersMenu.setVisible(false);
         optionsMenu.setVisible(false);
 
         mainFrame.setVisible(true);
+
+    }
+
+    public static void openMainLayout(){
+
+        mainLayout.setVisible(true);
 
     }
 
@@ -70,6 +81,11 @@ public class MainFrame {
     }
 
 
+    public static void closeMainLayout(){
+
+        mainLayout.setVisible(false);
+
+    }
 
     public static void closeMainMenu(){
 
