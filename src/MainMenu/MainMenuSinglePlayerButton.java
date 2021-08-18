@@ -38,7 +38,9 @@ public class MainMenuSinglePlayerButton extends JLabel implements MouseListener 
     public void mouseClicked(MouseEvent e) {
         MainFrame.closeMainMenu();
 //        MainFrame.openSinglePlayerMenu();
-        GameMenu_MainFrame.GameMenuMainFrame();
+        GameLayout mainLayout = new GameLayout();
+//        this.add(mainLayout);
+        this.repaint();
     }
 
     @Override
