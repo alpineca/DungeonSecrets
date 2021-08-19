@@ -19,7 +19,7 @@ public class BackGround extends JPanel {
     }
 
 
-    Image icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/resources/imgs/background.jpg"))).getImage();
+    Image icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/com.dungeonsecrets/resources/imgs/background.jpg"))).getImage();
 
     public void paint(Graphics g) {
         super.paint(g);

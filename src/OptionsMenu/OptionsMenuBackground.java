@@ -9,7 +9,7 @@ public class OptionsMenuBackground extends JPanel {
 
     OptionsMenuBackground(){
 
-        background = new ImageIcon("src/com.dungeonsecrets.resources/imgs/MainMenuBackground.jpg").getImage();
+        background = new ImageIcon("/com.dungeonsecrets/resources/imgs/MainMenuBackground.jpg").getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
