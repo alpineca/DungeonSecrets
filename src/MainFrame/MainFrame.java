@@ -5,7 +5,7 @@ import MainMenu.MainMenuPanel;
 import MultiPlayerMenu.MultiPlayerMenuPanel;
 import OptionsMenu.OptionsMenuPanel;
 import SinglePlayerMenu.SinglePlayerMenuPanel;
-import frontEnd.GameLayout;
+import com.dungeonsecrets.frontEnd.GameLayout;
 
 import javax.swing.*;
 

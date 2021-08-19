@@ -1,4 +1,4 @@
-package backEnd.GameGridObjects;
+package com.dungeonsecrets.backEnd.GameGridObjects;
 
 import java.awt.*;
 

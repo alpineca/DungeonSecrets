@@ -1,9 +1,9 @@
-package frontEnd;
+package com.dungeonsecrets.frontEnd;
 
-import backEnd.GameGridObjects.GameObject;
-import backEnd.GameGridObjects.Hero;
-import backEnd.GameGridObjects.Tile;
-import backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.GameGridObjects.Hero;
+import com.dungeonsecrets.backEnd.GameGridObjects.Tile;
+import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.*;

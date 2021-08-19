@@ -1,7 +1,6 @@
 package MainMenu;
 
 import MainFrame.MainFrame;
-import frontEnd.*;
 
 import javax.swing.*;
 import java.awt.*;

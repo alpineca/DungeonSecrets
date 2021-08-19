@@ -9,7 +9,7 @@ public class MultiPlayerMenuBackground extends JPanel {
 
     MultiPlayerMenuBackground(){
 
-        background = new ImageIcon("src/resources/imgs/MainMenuBackground.jpg").getImage();
+        background = new ImageIcon("src/com.dungeonsecrets.resources/imgs/MainMenuBackground.jpg").getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
