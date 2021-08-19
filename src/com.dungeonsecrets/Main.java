@@ -1,3 +1,5 @@
+package com.dungeonsecrets;
+
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 
 public class Main {
