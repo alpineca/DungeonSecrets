@@ -1,4 +1,4 @@
-package frontEnd;
+package com.dungeonsecrets.frontEnd;
 
 import javax.swing.*;
 import java.awt.*;

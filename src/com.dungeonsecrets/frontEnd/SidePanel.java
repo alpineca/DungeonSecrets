@@ -1,6 +1,6 @@
-package frontEnd;
+package com.dungeonsecrets.frontEnd;
 
-import backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.*;
