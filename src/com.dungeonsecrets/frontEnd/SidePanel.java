@@ -33,7 +33,7 @@ public class SidePanel {
     //HERO PANEL
     private static JLabel heroLabel(){
 
-        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/resources/imgs/hero.PNG")));
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/com.dungeonsecrets/resources/imgs/hero.PNG")));
 
         JLabel heroLabel = new JLabel();
         heroLabel.setText("Hero Name");
@@ -83,7 +83,7 @@ public class SidePanel {
     //ENEMY PANEL
     private static JLabel enemyLabel(){
 
-        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/resources/imgs/enemy.PNG")));
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/com.dungeonsecrets/resources/imgs/enemy.PNG")));
         JLabel enemyLabel = new JLabel();
 
         enemyLabel.setText("Enemy Name");

@@ -9,7 +9,7 @@ public class SinglePlayerMenuBackground extends JPanel {
 
     SinglePlayerMenuBackground(){
 
-        background = new ImageIcon("MainMenuBackground.jpg").getImage();
+        background = new ImageIcon("/com.dungeonsecrets/resources/imgs/MainMenuBackground.jpg").getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);

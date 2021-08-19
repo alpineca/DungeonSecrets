@@ -41,7 +41,7 @@ public class Hero extends GameObject{
         this.width = 10;
 
     }
-    Image icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/resources/imgs/hero.PNG"))).getImage();
+    Image icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/com.dungeonsecrets/resources/imgs/hero.PNG"))).getImage();
     public void render(Graphics g) {
         int tileWidth   = 1570/31;
         int tileHeight  = 1080/21;
