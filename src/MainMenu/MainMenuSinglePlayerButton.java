@@ -1,6 +1,7 @@
 package MainMenu;
 
 import MainFrame.MainFrame;
+import com.dungeonsecrets.frontEnd.GameLayout;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,8 +39,8 @@ public class MainMenuSinglePlayerButton extends JLabel implements MouseListener 
         MainFrame.closeMainMenu();
 //        MainFrame.openSinglePlayerMenu();
 //        GameLayout mainLayout = new GameLayout();
-        MainFrame.openMainLayout();
 //        this.add(mainLayout);
+        MainFrame.openMainLayout();
         this.repaint();
     }
 

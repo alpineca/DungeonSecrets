@@ -6,6 +6,8 @@ import MultiPlayerMenu.MultiPlayerMenuPanel;
 import OptionsMenu.OptionsMenuPanel;
 import SinglePlayerMenu.SinglePlayerMenuPanel;
 import com.dungeonsecrets.frontEnd.GameLayout;
+import com.dungeonsecrets.frontEnd.LoginMenu;
+import com.dungeonsecrets.frontEnd.RegisterMenu;
 
 import javax.swing.*;
 
@@ -17,8 +19,9 @@ public class MainFrame {
     private static MultiPlayerMenuPanel multiPlayerMenu = new MultiPlayerMenuPanel();
     private static CharactersMenuPanel charactersMenu = new CharactersMenuPanel();
     private static OptionsMenuPanel optionsMenu = new OptionsMenuPanel();
+    private static LoginMenu loginMenu = new LoginMenu();
+    private static RegisterMenu registerMenu = new RegisterMenu();
     private static GameLayout mainLayout = new GameLayout();
-
 
     public MainFrame(){
 
@@ -28,25 +31,42 @@ public class MainFrame {
         mainFrame.setLayout(null);
 
         mainFrame.add(mainLayout);
+        mainFrame.add(registerMenu);
+        mainFrame.add(loginMenu);
         mainFrame.add(mainMenuPanel);
         mainFrame.add(singlePlayerMenu);
         mainFrame.add(multiPlayerMenu);
         mainFrame.add(charactersMenu);
         mainFrame.add(optionsMenu);
 
+        loginMenu.setVisible(true);
         mainLayout.setVisible(false);
+        registerMenu.setVisible(false);
         singlePlayerMenu.setVisible(false);
         multiPlayerMenu.setVisible(false);
         charactersMenu.setVisible(false);
         optionsMenu.setVisible(false);
+        mainMenuPanel.setVisible(false);
 
         mainFrame.setVisible(true);
+
+    }
+
+    public static void openRegisterMenu(){
+
+        registerMenu.setVisible(true);
 
     }
 
     public static void openMainLayout(){
 
         mainLayout.setVisible(true);
+
+    }
+
+    public static void openLoginMenu(){
+
+        loginMenu.setVisible(true);
 
     }
 
@@ -80,10 +100,15 @@ public class MainFrame {
 
     }
 
+    public static void closeRegisterMenu(){
 
-    public static void closeMainLayout(){
+        registerMenu.setVisible(false);
 
-        mainLayout.setVisible(false);
+    }
+
+    public static void closeLoginMenu(){
+
+        loginMenu.setVisible(false);
 
     }
 
