@@ -1,6 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
-import MainFrame.MainFrame;
+import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.backEnd.processors.AuthProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 

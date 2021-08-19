@@ -1,4 +1,4 @@
-import MainFrame.MainFrame;
+import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 
 public class Main {
 //testing git hub
