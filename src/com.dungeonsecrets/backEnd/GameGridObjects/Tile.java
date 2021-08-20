@@ -22,6 +22,8 @@
 //}
 package com.dungeonsecrets.backEnd.GameGridObjects;
 
+import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+
 import java.awt.*;
 
 public class Tile extends GameObject{
@@ -33,13 +35,16 @@ public class Tile extends GameObject{
 
         super(row, col);
         this.height = 10;
-        this.width = 10;
+        this.width  = 10;
 
     }
 
     public void render(Graphics g) {
-        int tileWidth   = 1570/31;
-        int tileHeight  = 1080/21;
+        int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
+        int mapHeight   = ScreenResolution.getScreenHeight();
+
+        int tileWidth   = mapWidth/31;
+        int tileHeight  = mapHeight/21;
 
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;

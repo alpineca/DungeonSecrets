@@ -14,15 +14,6 @@ public class GameLayout extends JPanel{
     private JPanel bootstrap() {
         //make the main frame
 
-
-//        JPanel GameMenuPanel = new JPanel();
-//        JPanel GameMenuPanel = new JPanel();
-//        GameMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        GameMenuFrame.setTitle("Chapter one");
-//        GameMenuPanel.setSize(ScreenResolution.getScreenWidth(), ScreenResolution.getScreenHeight());
-//        GameMenuPanel.setLayout(null);
-//        GameMenuPanel.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        GameMenuPanel.setUndecorated(true);
         this.setBounds(0, 0 , ScreenResolution.getScreenWidth(), ScreenResolution.getScreenHeight());
         this.setLayout(null);
         this.setBackground(Color.darkGray);
