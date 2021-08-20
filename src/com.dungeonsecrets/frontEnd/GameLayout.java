@@ -22,19 +22,6 @@ public class GameLayout extends JPanel{
         //layering panels
         this.add(MenuPanel.getMenuPanel());
 
-//
-
-//      1st try for game tile
-//        GameBoard GameBoardTile = new GameBoard();
-//        GameMenuFrame.add(GameBoardTile);
-
-
-
-
-        // GameMenuFrame.add(MainPanel.getBackgroundLabel());
-        // GameMenuFrame.add(MainPanel.getMainPanel());
-
-
         MainPanel mainPanel = new MainPanel();
         this.add(mainPanel);
 
