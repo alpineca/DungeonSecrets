@@ -15,7 +15,7 @@ public class SidePanel {
         JPanel sidePanel = new JPanel();
 
         sidePanel.setBackground(Color.gray);
-        sidePanel.setBounds(ScreenResolution.getScreenWidth()-370, 0, 370, ScreenResolution.getScreenHeight());
+        sidePanel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*1.00));
        // sidePanel.setBounds(1570, 0, 370, 1080);
         sidePanel.setLayout(null);
 
@@ -39,7 +39,7 @@ public class SidePanel {
         heroLabel.setText("Hero Name");
         heroLabel.setHorizontalTextPosition(JLabel.CENTER);
         heroLabel.setVerticalTextPosition(JLabel.BOTTOM);
-        heroLabel.setBounds(ScreenResolution.getScreenWidth()-100,10,90,120);
+        heroLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.01),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
 
         heroLabel.setIcon(icon);
 
@@ -53,7 +53,7 @@ public class SidePanel {
         JProgressBar heroHealth = new JProgressBar(0,100);  //Min/Max Health
 
         heroHealth.setValue(100);
-        heroHealth.setBounds(ScreenResolution.getScreenWidth()-340,15,230,25);
+        heroHealth.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.02),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
         heroHealth.setStringPainted(true);
         heroHealth.setForeground(Color.red);
         heroHealth.setBackground(Color.black);
@@ -67,7 +67,7 @@ public class SidePanel {
     private static JProgressBar heroResources(){
         JProgressBar heroResources = new JProgressBar(0,100);
         heroResources.setValue(100);
-        heroResources.setBounds(ScreenResolution.getScreenWidth()-340,55,230,25);
+        heroResources.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.05),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
         heroResources.setStringPainted(true);
         heroResources.setForeground(Color.blue);
         heroResources.setBackground(Color.black);
@@ -91,7 +91,7 @@ public class SidePanel {
         enemyLabel.setVerticalTextPosition(JLabel.BOTTOM);
 
         enemyLabel.setIcon(icon);
-        enemyLabel.setBounds(ScreenResolution.getScreenWidth()-100,210,90,120);
+        enemyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.19),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
 
         return enemyLabel;
     }
@@ -103,7 +103,7 @@ public class SidePanel {
         JProgressBar enemyHealth = new JProgressBar(0,100);  //Min/Max Health
 
         enemyHealth.setValue(100);
-        enemyHealth.setBounds(ScreenResolution.getScreenWidth()-340,215,230,25);
+        enemyHealth.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.20),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
         enemyHealth.setStringPainted(true);
         enemyHealth.setForeground(Color.red);
         enemyHealth.setBackground(Color.black);
@@ -117,7 +117,7 @@ public class SidePanel {
     private static JProgressBar enemyResources(){
         JProgressBar enemyResources = new JProgressBar(0,100);
         enemyResources.setValue(100);
-        enemyResources.setBounds(ScreenResolution.getScreenWidth()-340,255,230,25);
+        enemyResources.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.23),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
         enemyResources.setStringPainted(true);
         enemyResources.setForeground(Color.blue);
         enemyResources.setBackground(Color.black);
