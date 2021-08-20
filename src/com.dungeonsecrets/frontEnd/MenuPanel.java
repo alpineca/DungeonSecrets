@@ -10,6 +10,10 @@ public class MenuPanel {
         JPanel menuPanel = new JPanel();
         menuPanel.setBackground(Color.yellow);
         //Temporary positioning since we have not decided on it yet
+
+        //Temporary positioning since we have not decided on it yet
+
+        //Temporary positioning since we have not decided on it yet
         menuPanel.setBounds(1000,1000,500,30);
         menuPanel.setOpaque(true);
         return menuPanel;
