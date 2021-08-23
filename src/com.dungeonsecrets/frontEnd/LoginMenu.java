@@ -59,9 +59,10 @@ public class LoginMenu extends JPanel {
             public void mouseClicked(MouseEvent e) {
 
                 LoginResult isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
+
                 if(isLogin.equals(LoginResult.SUCCESSFUL_LOGIN)){
                     MainFrame.closeLoginMenu();
-                    MainFrame.openMainMenu();
+                    MainFrame.openCreateCharactersMenu();
                 }
                 else{
                     usernameLabel.setText("Try again!");

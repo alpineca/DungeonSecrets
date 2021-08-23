@@ -14,11 +14,11 @@ public class RegisterMenu extends JPanel{
 
     LoginAndRegisterBackground background = new LoginAndRegisterBackground();
 
-    JLabel message = new JLabel();
     JLabel usernameLabel = new JLabel("Username:");
     JLabel emailLabel = new JLabel("Email:");
     JLabel passwordLabel = new JLabel("Password:");
     JLabel confirmPasswordLabel = new JLabel("Confirm password:");
+    JLabel messageLabel = new JLabel();
 
     JTextField usernameField = new JTextField();
     JTextField emailField = new JTextField();
@@ -51,6 +51,11 @@ public class RegisterMenu extends JPanel{
         confirmPasswordLabel.setFont(new Font("Immortal",Font.BOLD,30));
         confirmPasswordLabel.setForeground(new Color(111,0,0));
         confirmPasswordLabel.setHorizontalAlignment(JLabel.RIGHT);
+
+        messageLabel.setBounds((ScreenResolution.getScreenWidth()/2)-300,(ScreenResolution.getScreenHeight()/2)+250,500,30);
+        messageLabel.setFont(new Font("Immortal",Font.BOLD,30));
+        messageLabel.setForeground(new Color(111,0,0));
+        messageLabel.setHorizontalAlignment(JLabel.LEFT);
 
         //TextFields
 
@@ -95,25 +100,25 @@ public class RegisterMenu extends JPanel{
                 RegisterResult isRegistered = AuthProcessor.doRegister(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText(), emailField.getText());
 
                 if(isRegistered.equals(RegisterResult.USERNAME_EXIST)){
-                    usernameLabel.setText("Username already exist!");
+                    messageLabel.setText("Username already exist!");
                 }
                 else if(isRegistered.equals(RegisterResult.USERNAME_FAIL)){
-                    usernameLabel.setText("Username doesn't meet the requirements!");
+                    messageLabel.setText("Username doesn't meet the requirements!");
                 }
                 else if(isRegistered.equals(RegisterResult.PASSWORD_FAIL)){
-                    usernameLabel.setText("Password doesn't meet the requirements!");
+                    messageLabel.setText("Password doesn't meet the requirements!");
                 }
                 else if(isRegistered.equals(RegisterResult.PASSWORD_NOT_MATCH)){
-                    usernameLabel.setText("Passwords not matches!");
+                    messageLabel.setText("Passwords not matches!");
                 }
                 else if(isRegistered.equals(RegisterResult.EMAIL_FAIL)){
-                    usernameLabel.setText("Email doesn't meet the requirements!");
+                    messageLabel.setText("Email doesn't meet the requirements!");
                 }
                 else if(isRegistered.equals(RegisterResult.EMAIL_EXIST)){
-                    usernameLabel.setText("Email already exist!");
+                    messageLabel.setText("Email already exist!");
                 }
                 else {
-                    usernameLabel.setText(String.valueOf(RegisterResult.REGISTERED));
+                    messageLabel.setText(String.valueOf(RegisterResult.REGISTERED));
                 }
             }
 
@@ -173,7 +178,7 @@ public class RegisterMenu extends JPanel{
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
-        this.add(message);
+        this.add(messageLabel);
         this.add(registerButton);
         this.add(cancelButton);
         this.add(usernameLabel);
