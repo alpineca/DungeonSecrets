@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class CreateCharacter extends JPanel {
+public class LogInCreateCharacter extends JPanel {
 
     CharactersMenuBackground background = new CharactersMenuBackground();
     JLabel backButton = new JLabel();
@@ -19,7 +19,7 @@ public class CreateCharacter extends JPanel {
     static JTextField nameField = new JTextField();
     JComboBox classBox = new JComboBox();
 
-    public CreateCharacter(){
+    public LogInCreateCharacter(){
 
         chooseName.setBounds((ScreenResolution.getScreenWidth()/2)-300,(ScreenResolution.getScreenHeight()/2)-25,300,30);
         chooseName.setForeground(new Color(111,0,0));
@@ -61,8 +61,8 @@ public class CreateCharacter extends JPanel {
         backButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                MainFrame.closeCreateCharactersMenu();
-                MainFrame.openChooseCharacterMenu();
+                MainFrame.closeLogInCreateCharactersMenu();
+                MainFrame.openMainMenu();
             }
 
             @Override
@@ -99,8 +99,8 @@ public class CreateCharacter extends JPanel {
 
                 ChooseCharacterPanel.characterModel.addElement(new Character(nameField.getText(), classBox.getSelectedItem().toString()));
 
-                MainFrame.closeCreateCharactersMenu();
-                MainFrame.openChooseCharacterMenu();
+                MainFrame.closeLogInCreateCharactersMenu();
+                MainFrame.openMainMenu();
             }
 
             @Override

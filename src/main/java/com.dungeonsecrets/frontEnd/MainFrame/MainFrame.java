@@ -15,17 +15,18 @@ import javax.swing.*;
 
 public class MainFrame {
 
-    private static JFrame mainFrame                         = new JFrame();
-    private static MainMenuPanel mainMenuPanel              = new MainMenuPanel();
-    private static SinglePlayerMenuPanel singlePlayerMenu   = new SinglePlayerMenuPanel();
-    private static MultiPlayerMenuPanel multiPlayerMenu     = new MultiPlayerMenuPanel();
-    private static CharactersMenuPanel charactersMenu       = new CharactersMenuPanel();
-    private static OptionsMenuPanel optionsMenu             = new OptionsMenuPanel();
-    private static LoginMenu loginMenu                      = new LoginMenu();
-    private static RegisterMenu registerMenu                = new RegisterMenu();
-    private static GameLayout mainLayout                    = new GameLayout();
-    private static CreateCharacter createCharactersMenu     = new CreateCharacter();
-    private static ChooseCharacterPanel chooseCharacterMenu = new ChooseCharacterPanel();
+    private static JFrame mainFrame                                 = new JFrame();
+    private static MainMenuPanel mainMenuPanel                      = new MainMenuPanel();
+    private static SinglePlayerMenuPanel singlePlayerMenu           = new SinglePlayerMenuPanel();
+    private static MultiPlayerMenuPanel multiPlayerMenu             = new MultiPlayerMenuPanel();
+    private static CharactersMenuPanel charactersMenu               = new CharactersMenuPanel();
+    private static OptionsMenuPanel optionsMenu                     = new OptionsMenuPanel();
+    private static LoginMenu loginMenu                              = new LoginMenu();
+    private static RegisterMenu registerMenu                        = new RegisterMenu();
+    private static GameLayout mainLayout                            = new GameLayout();
+    private static CreateCharacter createCharactersMenu             = new CreateCharacter();
+    private static ChooseCharacterPanel chooseCharacterMenu         = new ChooseCharacterPanel();
+    private static LogInCreateCharacter logInCreateCharactersMenu   = new LogInCreateCharacter();
 
     public MainFrame(){
 
@@ -34,9 +35,7 @@ public class MainFrame {
         mainFrame.setUndecorated(true);
         mainFrame.setLayout(null);
 
-//        mainLayout.addKeyListener(mainLayout);
-//        mainLayout.requestFocus(true);
-
+        mainFrame.add(logInCreateCharactersMenu);
         mainFrame.add(chooseCharacterMenu);
         mainFrame.add(createCharactersMenu);
         mainFrame.add(mainLayout);
@@ -48,6 +47,7 @@ public class MainFrame {
         mainFrame.add(charactersMenu);
         mainFrame.add(optionsMenu);
 
+        logInCreateCharactersMenu.setVisible(false);
         chooseCharacterMenu.setVisible(false);
         createCharactersMenu.setVisible(false);
         loginMenu.setVisible(true);
@@ -60,6 +60,12 @@ public class MainFrame {
         mainMenuPanel.setVisible(false);
 
         mainFrame.setVisible(true);
+
+    }
+
+    public static void openLogInCreateCharactersMenu(){
+
+        logInCreateCharactersMenu.setVisible(true);
 
     }
 
@@ -122,6 +128,12 @@ public class MainFrame {
     public static void openOptionsMenu(){
 
         optionsMenu.setVisible(true);
+
+    }
+
+    public static void closeLogInCreateCharactersMenu(){
+
+        logInCreateCharactersMenu.setVisible(false);
 
     }
 
