@@ -34,7 +34,7 @@ public class MainMenuCharactersButton extends JLabel implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         MainFrame.closeMainMenu();
-        MainFrame.openCharactersMenu();
+        MainFrame.openChooseCharacterMenu();
     }
 
     @Override

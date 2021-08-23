@@ -1,5 +1,6 @@
 package com.dungeonsecrets.frontEnd.CharactersMenu;
 
+import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 
@@ -61,7 +62,7 @@ public class CreateCharacter extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 MainFrame.closeCreateCharactersMenu();
-                MainFrame.openMainMenu();
+                MainFrame.openChooseCharacterMenu();
             }
 
             @Override
@@ -95,8 +96,11 @@ public class CreateCharacter extends JPanel {
         createButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                ChooseCharacterPanel.characterModel.addElement(new Character(nameField.getText(), classBox.getSelectedItem().toString()));
+
                 MainFrame.closeCreateCharactersMenu();
-                MainFrame.openMainMenu();
+                MainFrame.openChooseCharacterMenu();
             }
 
             @Override
