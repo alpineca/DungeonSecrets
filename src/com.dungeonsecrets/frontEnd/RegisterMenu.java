@@ -117,7 +117,7 @@ public class RegisterMenu extends JPanel{
                 else if(isRegistered.equals(RegisterResult.EMAIL_EXIST)){
                     messageLabel.setText("Email already exist!");
                 }
-                else {
+                else if(isRegistered.equals(RegisterResult.REGISTERED)){
                     messageLabel.setText(String.valueOf(RegisterResult.REGISTERED));
                 }
             }

@@ -41,6 +41,7 @@ public class AuthProcessor {
             }
             else{
                 pst.executeUpdate();
+                return RegisterResult.REGISTERED;
             }
         } catch (Exception exception) {
             exception.printStackTrace();
