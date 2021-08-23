@@ -1,6 +1,8 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.backEnd.processors.CharacterCheck;
+import com.dungeonsecrets.backEnd.enums.LoginResult;
+import com.dungeonsecrets.backEnd.enums.RegisterResult;
+import com.dungeonsecrets.backEnd.processors.AuthProcessor;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
@@ -16,7 +18,7 @@ public class LoginMenu extends JPanel {
     JLabel usernameLabel = new JLabel("Username: ");
     JLabel passwordLabel = new JLabel("Password: ");
 
-    static JTextField usernameField = new JTextField();
+    JTextField usernameField = new JTextField();
     JPasswordField  passwordField = new JPasswordField ();
 
     JLabel loginButton = new JLabel("LOGIN");
@@ -56,19 +58,10 @@ public class LoginMenu extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if(CharacterCheck.checkCharacters(usernameField.getText())){
+                LoginResult isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
 
-                    MainFrame.closeLoginMenu();
-                    MainFrame.openChooseCharacterMenu();
-
-                }
-
-                if(!CharacterCheck.checkCharacters(usernameField.getText())){
-
-                    MainFrame.closeLoginMenu();
-                    MainFrame.openCreateCharactersMenu();
-
-                }
+                MainFrame.closeLoginMenu();
+                MainFrame.openMainMenu();
 
             }
 
@@ -137,11 +130,6 @@ public class LoginMenu extends JPanel {
         this.add(background);
     }
 
-    public static String getUsername(){
-
-        return usernameField.getText();
-
-    }
 
 
 }
