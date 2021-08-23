@@ -1,6 +1,8 @@
 package com.dungeonsecrets.frontEnd.MainFrame;
 
 import com.dungeonsecrets.frontEnd.CharactersMenu.CharactersMenuPanel;
+import com.dungeonsecrets.frontEnd.CharactersMenu.ChooseCharacterPanel;
+import com.dungeonsecrets.frontEnd.CharactersMenu.CreateCharacter;
 import com.dungeonsecrets.frontEnd.MainMenu.MainMenuPanel;
 import com.dungeonsecrets.frontEnd.MultiPlayerMenu.MultiPlayerMenuPanel;
 import com.dungeonsecrets.frontEnd.OptionsMenu.OptionsMenuPanel;
@@ -22,6 +24,8 @@ public class MainFrame {
     private static LoginMenu loginMenu = new LoginMenu();
     private static RegisterMenu registerMenu = new RegisterMenu();
     private static GameLayout mainLayout = new GameLayout();
+    private static CreateCharacter createCharactersMenu = new CreateCharacter();
+    private static ChooseCharacterPanel chooseCharacterMenu = new ChooseCharacterPanel();
 
     public MainFrame(){
 
@@ -30,6 +34,8 @@ public class MainFrame {
         mainFrame.setUndecorated(true);
         mainFrame.setLayout(null);
 
+        mainFrame.add(chooseCharacterMenu);
+        mainFrame.add(createCharactersMenu);
         mainFrame.add(mainLayout);
         mainFrame.add(registerMenu);
         mainFrame.add(loginMenu);
@@ -39,6 +45,8 @@ public class MainFrame {
         mainFrame.add(charactersMenu);
         mainFrame.add(optionsMenu);
 
+        chooseCharacterMenu.setVisible(false);
+        createCharactersMenu.setVisible(false);
         loginMenu.setVisible(true);
         mainLayout.setVisible(false);
         registerMenu.setVisible(false);
@@ -49,6 +57,18 @@ public class MainFrame {
         mainMenuPanel.setVisible(false);
 
         mainFrame.setVisible(true);
+
+    }
+
+    public static void openChooseCharacterMenu(){
+
+        chooseCharacterMenu.setVisible(true);
+
+    }
+
+    public static void openCreateCharactersMenu(){
+
+        createCharactersMenu.setVisible(true);
 
     }
 
@@ -97,6 +117,18 @@ public class MainFrame {
     public static void openOptionsMenu(){
 
         optionsMenu.setVisible(true);
+
+    }
+
+    public static void closeChooseCharacterMenu(){
+
+        chooseCharacterMenu.setVisible(false);
+
+    }
+
+    public static void closeCreateCharactersMenu(){
+
+        createCharactersMenu.setVisible(false);
 
     }
 

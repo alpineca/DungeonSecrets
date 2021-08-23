@@ -1,12 +1,19 @@
 package com.dungeonsecrets.frontEnd.CharactersMenu;
 
+import com.dungeonsecrets.backEnd.processors.CharacterCheck;
+import com.dungeonsecrets.frontEnd.LoginMenu;
+import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class CharactersMenuPanel extends JPanel{
 
-    CharactersMenuBackground background;
+    CharactersMenuBackground background = new CharactersMenuBackground();
     CharactersMenuBackButton backButton = new CharactersMenuBackButton();
+
+    String username = LoginMenu.getUsername();
     JLabel title = new JLabel("Characters");
 
     public CharactersMenuPanel(){
@@ -18,14 +25,9 @@ public class CharactersMenuPanel extends JPanel{
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
-        background = new CharactersMenuBackground();
-
         this.add(backButton);
         this.add(title);
         this.add(background);
-
-        this.setVisible(true);
-
 
     }
 
