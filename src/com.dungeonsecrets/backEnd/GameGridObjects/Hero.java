@@ -50,6 +50,11 @@ public class Hero extends GameObject{
         int tileY = this.row * tileHeight;
 
 
+        System.out.println("test:"+tileWidth);
+        System.out.println("test:"+tileHeight);
+        System.out.println("test:"+tileX);
+        System.out.println("test:"+tileY);
+
 
 //        g.setColor(Color.black);
 //        g.fillRect(tileX, tileY, tileWidth, tileHeight);
