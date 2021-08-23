@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RegisterMenu extends JPanel{
 
@@ -118,7 +120,18 @@ public class RegisterMenu extends JPanel{
                     messageLabel.setText("Email already exist!");
                 }
                 else if(isRegistered.equals(RegisterResult.REGISTERED)){
-                    messageLabel.setText(String.valueOf(RegisterResult.REGISTERED));
+                    messageLabel.setText(String.valueOf(RegisterResult.REGISTERED) + " - Redirecting");
+
+                    Timer timer = new Timer();
+                    TimerTask task = new TimerTask() {
+                        @Override
+                        public void run() {
+                            MainFrame.closeRegisterMenu();
+                            MainFrame.openLoginMenu();
+                        }
+                    };
+
+                    timer.schedule(task, 2000);
                 }
             }
 

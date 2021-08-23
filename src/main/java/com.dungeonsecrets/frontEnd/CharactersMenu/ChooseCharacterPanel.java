@@ -18,7 +18,7 @@ public class ChooseCharacterPanel extends JPanel {
 
 //    String username = LoginMenu.getUsername();
     JList<Character> characterList = new JList<>();
-    DefaultListModel<Character> characterModel = new DefaultListModel<>();
+    public static DefaultListModel<Character> characterModel = new DefaultListModel<>();
     JButton selectButton = new JButton("Select");
     JButton createButton = new JButton("Create New Character");
 
@@ -35,9 +35,6 @@ public class ChooseCharacterPanel extends JPanel {
         characterList.setForeground(new Color(111,0,0));
         characterList.setBorder(BorderFactory.createLineBorder(new Color(196,153,80)));
         characterList.setFont(new Font("Immortal",Font.BOLD,30));
-
-        characterModel.addElement(new Character("Character 1", "Warrior"));
-        characterModel.addElement(new Character("Character 2", "Mage"));
 
         characterList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override

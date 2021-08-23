@@ -17,6 +17,7 @@ public class LoginMenu extends JPanel {
 
     JLabel usernameLabel = new JLabel("Username: ");
     JLabel passwordLabel = new JLabel("Password: ");
+    JLabel messageLabel = new JLabel();
 
     JTextField usernameField = new JTextField();
     JPasswordField  passwordField = new JPasswordField ();
@@ -35,6 +36,11 @@ public class LoginMenu extends JPanel {
         passwordLabel.setFont(new Font("Immortal",Font.BOLD,30));
         passwordLabel.setForeground(new Color(111,0,0));
         passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
+
+        messageLabel.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+130,400,30);
+        messageLabel.setFont(new Font("Immortal",Font.BOLD,30));
+        messageLabel.setForeground(new Color(111,0,0));
+        messageLabel.setHorizontalAlignment(JLabel.CENTER);
 
         usernameField.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)-25,200,30);
         usernameField.setOpaque(true);
@@ -62,10 +68,10 @@ public class LoginMenu extends JPanel {
 
                 if(isLogin.equals(LoginResult.SUCCESSFUL_LOGIN)){
                     MainFrame.closeLoginMenu();
-                    MainFrame.openCreateCharactersMenu();
+                    MainFrame.openLogInCreateCharactersMenu();
                 }
                 else{
-                    usernameLabel.setText("Try again!");
+                    messageLabel.setText("Try again!");
                 }
 
             }
@@ -126,6 +132,7 @@ public class LoginMenu extends JPanel {
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
+        this.add(messageLabel);
         this.add(registerButton);
         this.add(loginButton);
         this.add(usernameField);
