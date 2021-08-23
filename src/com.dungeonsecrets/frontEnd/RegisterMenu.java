@@ -1,5 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.enums.RegisterResult;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.backEnd.processors.AuthProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
@@ -91,15 +92,29 @@ public class RegisterMenu extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                boolean isRegistered = AuthProcessor.doRegister();
+                RegisterResult isRegistered = AuthProcessor.doRegister(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText(), emailField.getText());
 
-                if(isRegistered){
-                    message.setText("Registered");
+                if(isRegistered.equals(RegisterResult.USERNAME_EXIST)){
+                    usernameLabel.setText("Username already exist!");
                 }
-                else{
-                    message.setText("Error - Try again");
+                else if(isRegistered.equals(RegisterResult.USERNAME_FAIL)){
+                    usernameLabel.setText("Username doesn't meet the requirements!");
                 }
-
+                else if(isRegistered.equals(RegisterResult.PASSWORD_FAIL)){
+                    usernameLabel.setText("Password doesn't meet the requirements!");
+                }
+                else if(isRegistered.equals(RegisterResult.PASSWORD_NOT_MATCH)){
+                    usernameLabel.setText("Passwords not matches!");
+                }
+                else if(isRegistered.equals(RegisterResult.EMAIL_FAIL)){
+                    usernameLabel.setText("Email doesn't meet the requirements!");
+                }
+                else if(isRegistered.equals(RegisterResult.EMAIL_EXIST)){
+                    usernameLabel.setText("Email already exist!");
+                }
+                else {
+                    usernameLabel.setText(String.valueOf(RegisterResult.REGISTERED));
+                }
             }
 
             @Override
