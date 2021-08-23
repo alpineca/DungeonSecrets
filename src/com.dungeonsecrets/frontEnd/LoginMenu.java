@@ -61,7 +61,7 @@ public class LoginMenu extends JPanel {
                 LoginResult isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
 
                 MainFrame.closeLoginMenu();
-                MainFrame.openMainMenu();
+                MainFrame.openCreateCharactersMenu();
 
             }
 

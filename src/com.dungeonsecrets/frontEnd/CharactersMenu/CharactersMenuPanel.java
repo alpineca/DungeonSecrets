@@ -13,7 +13,6 @@ public class CharactersMenuPanel extends JPanel{
     CharactersMenuBackground background = new CharactersMenuBackground();
     CharactersMenuBackButton backButton = new CharactersMenuBackButton();
 
-    String username = LoginMenu.getUsername();
     JLabel title = new JLabel("Characters");
 
     public CharactersMenuPanel(){

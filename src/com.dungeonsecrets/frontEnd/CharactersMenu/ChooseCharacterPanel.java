@@ -16,7 +16,7 @@ public class ChooseCharacterPanel extends JPanel {
 
     CharactersMenuBackground background = new CharactersMenuBackground();
 
-    String username = LoginMenu.getUsername();
+//    String username = LoginMenu.getUsername();
     JList<Character> characterList = new JList<>();
     DefaultListModel<Character> characterModel = new DefaultListModel<>();
     JButton selectButton = new JButton("Select");
