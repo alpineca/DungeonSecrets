@@ -36,9 +36,9 @@ public class SidePanel {
         ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/com.dungeonsecrets/resources/imgs/hero.PNG")));
 
         JLabel heroLabel = new JLabel();
-        heroLabel.setText("Hero Name");
-        heroLabel.setHorizontalTextPosition(JLabel.CENTER);
-        heroLabel.setVerticalTextPosition(JLabel.BOTTOM);
+//        heroLabel.setText("Hero Name");
+//        heroLabel.setHorizontalTextPosition(JLabel.CENTER);
+//        heroLabel.setVerticalTextPosition(JLabel.BOTTOM);
         heroLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.01),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
 
         heroLabel.setIcon(icon);
@@ -47,6 +47,19 @@ public class SidePanel {
     }
     public static JLabel getHeroLabel() {
         return heroLabel();
+    }
+
+    private static JLabel heroName(){
+
+        JLabel heroName = new JLabel();
+
+        heroName.setText("Hero Name");
+        heroName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.07),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
+
+        return heroName;
+    }
+    public static JLabel getHeroName() {
+        return heroName();
     }
 
     private static JProgressBar heroHealth(){
@@ -86,17 +99,29 @@ public class SidePanel {
         ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/com.dungeonsecrets/resources/imgs/enemy.PNG")));
         JLabel enemyLabel = new JLabel();
 
-        enemyLabel.setText("Enemy Name");
-        enemyLabel.setHorizontalTextPosition(JLabel.CENTER);
-        enemyLabel.setVerticalTextPosition(JLabel.BOTTOM);
+       // enemyLabel.setText("Enemy Name");
+       // enemyLabel.setHorizontalTextPosition(JLabel.CENTER);
+       // enemyLabel.setVerticalTextPosition(JLabel.BOTTOM);
 
         enemyLabel.setIcon(icon);
         enemyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.19),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
-
         return enemyLabel;
     }
     public static JLabel getEnemyLabel() {
         return enemyLabel();
+    }
+
+    private static JLabel enemyName(){
+
+        JLabel enemyName = new JLabel();
+
+        enemyName.setText("Enemy Name 6");
+        enemyName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.25),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
+
+        return enemyName;
+    }
+    public static JLabel getEnemyName() {
+        return enemyName();
     }
 
     private static JProgressBar enemyHealth(){
@@ -143,7 +168,7 @@ public class SidePanel {
         emptyLabel.setHorizontalTextPosition(JLabel.CENTER);
         emptyLabel.setVerticalTextPosition(JLabel.BOTTOM);
 
-        emptyLabel.setBounds(ScreenResolution.getScreenWidth()-300,710,200,110);
+        emptyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.84),(int) ((ScreenResolution.getScreenHeight())*0.66),(int) ((ScreenResolution.getScreenWidth())*0.10),(int) ((ScreenResolution.getScreenHeight())*0.10));
 
         return emptyLabel;
     }

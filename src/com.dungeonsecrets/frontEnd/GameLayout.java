@@ -37,10 +37,12 @@ public class GameLayout extends JPanel{
 
         //hero health overlaps side panel. I dont know how to do this better
         this.add(SidePanel.getHeroLabel());
+        this.add(SidePanel.getHeroName());
         this.add(SidePanel.getHeroHealth());
         this.add(SidePanel.getHeroResources());
 
         this.add(SidePanel.getEnemyLabel());
+        this.add(SidePanel.getEnemyName());
         this.add(SidePanel.getEnemyHealth());
         this.add(SidePanel.getEnemyResources());
 

@@ -16,7 +16,7 @@ public class MainPanel extends JPanel{
         int height  = ScreenResolution.getScreenHeight();
 
         this.setOpaque(false);
-        this.setBounds(0,0, ScreenResolution.getScreenWidth()-350, ScreenResolution.getScreenHeight());
+        this.setBounds(0,0, width, height);
         this.setLayout(null);
 
         GameGrid grid = new GameGrid();
