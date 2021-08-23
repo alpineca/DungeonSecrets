@@ -34,6 +34,9 @@ public class MainFrame {
         mainFrame.setUndecorated(true);
         mainFrame.setLayout(null);
 
+//        mainLayout.addKeyListener(mainLayout);
+//        mainLayout.requestFocus(true);
+
         mainFrame.add(chooseCharacterMenu);
         mainFrame.add(createCharactersMenu);
         mainFrame.add(mainLayout);
@@ -81,6 +84,8 @@ public class MainFrame {
     public static void openMainLayout(){
 
         mainLayout.setVisible(true);
+        mainFrame.addKeyListener(mainLayout);
+        mainFrame.requestFocus();
 
     }
 

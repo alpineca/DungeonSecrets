@@ -11,7 +11,6 @@ public class MainPanel extends JPanel{
 
     MainPanel(){
 
-//        int width   = ScreenResolution.getScreenWidth()-350;
         int width   = (int) ((ScreenResolution.getScreenWidth())*0.82);
         int height  = ScreenResolution.getScreenHeight();
 

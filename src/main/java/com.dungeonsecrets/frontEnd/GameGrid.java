@@ -7,12 +7,15 @@ import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class GameGrid extends JPanel {
+public class GameGrid extends JPanel{
 
     private int gameGridRows = 21;
     private int gameGridCols = 31;
     private GameObject[][] grid;
+    private GameObject hero;
 
     public GameGrid(){
         int boundX = (int)((ScreenResolution.getScreenWidth())*0.05);
@@ -33,6 +36,14 @@ public class GameGrid extends JPanel {
         }
     }
 
+    public GameObject[][] getGrid(){
+        return grid;
+    }
+
+    public GameObject getHero(){
+        return hero;
+    }
+
     private void bootstrap(){
         this.generateGrid();
         // this.repaint();
@@ -46,11 +57,13 @@ public class GameGrid extends JPanel {
                 grid[row][col] = new Tile(row, col);
             }
         }
-
-        grid[15][7] = new Hero(15, 7);
-
         return grid;
     }
+
+    private void spawnHero(){
+        grid[15][7] = new Hero(15, 7);
+    }
+
 
 
 }
