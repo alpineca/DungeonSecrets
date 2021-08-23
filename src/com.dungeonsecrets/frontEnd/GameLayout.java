@@ -3,7 +3,6 @@ package com.dungeonsecrets.frontEnd;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class GameLayout extends JPanel{
 
@@ -16,11 +15,18 @@ public class GameLayout extends JPanel{
 
         this.setBounds(0, 0 , ScreenResolution.getScreenWidth(), ScreenResolution.getScreenHeight());
         this.setLayout(null);
-        this.setBackground(Color.darkGray);
+       // this.setBackground(Color.darkGray);
         this.setVisible(true);
 
         //layering panels
-        this.add(MenuPanel.getMenuPanel());
+
+        this.add(MenuButtons.getMenuButtonQuit());
+        this.add(MenuButtons.getMenuButtonOptions());
+        this.add(MenuButtons.getMenuButtonLog());
+        //this.add(MenuPanel.getMenuPanel());
+
+
+
 
         MainPanel mainPanel = new MainPanel();
         this.add(mainPanel);

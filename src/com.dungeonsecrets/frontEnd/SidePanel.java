@@ -15,7 +15,7 @@ public class SidePanel {
         JPanel sidePanel = new JPanel();
 
         sidePanel.setBackground(Color.gray);
-        sidePanel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*1.00));
+        sidePanel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.20), (int) ((ScreenResolution.getScreenHeight())*1.00));
        // sidePanel.setBounds(1570, 0, 370, 1080);
         sidePanel.setLayout(null);
 
@@ -133,6 +133,8 @@ public class SidePanel {
 
 
     //SPACE FOR CHAT, COMBAT LOG, ETC....
+
+
     private static JLabel emptyLabel(){
 
         JLabel emptyLabel = new JLabel();
