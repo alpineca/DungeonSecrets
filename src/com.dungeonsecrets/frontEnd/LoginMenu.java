@@ -1,5 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.processors.CharacterCheck;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
@@ -15,7 +16,7 @@ public class LoginMenu extends JPanel {
     JLabel usernameLabel = new JLabel("Username: ");
     JLabel passwordLabel = new JLabel("Password: ");
 
-    JTextField usernameField = new JTextField();
+    static JTextField usernameField = new JTextField();
     JPasswordField  passwordField = new JPasswordField ();
 
     JLabel loginButton = new JLabel("LOGIN");
@@ -55,8 +56,19 @@ public class LoginMenu extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                MainFrame.closeLoginMenu();
-                MainFrame.openMainMenu();
+                if(CharacterCheck.checkCharacters(usernameField.getText())){
+
+                    MainFrame.closeLoginMenu();
+                    MainFrame.openChooseCharacterMenu();
+
+                }
+
+                if(!CharacterCheck.checkCharacters(usernameField.getText())){
+
+                    MainFrame.closeLoginMenu();
+                    MainFrame.openCreateCharactersMenu();
+
+                }
 
             }
 
@@ -125,6 +137,11 @@ public class LoginMenu extends JPanel {
         this.add(background);
     }
 
+    public static String getUsername(){
+
+        return usernameField.getText();
+
+    }
 
 
 }
