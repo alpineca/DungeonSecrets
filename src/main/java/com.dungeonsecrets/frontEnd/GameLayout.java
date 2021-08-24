@@ -1,8 +1,12 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.processors.MoveProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class GameLayout extends JPanel{
 
@@ -29,7 +33,7 @@ public class GameLayout extends JPanel{
 
 
         MainPanel mainPanel = new MainPanel();
-        this.add(mainPanel);
+
 
         BackGround background = new BackGround();
         this.add(background);
@@ -50,6 +54,12 @@ public class GameLayout extends JPanel{
 
         //adding side panel to the main frame .. bars should be added in the side panel class
         this.add(SidePanel.getSidePanel());
+
+        this.add(mainPanel);
+        this.addKeyListener(mainPanel);
+
+        this.add(background);
+
 
 
         //refreshes the frame. otherwise the ui glitches    why is otherwise underlined?

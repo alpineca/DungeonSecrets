@@ -33,7 +33,7 @@ public class SidePanel {
     //HERO PANEL
     private static JLabel heroLabel(){
 
-        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/hero.PNG")));
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/hero_avatar.png")));
 
         JLabel heroLabel = new JLabel();
 //        heroLabel.setText("Hero Name");
