@@ -1,5 +1,7 @@
 package com.dungeonsecrets.backEnd.gameGridObjects;
 
+import com.dungeonsecrets.backEnd.enums.MoveDirection;
+
 import java.awt.*;
 
 public abstract class GameObject {
@@ -27,7 +29,7 @@ public abstract class GameObject {
     public void setCol(int col){
         this.col = col;
     }
-
+    public abstract void setOrientation(MoveDirection moveToDirection);
     public abstract void render(Graphics g);
 
 }

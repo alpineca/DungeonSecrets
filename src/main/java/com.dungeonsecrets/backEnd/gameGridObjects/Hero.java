@@ -23,6 +23,7 @@
 package com.dungeonsecrets.backEnd.gameGridObjects;
 
 
+import com.dungeonsecrets.backEnd.enums.MoveDirection;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.SidePanel;
 
@@ -32,15 +33,24 @@ import java.util.Objects;
 
 public class Hero extends GameObject{
 
+    private static MoveDirection orientation = MoveDirection.UP;
+    private Image iconToShow;
+    private Image iconUp    = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroUp.png"))).getImage();
+    private Image iconDown  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroDown.png"))).getImage();
+    private Image iconLeft  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroLeft.png"))).getImage();
+    private Image iconRight = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroRight.png"))).getImage();
+
     public Hero(int row, int col) {
 
         super(row, col);
-
+        iconToShow = iconUp;
     }
-    Image icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/hero.png"))).getImage();
     public void render(Graphics g) {
-        int tileWidth   = (int)((ScreenResolution.getScreenWidth())*0.82)/31;
-        int tileHeight  = ScreenResolution.getScreenHeight()/21;
+        int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
+        int mapHeight   = ScreenResolution.getScreenHeight();
+
+        int tileWidth   = mapWidth/31;
+        int tileHeight  = mapHeight/21;
 
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
@@ -51,13 +61,25 @@ public class Hero extends GameObject{
         System.out.println("test:"+tileX);
         System.out.println("test:"+tileY);
 
-
-        g.setColor(Color.black);
-        g.fillRect(tileX, tileY, tileWidth, tileHeight);
-        g.drawImage(icon, tileX, tileY, tileWidth, tileHeight, null);
+        g.drawImage(iconToShow, tileX, tileY, tileWidth, tileHeight, null);
         g.setColor(Color.black);
         g.drawRect(tileX, tileY, tileWidth, tileHeight);
 
+    }
+
+    public void setOrientation(MoveDirection moveToDirection){
+        if(moveToDirection.equals(MoveDirection.UP)){
+            iconToShow = iconUp;
+        }
+        if(moveToDirection.equals(MoveDirection.DOWN)){
+            iconToShow = iconDown;
+        }
+        if(moveToDirection.equals(MoveDirection.LEFT)){
+            iconToShow = iconLeft;
+        }
+        if(moveToDirection.equals(MoveDirection.RIGHT)){
+            iconToShow = iconRight;
+        }
     }
     public int getRow(){
         return this.row;

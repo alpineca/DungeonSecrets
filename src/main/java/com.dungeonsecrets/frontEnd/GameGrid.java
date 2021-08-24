@@ -33,7 +33,6 @@ public class GameGrid extends JPanel{
             }
         }
     }
-    
     public static GameGrid getInstance(){ 
         return instance;
     }
