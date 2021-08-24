@@ -1,6 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.processors.MoveProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 

@@ -20,7 +20,7 @@
 //        return this.width;
 //    }
 //}
-package com.dungeonsecrets.backEnd.GameGridObjects;
+package com.dungeonsecrets.backEnd.gameGridObjects;
 
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 

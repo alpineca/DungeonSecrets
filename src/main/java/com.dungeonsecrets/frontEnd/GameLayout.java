@@ -1,12 +1,8 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
-import com.dungeonsecrets.backEnd.processors.MoveProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class GameLayout extends JPanel{
 
