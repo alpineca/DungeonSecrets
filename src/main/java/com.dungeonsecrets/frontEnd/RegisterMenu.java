@@ -4,6 +4,7 @@ import com.dungeonsecrets.backEnd.enums.RegisterResult;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.backEnd.processors.AuthProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.sound.ButtonClickSound;
 
 import javax.swing.*;
 import java.awt.*;
@@ -98,6 +99,7 @@ public class RegisterMenu extends JPanel{
         registerButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                new ButtonClickSound();
 
                 RegisterResult isRegistered = AuthProcessor.doRegister(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText(), emailField.getText());
 
@@ -163,6 +165,7 @@ public class RegisterMenu extends JPanel{
         cancelButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                new ButtonClickSound();
                 MainFrame.closeRegisterMenu();
                 MainFrame.openLoginMenu();
             }

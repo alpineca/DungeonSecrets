@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd.MultiPlayerMenu;
 
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
+import com.dungeonsecrets.sound.ButtonClickSound;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,6 +34,7 @@ public class MultiPlayerMenuBackButton extends JLabel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        new ButtonClickSound();
         MainFrame.closeMultiPlayerMenu();
         MainFrame.openMainMenu();
     }
