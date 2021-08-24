@@ -3,6 +3,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
+import com.dungeonsecrets.sound.ButtonClickSound;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,6 +62,7 @@ public class CreateCharacter extends JPanel {
         backButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                new ButtonClickSound();
                 MainFrame.closeCreateCharactersMenu();
                 MainFrame.openChooseCharacterMenu();
             }
@@ -96,6 +98,7 @@ public class CreateCharacter extends JPanel {
         createButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                new ButtonClickSound();
 
                 ChooseCharacterPanel.characterModel.addElement(new Character(nameField.getText(), classBox.getSelectedItem().toString()));
 

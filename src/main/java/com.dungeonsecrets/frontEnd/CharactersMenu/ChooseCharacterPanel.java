@@ -4,6 +4,7 @@ import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.LoginMenu;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
+import com.dungeonsecrets.sound.ButtonClickSound;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -45,6 +46,7 @@ public class ChooseCharacterPanel extends JPanel {
                 selectButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        new ButtonClickSound();
                         if(e.getSource() == selectButton){
                             MainFrame.closeChooseCharacterMenu();
                             MainFrame.openMainMenu();
@@ -66,6 +68,7 @@ public class ChooseCharacterPanel extends JPanel {
         createButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new ButtonClickSound();
                 if(e.getSource() == createButton){
                     MainFrame.closeChooseCharacterMenu();
                     MainFrame.openCreateCharactersMenu();
