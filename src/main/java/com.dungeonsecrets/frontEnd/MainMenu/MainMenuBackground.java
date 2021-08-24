@@ -9,7 +9,7 @@ public class MainMenuBackground extends JPanel {
 
     MainMenuBackground(){
 
-        background = new ImageIcon("src/main/resources/imgs/MainMenuBackground.jpg").getImage();
+        background = new ImageIcon("src/main/resources/imgs/MenuBackgroundWithLogo.jpg").getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);

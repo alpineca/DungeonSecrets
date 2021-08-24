@@ -17,7 +17,7 @@ public class MainMenuMultiPlayerButton extends JLabel implements MouseListener {
 
     //Смятам началната позиция на бутона
     int buttonXPos = width / 2 - 100;
-    int buttonYPos = height / 2 + 1;
+    int buttonYPos = height / 2 + 62;
 
     MainMenuMultiPlayerButton(){
 
