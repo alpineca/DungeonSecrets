@@ -14,6 +14,20 @@ public abstract class GameObject {
 
     }
 
+    public int getRow(){
+        return row;
+    }
+
+    public int getCol(){
+        return col;
+    }
+    public void setRow(int row){
+        this.row = row;
+    }
+    public void setCol(int col){
+        this.col = col;
+    }
+
     public abstract void render(Graphics g);
 
 }

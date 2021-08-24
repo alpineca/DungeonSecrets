@@ -3,6 +3,7 @@ package com.dungeonsecrets.frontEnd.MainFrame;
 import com.dungeonsecrets.frontEnd.CharactersMenu.CharactersMenuPanel;
 import com.dungeonsecrets.frontEnd.CharactersMenu.ChooseCharacterPanel;
 import com.dungeonsecrets.frontEnd.CharactersMenu.CreateCharacter;
+import com.dungeonsecrets.frontEnd.CharactersMenu.LogInCreateCharacter;
 import com.dungeonsecrets.frontEnd.MainMenu.MainMenuPanel;
 import com.dungeonsecrets.frontEnd.MultiPlayerMenu.MultiPlayerMenuPanel;
 import com.dungeonsecrets.frontEnd.OptionsMenu.OptionsMenuPanel;
@@ -90,8 +91,6 @@ public class MainFrame {
     public static void openMainLayout(){
 
         mainLayout.setVisible(true);
-        mainFrame.addKeyListener(mainLayout);
-        mainFrame.requestFocus();
 
     }
 

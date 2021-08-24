@@ -1,12 +1,14 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.processors.MoveProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class GameLayout extends JPanel implements KeyListener {
+public class GameLayout extends JPanel{
 
     public GameLayout(){
         this.bootstrap();
@@ -31,7 +33,7 @@ public class GameLayout extends JPanel implements KeyListener {
 
 
         MainPanel mainPanel = new MainPanel();
-        this.add(mainPanel);
+
 
         BackGround background = new BackGround();
         this.add(background);
@@ -53,27 +55,16 @@ public class GameLayout extends JPanel implements KeyListener {
         //adding side panel to the main frame .. bars should be added in the side panel class
         this.add(SidePanel.getSidePanel());
 
+        this.add(mainPanel);
+        this.add(background);
+
+//        this.addKeyListener(mainPanel);
+//        mainPanel.requestFocus();
+
 
         //refreshes the frame. otherwise the ui glitches    why is otherwise underlined?
         SwingUtilities.updateComponentTreeUI(this);
         return this;
-    }
-
-
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
     }
 
 

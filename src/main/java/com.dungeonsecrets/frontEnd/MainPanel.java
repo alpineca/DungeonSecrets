@@ -4,8 +4,10 @@ import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class MainPanel extends JPanel{
+public class MainPanel extends JPanel implements KeyListener {
 
 
 
@@ -24,16 +26,30 @@ public class MainPanel extends JPanel{
         grid.setBounds(0, 0, width, height);
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setAlignmentY(Component.CENTER_ALIGNMENT);
+
         this.add(grid);
 
-        System.out.println(width);
-        System.out.println(height);
-
-
+        this.addKeyListener(this);
+        this.requestFocus();
 
     }
 
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+        System.out.println(GameGrid.getInstance().getHero());
+        System.out.println("Key Typed");
+    }
 
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println(GameGrid.getInstance().getHero());
+        System.out.println("Key Typed");
+    }
 
+    @Override
+    public void keyReleased(KeyEvent e) {
+        System.out.println(GameGrid.getInstance().getHero());
+        System.out.println("Key Typed");
+    }
 }
