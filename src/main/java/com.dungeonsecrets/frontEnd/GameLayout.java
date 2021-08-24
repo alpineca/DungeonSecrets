@@ -56,10 +56,10 @@ public class GameLayout extends JPanel{
         this.add(SidePanel.getSidePanel());
 
         this.add(mainPanel);
+        this.addKeyListener(mainPanel);
+
         this.add(background);
 
-//        this.addKeyListener(mainPanel);
-//        mainPanel.requestFocus();
 
 
         //refreshes the frame. otherwise the ui glitches    why is otherwise underlined?

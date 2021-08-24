@@ -1,5 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.processors.MoveProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
@@ -29,27 +31,30 @@ public class MainPanel extends JPanel implements KeyListener {
 
         this.add(grid);
 
-        this.addKeyListener(this);
-        this.requestFocus();
-
     }
 
 
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println(GameGrid.getInstance().getHero());
-        System.out.println("Key Typed");
+//        GameObject hero     = GameGrid.getInstance().getHero();
+//        GameObject[][] grid = GameGrid.getInstance().getGrid();
+//
+//        MoveProcessor.doMove(hero, grid, e.getKeyChar());
+//        this.repaint();
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(GameGrid.getInstance().getHero());
-        System.out.println("Key Typed");
+        GameObject hero     = GameGrid.getInstance().getHero();
+        GameObject[][] grid = GameGrid.getInstance().getGrid();
+
+        MoveProcessor.doMove(hero, grid, e.getKeyCode());
+        this.repaint();
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        System.out.println(GameGrid.getInstance().getHero());
-        System.out.println("Key Typed");
+//        System.out.println(GameGrid.getInstance().getHero().getRow());
+//        System.out.println("keyReleased");
     }
 }

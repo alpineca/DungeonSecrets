@@ -13,18 +13,17 @@ import java.awt.event.KeyListener;
 
 public class GameGrid extends JPanel{
 
-    private static GameGrid instance = new GameGrid();
+    private static GameGrid instance;
     private int gameGridRows = 21;
     private int gameGridCols = 31;
     private GameObject[][] grid;
     private GameObject hero;
 
     public GameGrid(){
-//        int boundX = (int)((ScreenResolution.getScreenWidth())*0.05);
-//        int boundY = (int)((ScreenResolution.getScreenHeight())*0.05);
 
         this.setOpaque(false);
         this.bootstrap();
+        instance = this;
 
     }
 
@@ -68,28 +67,8 @@ public class GameGrid extends JPanel{
     }
 
     private void spawnHero(){
-        grid[15][7] = new Hero(15, 7);
+        hero = new Hero(15, 7);
+        grid[15][7] = hero;
 
     }
-//
-//
-//    @Override
-//    public void keyTyped(KeyEvent e) {
-////        GameObject hero         = GameGrid.getInstance().getHero();
-////        GameObject[][] grid     = GameGrid.getInstance().getGrid();
-//
-////        MoveProcessor.doMove(hero, grid, e.getKeyChar());
-////        this.repaint();
-//        System.out.println("Hey");
-//    }
-//
-//    @Override
-//    public void keyPressed(KeyEvent e) {
-//
-//    }
-//
-//    @Override
-//    public void keyReleased(KeyEvent e) {
-//
-//    }
 }

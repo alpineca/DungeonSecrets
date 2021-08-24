@@ -91,6 +91,7 @@ public class MainFrame {
     public static void openMainLayout(){
 
         mainLayout.setVisible(true);
+        mainLayout.requestFocus();
 
     }
 
