@@ -1,6 +1,6 @@
 package com.dungeonsecrets.backEnd.processors;
 
-import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.enums.MoveDirection;
 
 import java.awt.event.KeyEvent;
@@ -8,31 +8,46 @@ import java.awt.event.KeyEvent;
 public class MoveProcessor {
     private static MoveDirection direction;
 
+
     public static void doMove(GameObject hero, GameObject[][] grid, int keyCode){
-        direction = selectDirection(keyCode);
-        int lastHeroRow = hero.getRow();
-        int lastHeroCol = hero.getCol();
+        int gameGridRows    = grid.length - 1;
+        int gameGridCols    = (grid[0].length) - 1;;
+
+        direction           = selectDirection(keyCode);
+
+        int lastHeroRow     = hero.getRow();
+        int lastHeroCol     = hero.getCol();
+
+        int newHeroRow      = lastHeroRow;
+        int newHeroCol      = lastHeroCol;
 
         if(direction.equals(MoveDirection.LEFT)){
-            lastHeroCol = lastHeroCol--;
-            System.out.println(" A ");
+            newHeroCol = lastHeroCol - 1;
+            hero.setOrientation(direction);
         }
         if(direction.equals(MoveDirection.RIGHT)){
-            lastHeroCol = lastHeroCol++;
-            System.out.println(" D ");
+            newHeroCol = lastHeroCol + 1;
+            hero.setOrientation(direction);
         }
         if(direction.equals(MoveDirection.UP)){
-            lastHeroRow = lastHeroRow--;
-            System.out.println(" W ");
+            newHeroRow = lastHeroRow - 1;
+            hero.setOrientation(direction);
         }
         if(direction.equals(MoveDirection.DOWN)){
-            lastHeroRow = lastHeroRow++;
-            System.out.println(" S ");
+            newHeroRow = lastHeroRow + 1;
+            hero.setOrientation(direction);
         }
 
         System.out.println(lastHeroCol + " " + lastHeroRow);
-//        hero.setCol(lastHeroCol);
-//        hero.setRow(lastHeroRow);
+        if(newHeroCol < 0 || newHeroCol > gameGridCols) {
+            newHeroCol = lastHeroCol;
+        }
+        if(newHeroRow < 0 || newHeroRow > gameGridRows) {
+            newHeroRow = lastHeroRow;
+        }
+
+        hero.setCol(newHeroCol);
+        hero.setRow(newHeroRow);
     }
 
     private static MoveDirection selectDirection(int keyCode) {
@@ -50,5 +65,7 @@ public class MoveProcessor {
         }
         return MoveDirection.IDKNW;
     }
+
+
 
 }

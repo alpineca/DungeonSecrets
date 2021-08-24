@@ -20,8 +20,9 @@
 //        return this.width;
 //    }
 //}
-package com.dungeonsecrets.backEnd.GameGridObjects;
+package com.dungeonsecrets.backEnd.gameGridObjects;
 
+import com.dungeonsecrets.backEnd.enums.MoveDirection;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import java.awt.*;
@@ -36,6 +37,11 @@ public class Tile extends GameObject{
         super(row, col);
         this.height = 10;
         this.width  = 10;
+
+    }
+
+    @Override
+    public void setOrientation(MoveDirection moveToDirection) {
 
     }
 

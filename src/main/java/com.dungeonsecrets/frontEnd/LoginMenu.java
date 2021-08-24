@@ -66,8 +66,19 @@ public class LoginMenu extends JPanel {
             public void mouseClicked(MouseEvent e) {
 
                 new ButtonClickSound();
+                LoginResult isLogin;
 
-                LoginResult isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
+                //TEMPORARY FOR OFFLINE TESTING
+                if(usernameField.getText().equals("offline")){
+                    isLogin = LoginResult.SUCCESSFUL_LOGIN;
+                }else{
+                    isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
+
+                }
+
+
+
+//                LoginResult isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
 
                 if(isLogin.equals(LoginResult.SUCCESSFUL_LOGIN)){
                     MainFrame.closeLoginMenu();

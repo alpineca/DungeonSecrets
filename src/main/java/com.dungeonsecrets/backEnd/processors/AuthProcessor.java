@@ -62,6 +62,8 @@ public class AuthProcessor {
             if (rs.next()) {
                 return LoginResult.SUCCESSFUL_LOGIN;
             }
+
+
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

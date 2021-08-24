@@ -1,15 +1,11 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.backEnd.GameGridObjects.GameObject;
-import com.dungeonsecrets.backEnd.GameGridObjects.Hero;
-import com.dungeonsecrets.backEnd.GameGridObjects.Tile;
-import com.dungeonsecrets.backEnd.processors.MoveProcessor;
-import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.gameGridObjects.Hero;
+import com.dungeonsecrets.backEnd.gameGridObjects.Tile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class GameGrid extends JPanel{
 
@@ -37,7 +33,6 @@ public class GameGrid extends JPanel{
             }
         }
     }
-    
     public static GameGrid getInstance(){ 
         return instance;
     }
