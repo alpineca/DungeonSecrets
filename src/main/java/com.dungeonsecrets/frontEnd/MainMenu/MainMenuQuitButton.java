@@ -14,7 +14,7 @@ public class MainMenuQuitButton extends JLabel implements MouseListener {
 
     //Смятам началната позиция на бутона
     int buttonXPos = width / 2 - 100;
-    int buttonYPos = height / 2 + 184;
+    int buttonYPos = height / 2 + 245;
 
     MainMenuQuitButton(){
 

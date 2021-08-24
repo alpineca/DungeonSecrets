@@ -28,36 +28,36 @@ public class LoginMenu extends JPanel {
 
     public LoginMenu (){
 
-        usernameLabel.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)-25,200,30);
+        usernameLabel.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+60,200,30);
         usernameLabel.setFont(new Font("Immortal",Font.BOLD,30));
         usernameLabel.setForeground(new Color(111,0,0));
         usernameLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        passwordLabel.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+15,200,30);
+        passwordLabel.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+120,200,30);
         passwordLabel.setFont(new Font("Immortal",Font.BOLD,30));
         passwordLabel.setForeground(new Color(111,0,0));
         passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        messageLabel.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+130,400,30);
+        messageLabel.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+230,400,30);
         messageLabel.setFont(new Font("Immortal",Font.BOLD,30));
         messageLabel.setForeground(new Color(111,0,0));
         messageLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        usernameField.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)-25,200,30);
+        usernameField.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)+60,200,30);
         usernameField.setOpaque(true);
         usernameField.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(2.0f)));
         usernameField.setForeground(new Color(111,0,0));
         usernameField.setBackground(new Color(196,153,80));
         usernameField.setFont(new Font("Immortal",Font.BOLD,30));
 
-        passwordField.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)+15,200,30);
+        passwordField.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)+120,200,30);
         passwordField.setOpaque(true);
         passwordField.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(2.0f)));
         passwordField.setForeground(new Color(111,0,0));
         passwordField.setBackground(new Color(196,153,80));
         passwordField.setFont(new Font("Immortal",Font.BOLD,30));
 
-        loginButton.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+80,200,30);
+        loginButton.setBounds((ScreenResolution.getScreenWidth()/2)-200,(ScreenResolution.getScreenHeight()/2)+180,200,30);
         loginButton.setForeground(new Color(111,0,0));
         loginButton.setFont(new Font("Immortal",Font.BOLD,30));
         loginButton.setHorizontalAlignment(JLabel.RIGHT);
@@ -100,7 +100,7 @@ public class LoginMenu extends JPanel {
             }
         });
 
-        registerButton.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)+80,200,30);
+        registerButton.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)+180,200,30);
         registerButton.setForeground(new Color(111,0,0));
         registerButton.setFont(new Font("Immortal",Font.BOLD,30));
         registerButton.setHorizontalAlignment(JLabel.RIGHT);
