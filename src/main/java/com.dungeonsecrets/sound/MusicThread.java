@@ -1,21 +1,21 @@
 package com.dungeonsecrets.sound;
 
-import javax.sound.sampled.*;
-import java.io.IOException;
-import java.net.URL;
-
 public class MusicThread extends Thread{
 
     @Override
     public void run(){
         System.out.println("Music thread is running");
-        MainMenuMusic music = new MainMenuMusic();
+    }
+
+    public void startMusic(String musicPath){
+        System.out.println("Music thread is running");
+        MusicManager music = new MusicManager(musicPath);
 
     }
 
     public static void stopMusic(){
 
-        MainMenuMusic.stop();
+        MusicManager.stop();
 
     }
 
