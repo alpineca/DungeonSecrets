@@ -103,7 +103,10 @@ public class RegisterMenu extends JPanel{
 
                 RegisterResult isRegistered = AuthProcessor.doRegister(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText(), emailField.getText());
 
-                if(isRegistered.equals(RegisterResult.USERNAME_EXIST)){
+                if(isRegistered.equals(RegisterResult.FAILED_REGISTERED)) {
+                    messageLabel.setText("Failed registration!");
+                }
+                else if(isRegistered.equals(RegisterResult.USERNAME_EXIST)){
                     messageLabel.setText("Username already exist!");
                 }
                 else if(isRegistered.equals(RegisterResult.USERNAME_FAIL)){
