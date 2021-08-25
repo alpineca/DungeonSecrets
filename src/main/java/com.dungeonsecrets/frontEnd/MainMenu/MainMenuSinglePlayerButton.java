@@ -1,7 +1,9 @@
 package com.dungeonsecrets.frontEnd.MainMenu;
 
+import com.dungeonsecrets.Main;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
+import com.dungeonsecrets.sound.MusicManager;
 import com.dungeonsecrets.sound.MusicThread;
 
 import javax.swing.*;
@@ -40,6 +42,9 @@ public class MainMenuSinglePlayerButton extends JLabel implements MouseListener 
 
         //This has to be moved later to the button that starts the game. For now this is the right place
         MusicThread.stopMusic();
+        MusicManager.music = new MusicThread();
+        MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
+
 
         new ButtonClickSound();
         MainFrame.closeMainMenu();
