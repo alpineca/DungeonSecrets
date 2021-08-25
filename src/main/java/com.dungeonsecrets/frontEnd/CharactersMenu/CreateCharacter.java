@@ -1,9 +1,12 @@
 package com.dungeonsecrets.frontEnd.CharactersMenu;
 
+import com.dungeonsecrets.backEnd.processors.APIConnect;
 import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,12 +16,14 @@ import java.awt.event.MouseListener;
 public class CreateCharacter extends JPanel {
 
     CharactersMenuBackground background = new CharactersMenuBackground();
-    JLabel backButton = new JLabel();
-    JLabel chooseName = new JLabel("Choose Name: ");
-    JLabel chooseClass = new JLabel("Choose Class: ");
-    JLabel createButton = new JLabel();
-    static JTextField nameField = new JTextField();
-    JComboBox classBox = new JComboBox();
+    JSONArray classes                   = APIConnect.classesList();
+
+    JLabel backButton                   = new JLabel();
+    JLabel chooseName                   = new JLabel("Choose Name: ");
+    JLabel chooseClass                  = new JLabel("Choose Class: ");
+    JLabel createButton                 = new JLabel();
+    static JTextField nameField         = new JTextField();
+    JComboBox classBox                  = new JComboBox();
 
     public CreateCharacter(){
 
@@ -47,10 +52,16 @@ public class CreateCharacter extends JPanel {
         classBox.setForeground(new Color(111,0,0));
         classBox.setBackground(new Color(196,153,80));
         classBox.setFont(new Font("Immortal",Font.BOLD,30));
-        classBox.addItem("Warrior");
-        classBox.addItem("Mage");
-        classBox.addItem("Archer");
-        classBox.addItem("Priest");
+
+        for(int i = 0; i < classes.length();i++) {
+            JSONObject innerObj = classes.getJSONObject(i);
+            classBox.addItem(innerObj.get("name"));
+        }
+
+//        classBox.addItem("Warrior");
+//        classBox.addItem("Mage");
+//        classBox.addItem("Archer");
+//        classBox.addItem("Priest");
 
         backButton.setForeground(new Color(111,0,0));
         backButton.setText("Back");
