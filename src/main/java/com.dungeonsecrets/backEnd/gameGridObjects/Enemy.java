@@ -12,15 +12,21 @@ public class Enemy extends GameObject{
 
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
-    private Image iconUp    = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroUp.png"))).getImage();
-    private Image iconDown  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroDown.png"))).getImage();
-    private Image iconLeft  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroLeft.png"))).getImage();
-    private Image iconRight = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroRight.png"))).getImage();
+//    private Image iconUp    = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneUp.png"))).getImage();
+//    private Image iconDown  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneDown.png"))).getImage();
+//    private Image iconLeft  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneLeft.png"))).getImage();
+//    private Image iconRight = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneRight.png"))).getImage();
+
+    private Image iconUpp = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
+    private Image iconDownn = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
+    private Image iconLeftt = new ImageIcon("src/main/resources/imgs/enemyOneLeft.png").getImage();
+    private Image iconRightt = new ImageIcon("src/main/resources/imgs/enemyOneRight.png").getImage();
 
     public Enemy(int row, int col) {
 
         super(row, col);
-        iconToShow = iconUp;
+        //iconToShow = iconUp;
+        iconToShow = iconUpp;
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
@@ -46,16 +52,16 @@ public class Enemy extends GameObject{
 
     public void setOrientation(MoveDirection moveToDirection){
         if(moveToDirection.equals(MoveDirection.UP)){
-            iconToShow = iconUp;
+            iconToShow = iconUpp;
         }
         if(moveToDirection.equals(MoveDirection.DOWN)){
-            iconToShow = iconDown;
+            iconToShow = iconDownn;
         }
         if(moveToDirection.equals(MoveDirection.LEFT)){
-            iconToShow = iconLeft;
+            iconToShow = iconLeftt;
         }
         if(moveToDirection.equals(MoveDirection.RIGHT)){
-            iconToShow = iconRight;
+            iconToShow = iconRightt;
         }
     }
     public int getRow(){

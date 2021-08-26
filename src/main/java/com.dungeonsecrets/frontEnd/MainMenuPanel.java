@@ -36,12 +36,6 @@ public class MainMenuPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                //This has to be moved later to the button that starts the game. For now this is the right place
-                MusicThread.stopMusic();
-                MusicManager.music = new MusicThread();
-                MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
-
-
                 new ButtonClickSound();
 
                 isSinglePlayerSelectedOrCharacters = true;

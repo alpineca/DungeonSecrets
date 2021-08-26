@@ -7,6 +7,8 @@ import com.dungeonsecrets.frontEnd.LoginMenu;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.frontEnd.MainMenuPanel;
 import com.dungeonsecrets.sound.ButtonClickSound;
+import com.dungeonsecrets.sound.MusicManager;
+import com.dungeonsecrets.sound.MusicThread;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -47,6 +49,11 @@ public class ChooseCharacterPanel extends JPanel {
                 selectButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+
+                        MusicThread.stopMusic();
+                        MusicManager.music = new MusicThread();
+                        MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
+
                         new ButtonClickSound();
                         if(e.getSource() == selectButton){
                             if(MainMenuPanel.isSinglePlayerSelectedOrCharacters) {
@@ -75,6 +82,7 @@ public class ChooseCharacterPanel extends JPanel {
         createButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 new ButtonClickSound();
                 if(e.getSource() == createButton){
                     MainFrame.closeChooseCharacterMenu();
