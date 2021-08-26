@@ -2,6 +2,7 @@ package com.dungeonsecrets.backEnd.processors;
 
 import com.dungeonsecrets.backEnd.enums.LoginResult;
 import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
+import com.dungeonsecrets.backEnd.utility.PasswordHash;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,8 @@ public class LoginProcessor {
         try {
             Connection connection = ConnectDatabase.getConnection();
             PreparedStatement st  = connection.prepareStatement(loginQuery);
+
+            password = PasswordHash.passwordHash(password);
 
             st.setString(1, username);
             st.setString(2, password);
