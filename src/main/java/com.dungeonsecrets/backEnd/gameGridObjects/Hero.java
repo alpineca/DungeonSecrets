@@ -35,11 +35,10 @@ public class Hero extends GameObject{
 
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
-    private Image iconUp    = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroUp.png"))).getImage();
-    private Image iconDown  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroDown.png"))).getImage();
-    private Image iconLeft  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroLeft.png"))).getImage();
-    private Image iconRight = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/heroRight.png"))).getImage();
-
+    private Image iconUp = new ImageIcon("src/main/resources/imgs/hero1Up.png").getImage();
+    private Image iconDown = new ImageIcon("src/main/resources/imgs/hero1Down.png").getImage();
+    private Image iconLeft = new ImageIcon("src/main/resources/imgs/hero1Left.png").getImage();
+    private Image iconRight = new ImageIcon("src/main/resources/imgs/hero1Right.png").getImage();
     public Hero(int row, int col) {
 
         super(row, col);
