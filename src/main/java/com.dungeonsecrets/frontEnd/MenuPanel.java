@@ -7,35 +7,67 @@ import java.awt.*;
 
 public class MenuPanel {
 
-    private static JLayeredPane menuPanel(){
+    private static JPanel menuPanelYellow = new JPanel();
+    private static JPanel menuPanelYellow(){
 
-        JLayeredPane menuPanel = new JLayeredPane();
-        menuPanel.setBackground(Color.yellow);
+        menuPanelYellow.setBackground(Color.yellow);
+        //menuPanelYellow.setBounds(0,0,200,200);
+        menuPanelYellow.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.50), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.50));
+        menuPanelYellow.setOpaque(true);
+        menuPanelYellow.setVisible(false);
 
-        menuPanel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.50), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.50));
-        menuPanel.setOpaque(true);
-        return menuPanel;
-
-    }
-    public static JLayeredPane getMenuPanel (){
-        return  menuPanel();
-    }
-
-
-
-    private static JLayeredPane menuMenu(){
-
-        JLayeredPane menuPanel = new JLayeredPane();
-        menuPanel.setBackground(Color.blue);
-        menuPanel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.50), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.50));
-        menuPanel.setOpaque(true);
-        return menuPanel;
+        return menuPanelYellow;
 
     }
-    public static JLayeredPane getMenuMenu (){
-        return  menuMenu();
+    public static JPanel getMenuPanelYellow (){
+        return  menuPanelYellow();
+    }
+    public static void openMenuPanelYellow(){
+
+        if (menuPanelBlue.isVisible()){
+            menuPanelBlue.setVisible(false);
+        }
+
+        if (menuPanelYellow.isVisible()){
+            menuPanelYellow.setVisible(false);
+        }
+        else{
+            menuPanelYellow.setVisible(true);
+        }
+
     }
 
+
+
+    private static JPanel menuPanelBlue = new JPanel();
+    private static JPanel menuPanelBlue(){
+
+        menuPanelBlue.setBackground(Color.blue);
+        menuPanelBlue.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.50), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.50));
+        menuPanelBlue.setOpaque(true);
+        menuPanelBlue.setVisible(false);
+        return menuPanelBlue;
+
+    }
+    public static JPanel getMenuPanelBlue (){
+        return  menuPanelBlue();
+    }
+
+
+    public static void openMenuPanelBlue(){
+
+        if (menuPanelYellow.isVisible()){
+            menuPanelYellow.setVisible(false);
+        }
+
+        if (menuPanelBlue.isVisible()){
+            menuPanelBlue.setVisible(false);
+        }
+        else{
+            menuPanelBlue.setVisible(true);
+        }
+
+    }
 
 
 //    private static JButton optionsButton(){
