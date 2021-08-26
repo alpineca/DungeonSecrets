@@ -39,8 +39,8 @@ public class Enemy extends GameObject{
         System.out.println("test:"+tileY);
 
         g.drawImage(iconToShow, tileX, tileY, tileWidth, tileHeight, null);
-        g.setColor(Color.black);
-        g.drawRect(tileX, tileY, tileWidth, tileHeight);
+//        g.setColor(Color.black);
+//        g.drawRect(tileX, tileY, tileWidth, tileHeight);
 
     }
 
