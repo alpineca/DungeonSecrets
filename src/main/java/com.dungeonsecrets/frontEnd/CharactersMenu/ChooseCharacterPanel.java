@@ -53,7 +53,7 @@ public class ChooseCharacterPanel extends JPanel {
                                 MainFrame.closeChooseCharacterMenu();
                                 MainFrame.openMainLayout();
                             }
-                            if(!MainMenuPanel.isSinglePlayerSelectedOrCharacters){
+                            else{
                                 MainFrame.closeChooseCharacterMenu();
                                 MainFrame.openMainMenu();
                             }
