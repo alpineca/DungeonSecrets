@@ -50,7 +50,6 @@ public class ChooseCharacterPanel extends JPanel {
                         new ButtonClickSound();
                         if(e.getSource() == selectButton){
                             if(MainMenuPanel.isSinglePlayerSelectedOrCharacters) {
-                                MainMenuPanel.isSinglePlayerSelectedOrCharacters = false;
                                 MainFrame.closeChooseCharacterMenu();
                                 MainFrame.openMainLayout();
                             }

@@ -18,7 +18,8 @@ public class GameGrid extends JPanel{
     private int gameGridCols = 32;
     private GameObject[][] grid;
     private GameObject hero;
-
+    private GameObject enemy;
+    private GameObject enemy2;
     public GameGrid(){
 
         this.setOpaque(false);
