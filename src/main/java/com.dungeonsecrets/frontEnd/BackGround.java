@@ -12,7 +12,7 @@ public class BackGround extends JPanel {
     BackGround() {
 
         this.setBackground(Color.pink);
-        this.setBounds(0, 0, ScreenResolution.getScreenWidth() - 350, ScreenResolution.getScreenHeight());
+        this.setBounds(0, 0, (int) ((ScreenResolution.getScreenWidth())*0.82), ScreenResolution.getScreenHeight());
         this.setLayout(null);
 
 

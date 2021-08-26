@@ -1,5 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.Chapter1.Chapter1;
+import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.gameGridObjects.Hero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Tile;
@@ -11,7 +13,7 @@ public class GameGrid extends JPanel{
 
     private static GameGrid instance;
     private int gameGridRows = 21;
-    private int gameGridCols = 31;
+    private int gameGridCols = 32;
     private GameObject[][] grid;
     private GameObject hero;
 
@@ -58,12 +60,27 @@ public class GameGrid extends JPanel{
             }
         }
         spawnHero();
+        spawnEnemy();
         return grid;
     }
 
     private void spawnHero(){
         hero = new Hero(15, 7);
         grid[15][7] = hero;
+
+    }
+
+    private void spawnEnemy(){
+//        enemy = new Enemy(7, 7);
+//        grid[7][7] = enemy;
+//        enemy2 = new Enemy(8, 7);
+//        grid[8][7] = enemy2;
+        ArrayList<GameObject> monsters = chapter.getMonsters();
+        for(GameObject monster : monsters){
+            int mRow = monster.getRow();
+            int mCol = monster.getCol();
+            grid[mRow][mCol] = monster;
+        }
 
     }
 }
