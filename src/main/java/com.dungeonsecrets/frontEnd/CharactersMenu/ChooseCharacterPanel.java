@@ -5,6 +5,7 @@ import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;
 import com.dungeonsecrets.frontEnd.LoginMenu;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
+import com.dungeonsecrets.frontEnd.MainMenuPanel;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
 import javax.swing.*;
@@ -19,15 +20,14 @@ public class ChooseCharacterPanel extends JPanel {
     BackgroundWithoutLogo background = new BackgroundWithoutLogo();
 
 //    String username = LoginMenu.getUsername();
-    JList<Character> characterList = new JList<>();
-    public static DefaultListModel<Character> characterModel = new DefaultListModel<>();
-    JButton selectButton = new JButton("Select");
-    JButton createButton = new JButton("Create New Character");
-
-    JPanel characterInfoPanel = new JPanel();
-    JLabel characterInfoLabel = new JLabel();
-    JSplitPane characterSplitPane = new JSplitPane();
-    JScrollPane characterScrollPane = new JScrollPane(characterList);
+    public static JList<Character> characterList                = new JList<>();
+    public static DefaultListModel<Character> characterModel    = new DefaultListModel<>();
+    JButton selectButton                                        = new JButton("Select");
+    JButton createButton                                        = new JButton("Create New Character");
+    JPanel characterInfoPanel                                   = new JPanel();
+    JLabel characterInfoLabel                                   = new JLabel();
+    JSplitPane characterSplitPane                               = new JSplitPane();
+    JScrollPane characterScrollPane                             = new JScrollPane(characterList);
 
     public ChooseCharacterPanel(){
 
@@ -49,8 +49,15 @@ public class ChooseCharacterPanel extends JPanel {
                     public void actionPerformed(ActionEvent e) {
                         new ButtonClickSound();
                         if(e.getSource() == selectButton){
-                            MainFrame.closeChooseCharacterMenu();
-                            MainFrame.openMainMenu();
+                            if(MainMenuPanel.isSinglePlayerSelectedOrCharacters) {
+                                MainMenuPanel.isSinglePlayerSelectedOrCharacters = false;
+                                MainFrame.closeChooseCharacterMenu();
+                                MainFrame.openMainLayout();
+                            }
+                            if(!MainMenuPanel.isSinglePlayerSelectedOrCharacters){
+                                MainFrame.closeChooseCharacterMenu();
+                                MainFrame.openMainMenu();
+                            }
                         }
                     }
                 });

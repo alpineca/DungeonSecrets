@@ -1,7 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
-import com.dungeonsecrets.frontEnd.BackgroundWithLogo;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
 import com.dungeonsecrets.sound.MusicManager;
@@ -14,12 +13,13 @@ import java.awt.event.MouseListener;
 
 public class MainMenuPanel extends JPanel {
 
-    BackgroundWithLogo mainMenuBackground = new BackgroundWithLogo();
-    JLabel singlePlayerButton   = new JLabel();
-    JLabel multiPlayerButton    = new JLabel();
-    JLabel charactersButton     = new JLabel();
-    JLabel EncyclopediaButton   = new JLabel();
-    JLabel quitButton           = new JLabel();
+    public static boolean isSinglePlayerSelectedOrCharacters    = false;
+    BackgroundWithLogo mainMenuBackground                       = new BackgroundWithLogo();
+    JLabel singlePlayerButton                                   = new JLabel();
+    JLabel multiPlayerButton                                    = new JLabel();
+    JLabel charactersButton                                     = new JLabel();
+    JLabel EncyclopediaButton                                   = new JLabel();
+    JLabel quitButton                                           = new JLabel();
 
     public MainMenuPanel(){
 
@@ -43,13 +43,15 @@ public class MainMenuPanel extends JPanel {
 
 
                 new ButtonClickSound();
+
+                isSinglePlayerSelectedOrCharacters = true;
                 MainFrame.closeMainMenu();
+                MainFrame.openChooseCharacterMenu();
+
 
 //        com.dungeonsecrets.frontEnd.MainFrame.openSinglePlayerMenu();
 //        GameLayout mainLayout = new GameLayout();
 //        this.add(mainLayout);
-
-                MainFrame.openMainLayout();
 
             }
 
