@@ -19,7 +19,7 @@ public class BackGround extends JPanel {
     }
 
 
-    Image icon = new ImageIcon("src/main/resources/imgs/chapter1Background.jpg").getImage();
+    Image icon = new ImageIcon("src/main/resources/imgs/chapter1Background.png").getImage();
 
     public void paint(Graphics g) {
         super.paint(g);
