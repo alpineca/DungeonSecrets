@@ -1,8 +1,8 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.enums.LoginResult;
-import com.dungeonsecrets.backEnd.enums.RegisterResult;
-import com.dungeonsecrets.backEnd.processors.AuthProcessor;
+import com.dungeonsecrets.backEnd.processors.LoginProcessor;
+import com.dungeonsecrets.backEnd.processors.RegisterProcessor;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
@@ -72,7 +72,7 @@ public class LoginMenu extends JPanel {
                 if(usernameField.getText().equals("offline")){
                     isLogin = LoginResult.SUCCESSFUL_LOGIN;
                 }else{
-                    isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
+                    isLogin = LoginProcessor.doLogin(usernameField.getText(), passwordField.getText());
 
                 }
 

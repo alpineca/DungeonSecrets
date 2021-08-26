@@ -2,7 +2,7 @@ package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.enums.RegisterResult;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
-import com.dungeonsecrets.backEnd.processors.AuthProcessor;
+import com.dungeonsecrets.backEnd.processors.RegisterProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
@@ -101,7 +101,7 @@ public class RegisterMenu extends JPanel{
             public void mouseClicked(MouseEvent e) {
                 new ButtonClickSound();
 
-                RegisterResult isRegistered = AuthProcessor.doRegister(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText(), emailField.getText());
+                RegisterResult isRegistered = RegisterProcessor.doRegister(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText(), emailField.getText());
 
                 if(isRegistered.equals(RegisterResult.FAILED_REGISTERED)) {
                     messageLabel.setText("Failed registration!");
