@@ -12,14 +12,14 @@ public class BackGround extends JPanel {
     BackGround() {
 
         this.setBackground(Color.pink);
-        this.setBounds(0, 0, ScreenResolution.getScreenWidth() - 350, ScreenResolution.getScreenHeight());
+        this.setBounds(0, 0, (int) ((ScreenResolution.getScreenWidth())*0.82), ScreenResolution.getScreenHeight());
         this.setLayout(null);
 
 
     }
 
 
-    Image icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/background.jpg"))).getImage();
+    Image icon = new ImageIcon("src/main/resources/imgs/chapter1Background.jpg").getImage();
 
     public void paint(Graphics g) {
         super.paint(g);
