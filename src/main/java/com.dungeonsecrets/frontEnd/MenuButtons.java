@@ -23,7 +23,7 @@ public class MenuButtons {
         JButton menuButtonOptions = new JButton("Options");
         menuButtonOptions.setBounds((int) ((ScreenResolution.getScreenWidth())*0.885), (int) ((ScreenResolution.getScreenHeight())*0.96), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         menuButtonOptions.addActionListener(e -> new ButtonClickSound());
-        menuButtonOptions.addActionListener(e -> System.out.println("*Options menu opens*"));
+        menuButtonOptions.addActionListener(e -> MenuPanel.openMenuPanelYellow());
         return menuButtonOptions;
     }
     public static JButton getMenuButtonOptions(){
@@ -36,7 +36,7 @@ public class MenuButtons {
         JButton menuButtonLog = new JButton("Log");
         menuButtonLog.setBounds((int) ((ScreenResolution.getScreenWidth())*0.825), (int) ((ScreenResolution.getScreenHeight())*0.96), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         menuButtonLog.addActionListener(e -> new ButtonClickSound());
-        menuButtonLog.addActionListener(e -> System.out.println("*Options log opens*"));
+        menuButtonLog.addActionListener(e -> MenuPanel.openMenuPanelBlue());
         return menuButtonLog;
     }
     public static JButton getMenuButtonLog(){

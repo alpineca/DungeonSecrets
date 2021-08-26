@@ -25,6 +25,8 @@ public class GameLayout extends JPanel{
         this.add(MenuButtons.getMenuButtonLog());
         //this.add(MenuPanel.getMenuPanel());
 
+        this.add(MenuPanel.getMenuPanelYellow());
+        this.add(MenuPanel.getMenuPanelBlue());
 
 
 
@@ -46,7 +48,9 @@ public class GameLayout extends JPanel{
         this.add(SidePanel.getEnemyHealth());
         this.add(SidePanel.getEnemyResources());
 
-        this.add(SidePanel.getEmptyLabel());
+
+
+       // this.add(SidePanel.getEmptyLabel());
 
         //adding side panel to the main frame .. bars should be added in the side panel class
         this.add(SidePanel.getSidePanel());

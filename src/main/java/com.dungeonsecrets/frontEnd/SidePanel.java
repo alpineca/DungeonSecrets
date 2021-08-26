@@ -160,19 +160,19 @@ public class SidePanel {
     //SPACE FOR CHAT, COMBAT LOG, ETC....
 
 
-    private static JLabel emptyLabel(){
-
-        JLabel emptyLabel = new JLabel();
-
-        emptyLabel.setText("Space for chat,combat log, etc");
-        emptyLabel.setHorizontalTextPosition(JLabel.CENTER);
-        emptyLabel.setVerticalTextPosition(JLabel.BOTTOM);
-
-        emptyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.84),(int) ((ScreenResolution.getScreenHeight())*0.66),(int) ((ScreenResolution.getScreenWidth())*0.10),(int) ((ScreenResolution.getScreenHeight())*0.10));
-
-        return emptyLabel;
-    }
-    public static JLabel getEmptyLabel() {
-        return emptyLabel();
-    }
+//    private static JLabel emptyLabel(){
+//
+//        JLabel emptyLabel = new JLabel();
+//
+//        emptyLabel.setText("Space for chat,combat log, etc");
+//        emptyLabel.setHorizontalTextPosition(JLabel.CENTER);
+//        emptyLabel.setVerticalTextPosition(JLabel.BOTTOM);
+//
+//        emptyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.84),(int) ((ScreenResolution.getScreenHeight())*0.66),(int) ((ScreenResolution.getScreenWidth())*0.10),(int) ((ScreenResolution.getScreenHeight())*0.10));
+//
+//        return emptyLabel;
+//    }
+//    public static JLabel getEmptyLabel() {
+//        return emptyLabel();
+//    }
 }
