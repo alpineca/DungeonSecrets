@@ -3,6 +3,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 import com.dungeonsecrets.backEnd.processors.APIConnect;
 import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
 import org.json.JSONArray;
@@ -15,7 +16,7 @@ import java.awt.event.MouseListener;
 
 public class CreateCharacter extends JPanel {
 
-    CharactersMenuBackground background = new CharactersMenuBackground();
+    BackgroundWithoutLogo background = new BackgroundWithoutLogo();
     JSONArray classes                   = APIConnect.classesList();
 
     JLabel backButton                   = new JLabel();
