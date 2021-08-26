@@ -1,8 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
-import com.dungeonsecrets.frontEnd.BackgroundWithLogo;
-import com.dungeonsecrets.frontEnd.CharactersMenu.ChooseCharacterPanel;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
 import com.dungeonsecrets.sound.MusicManager;
