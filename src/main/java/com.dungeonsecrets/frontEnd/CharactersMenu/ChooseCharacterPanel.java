@@ -2,6 +2,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;
 import com.dungeonsecrets.frontEnd.LoginMenu;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
@@ -15,7 +16,7 @@ import java.awt.event.ActionListener;
 
 public class ChooseCharacterPanel extends JPanel {
 
-    CharactersMenuBackground background = new CharactersMenuBackground();
+    BackgroundWithoutLogo background = new BackgroundWithoutLogo();
 
 //    String username = LoginMenu.getUsername();
     JList<Character> characterList = new JList<>();
