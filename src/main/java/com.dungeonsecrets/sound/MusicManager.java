@@ -18,6 +18,13 @@ public class MusicManager {
 
             clip = AudioSystem.getClip();
             clip.open(audioIn);
+
+            // Reduce volume by 15 decibels.
+            FloatControl gainControl =
+                    (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-15.0f);
+            clip.start();
+
             clip.start();
 
             //No idea how this works, but I'm convinced its 50% black magic
