@@ -55,8 +55,8 @@ public class Tile extends GameObject{
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
-        g.setColor(Color.darkGray);
-        g.drawRect(tileX, tileY, tileWidth, tileHeight);
+//        g.setColor(Color.gray);
+//        g.drawRect(tileX, tileY, tileWidth, tileHeight);
 
     }
 
