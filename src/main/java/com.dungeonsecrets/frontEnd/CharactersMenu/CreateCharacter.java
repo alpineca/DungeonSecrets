@@ -25,6 +25,7 @@ public class CreateCharacter extends JPanel {
     JLabel createButton                 = new JLabel();
     static JTextField nameField         = new JTextField();
     JComboBox classBox                  = new JComboBox();
+    JLabel messageLabel                 = new JLabel();
 
     public CreateCharacter(){
 
@@ -39,6 +40,11 @@ public class CreateCharacter extends JPanel {
         chooseClass.setFont(new Font("Immortal",Font.BOLD,30));
         chooseClass.setOpaque(false);
         chooseClass.setHorizontalAlignment(JLabel.RIGHT);
+
+        messageLabel.setBounds(ScreenResolution.getScreenWidth() / 2 - 200,ScreenResolution.getScreenHeight() / 2+120,400,50);
+        messageLabel.setForeground(new Color(111,0,0));
+        messageLabel.setFont(new Font("Immortal",Font.BOLD,30));
+        messageLabel.setHorizontalAlignment(JLabel.CENTER);
 
         nameField.setBounds((ScreenResolution.getScreenWidth()/2),(ScreenResolution.getScreenHeight()/2)-25,200,30);
         nameField.setOpaque(true);
@@ -111,11 +117,14 @@ public class CreateCharacter extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new ButtonClickSound();
-
-                ChooseCharacterPanel.characterModel.addElement(new Character(nameField.getText(), classBox.getSelectedItem().toString()));
-
-                MainFrame.closeCreateCharactersMenu();
-                MainFrame.openChooseCharacterMenu();
+                if(nameField.getText().isEmpty()) {
+                    messageLabel.setText("Try Again!");
+                }
+                else {
+                    ChooseCharacterPanel.characterModel.addElement(new Character(nameField.getText(), classBox.getSelectedItem().toString()));
+                    MainFrame.closeCreateCharactersMenu();
+                    MainFrame.openChooseCharacterMenu();
+                }
             }
 
             @Override
@@ -142,6 +151,7 @@ public class CreateCharacter extends JPanel {
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
+        this.add(messageLabel);
         this.add(createButton);
         this.add(classBox);
         this.add(nameField);

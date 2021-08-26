@@ -2,7 +2,6 @@ package com.dungeonsecrets.frontEnd.MainFrame;
 
 import com.dungeonsecrets.frontEnd.CharactersMenu.ChooseCharacterPanel;
 import com.dungeonsecrets.frontEnd.CharactersMenu.CreateCharacter;
-import com.dungeonsecrets.frontEnd.CharactersMenu.LogInCreateCharacter;
 import com.dungeonsecrets.frontEnd.MainMenuPanel;
 import com.dungeonsecrets.frontEnd.MultiPlayerMenuPanel;
 import com.dungeonsecrets.frontEnd.EncyclopediaMenuPanel;
@@ -17,13 +16,12 @@ public class MainFrame {
     private static JFrame mainFrame                                 = new JFrame();
     private static MainMenuPanel mainMenuPanel                      = new MainMenuPanel();
     private static MultiPlayerMenuPanel multiPlayerMenu             = new MultiPlayerMenuPanel();
-    private static EncyclopediaMenuPanel optionsMenu                     = new EncyclopediaMenuPanel();
+    private static EncyclopediaMenuPanel encyclopediaMenu            = new EncyclopediaMenuPanel();
     private static LoginMenu loginMenu                              = new LoginMenu();
     private static RegisterMenu registerMenu                        = new RegisterMenu();
     private static GameLayout mainLayout                            = new GameLayout();
     private static CreateCharacter createCharactersMenu             = new CreateCharacter();
     private static ChooseCharacterPanel chooseCharacterMenu         = new ChooseCharacterPanel();
-    private static LogInCreateCharacter logInCreateCharactersMenu   = new LogInCreateCharacter();
 
     public MainFrame(){
 
@@ -32,7 +30,6 @@ public class MainFrame {
         mainFrame.setUndecorated(true);
         mainFrame.setLayout(null);
 
-        mainFrame.add(logInCreateCharactersMenu);
         mainFrame.add(chooseCharacterMenu);
         mainFrame.add(createCharactersMenu);
         mainFrame.add(mainLayout);
@@ -40,25 +37,18 @@ public class MainFrame {
         mainFrame.add(loginMenu);
         mainFrame.add(mainMenuPanel);
         mainFrame.add(multiPlayerMenu);
-        mainFrame.add(optionsMenu);
+        mainFrame.add(encyclopediaMenu);
 
-        logInCreateCharactersMenu.setVisible(false);
         chooseCharacterMenu.setVisible(false);
         createCharactersMenu.setVisible(false);
         loginMenu.setVisible(true);
         mainLayout.setVisible(false);
         registerMenu.setVisible(false);
         multiPlayerMenu.setVisible(false);
-        optionsMenu.setVisible(false);
+        encyclopediaMenu.setVisible(false);
         mainMenuPanel.setVisible(false);
 
         mainFrame.setVisible(true);
-
-    }
-
-    public static void openLogInCreateCharactersMenu(){
-
-        logInCreateCharactersMenu.setVisible(true);
 
     }
 
@@ -107,13 +97,7 @@ public class MainFrame {
 
     public static void openOptionsMenu(){
 
-        optionsMenu.setVisible(true);
-
-    }
-
-    public static void closeLogInCreateCharactersMenu(){
-
-        logInCreateCharactersMenu.setVisible(false);
+        encyclopediaMenu.setVisible(true);
 
     }
 
@@ -155,7 +139,7 @@ public class MainFrame {
 
     public static void closeOptionsMenu(){
 
-        optionsMenu.setVisible(false);
+        encyclopediaMenu.setVisible(false);
 
     }
 }

@@ -16,15 +16,13 @@ public class LoginMenu extends JPanel {
 
     LoginAndRegisterBackground background = new LoginAndRegisterBackground();
 
-    JLabel usernameLabel = new JLabel("Username: ");
-    JLabel passwordLabel = new JLabel("Password: ");
-    JLabel messageLabel = new JLabel();
-
-    JTextField usernameField = new JTextField();
-    JPasswordField  passwordField = new JPasswordField ();
-
-    JLabel loginButton = new JLabel("LOGIN");
-    JLabel registerButton = new JLabel("REGISTER");
+    JLabel usernameLabel            = new JLabel("Username: ");
+    JLabel passwordLabel            = new JLabel("Password: ");
+    JLabel messageLabel             = new JLabel();
+    JTextField usernameField        = new JTextField();
+    JPasswordField  passwordField   = new JPasswordField ();
+    JLabel loginButton              = new JLabel("LOGIN");
+    JLabel registerButton           = new JLabel("REGISTER");
 
     public LoginMenu (){
 
@@ -82,7 +80,7 @@ public class LoginMenu extends JPanel {
 
                 if(isLogin.equals(LoginResult.SUCCESSFUL_LOGIN)){
                     MainFrame.closeLoginMenu();
-                    MainFrame.openLogInCreateCharactersMenu();
+                    MainFrame.openMainMenu();
                 }
                 else{
                     messageLabel.setText("Try again!");
