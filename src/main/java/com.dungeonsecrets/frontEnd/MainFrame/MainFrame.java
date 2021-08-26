@@ -1,13 +1,11 @@
 package com.dungeonsecrets.frontEnd.MainFrame;
 
-import com.dungeonsecrets.frontEnd.CharactersMenu.CharactersMenuPanel;
 import com.dungeonsecrets.frontEnd.CharactersMenu.ChooseCharacterPanel;
 import com.dungeonsecrets.frontEnd.CharactersMenu.CreateCharacter;
 import com.dungeonsecrets.frontEnd.CharactersMenu.LogInCreateCharacter;
-import com.dungeonsecrets.frontEnd.MainMenu.MainMenuPanel;
-import com.dungeonsecrets.frontEnd.MultiPlayerMenu.MultiPlayerMenuPanel;
-import com.dungeonsecrets.frontEnd.OptionsMenu.OptionsMenuPanel;
-import com.dungeonsecrets.frontEnd.SinglePlayerMenu.SinglePlayerMenuPanel;
+import com.dungeonsecrets.frontEnd.MainMenuPanel;
+import com.dungeonsecrets.frontEnd.MultiPlayerMenuPanel;
+import com.dungeonsecrets.frontEnd.EncyclopediaMenuPanel;
 import com.dungeonsecrets.frontEnd.GameLayout;
 import com.dungeonsecrets.frontEnd.LoginMenu;
 import com.dungeonsecrets.frontEnd.RegisterMenu;
@@ -18,10 +16,8 @@ public class MainFrame {
 
     private static JFrame mainFrame                                 = new JFrame();
     private static MainMenuPanel mainMenuPanel                      = new MainMenuPanel();
-    private static SinglePlayerMenuPanel singlePlayerMenu           = new SinglePlayerMenuPanel();
     private static MultiPlayerMenuPanel multiPlayerMenu             = new MultiPlayerMenuPanel();
-    private static CharactersMenuPanel charactersMenu               = new CharactersMenuPanel();
-    private static OptionsMenuPanel optionsMenu                     = new OptionsMenuPanel();
+    private static EncyclopediaMenuPanel optionsMenu                     = new EncyclopediaMenuPanel();
     private static LoginMenu loginMenu                              = new LoginMenu();
     private static RegisterMenu registerMenu                        = new RegisterMenu();
     private static GameLayout mainLayout                            = new GameLayout();
@@ -43,9 +39,7 @@ public class MainFrame {
         mainFrame.add(registerMenu);
         mainFrame.add(loginMenu);
         mainFrame.add(mainMenuPanel);
-        mainFrame.add(singlePlayerMenu);
         mainFrame.add(multiPlayerMenu);
-        mainFrame.add(charactersMenu);
         mainFrame.add(optionsMenu);
 
         logInCreateCharactersMenu.setVisible(false);
@@ -54,9 +48,7 @@ public class MainFrame {
         loginMenu.setVisible(true);
         mainLayout.setVisible(false);
         registerMenu.setVisible(false);
-        singlePlayerMenu.setVisible(false);
         multiPlayerMenu.setVisible(false);
-        charactersMenu.setVisible(false);
         optionsMenu.setVisible(false);
         mainMenuPanel.setVisible(false);
 
@@ -107,21 +99,9 @@ public class MainFrame {
 
     }
 
-    public static void openSinglePlayerMenu(){
-
-        singlePlayerMenu.setVisible(true);
-
-    }
-
     public static void openMultiPlayerMenu(){
 
         multiPlayerMenu.setVisible(true);
-
-    }
-
-    public static void openCharactersMenu(){
-
-        charactersMenu.setVisible(true);
 
     }
 
@@ -167,21 +147,9 @@ public class MainFrame {
 
     }
 
-    public static void closeSinglePlayerMenu(){
-
-        singlePlayerMenu.setVisible(false);
-
-    }
-
     public static void closeMultiPlayerMenu(){
 
         multiPlayerMenu.setVisible(false);
-
-    }
-
-    public static void closeCharactersMenu(){
-
-        charactersMenu.setVisible(false);
 
     }
 

@@ -1,21 +1,22 @@
-package com.dungeonsecrets.frontEnd.MultiPlayerMenu;
+package com.dungeonsecrets.frontEnd;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class MultiPlayerMenuBackground extends JPanel {
+public class BackgroundWithLogo extends JPanel {
 
     Image background;
 
-    MultiPlayerMenuBackground(){
+    public BackgroundWithLogo(){
 
-        background = new ImageIcon("src/main/resources/imgs/MainMenuBackground.jpg").getImage();
+        background = new ImageIcon("src/main/resources/imgs/MenuBackgroundWithLogo.jpg").getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
+
     }
 
-
+    //Рисувам фона
     public void paint(Graphics g) {
         super.paint(g);
 

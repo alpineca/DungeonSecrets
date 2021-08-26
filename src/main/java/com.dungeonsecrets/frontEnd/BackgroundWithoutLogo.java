@@ -1,15 +1,16 @@
-package com.dungeonsecrets.frontEnd.MainMenu;
+package com.dungeonsecrets.frontEnd;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class MainMenuBackground extends JPanel {
+public class BackgroundWithoutLogo extends JPanel {
+
 
     Image background;
 
-    MainMenuBackground(){
+    public BackgroundWithoutLogo(){
 
-        background = new ImageIcon("src/main/resources/imgs/MenuBackgroundWithLogo.jpg").getImage();
+        background = new ImageIcon("src/main/resources/imgs/MainMenuBackground.jpg").getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
@@ -23,7 +24,7 @@ public class MainMenuBackground extends JPanel {
         Graphics2D g2D = (Graphics2D) g;
 
         int width = this.getWidth();
-        int height = this.getHeight(); 
+        int height = this.getHeight();
         g2D.drawImage(background,0,0,width,height,null);
 
     }
