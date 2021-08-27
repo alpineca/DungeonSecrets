@@ -60,11 +60,11 @@ public class MenuPanel {
     private static JPanel menuPanelLog = new JPanel();
     private static JPanel menuPanelLog(){
 
-        menuPanelBlue.setBackground(Color.blue);
-        menuPanelBlue.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.50), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.50));
-        menuPanelBlue.setOpaque(true);
-        menuPanelBlue.setVisible(false);
-        return menuPanelBlue;
+        menuPanelLog.setBackground(Color.blue);
+        menuPanelLog.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.40), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.60));
+        menuPanelLog.setOpaque(true);
+        menuPanelLog.setVisible(false);
+        return menuPanelLog;
 
     }
     public static JPanel getMenuPanelLog (){

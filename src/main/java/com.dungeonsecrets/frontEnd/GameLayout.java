@@ -20,8 +20,9 @@ public class GameLayout extends JPanel{
 
         //layering panels
 
-        this.add(MenuButtons.getMenuButtonQuit());
+
         this.add(MenuButtons.getMenuButtonOptions());
+        this.add(MenuButtons.getMenuButtonActions());
         this.add(MenuButtons.getMenuButtonLog());
         //this.add(MenuPanel.getMenuPanel());
 
