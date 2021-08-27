@@ -25,10 +25,9 @@ public class GameLayout extends JPanel{
         this.add(MenuButtons.getMenuButtonLog());
         //this.add(MenuPanel.getMenuPanel());
 
-        this.add(MenuPanel.getMenuPanelYellow());
-        this.add(MenuPanel.getMenuPanelBlue());
-
-
+        this.add(MenuPanel.getMenuPanelOptions());
+        this.add(MenuPanel.getMenuPanelActions());
+        this.add(MenuPanel.getMenuPanelLog());
 
         MainPanel mainPanel = new MainPanel();
 

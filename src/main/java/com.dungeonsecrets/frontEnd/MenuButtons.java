@@ -36,7 +36,7 @@ public class MenuButtons {
         JButton menuButtonLog = new JButton("Log");
         menuButtonLog.setBounds((int) ((ScreenResolution.getScreenWidth())*0.825), (int) ((ScreenResolution.getScreenHeight())*0.96), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         menuButtonLog.addActionListener(e -> new ButtonClickSound());
-        menuButtonLog.addActionListener(e -> MenuPanel.openMenuPanelBlue());
+        menuButtonLog.addActionListener(e -> MenuPanel.openMenuPanelLog());
         return menuButtonLog;
     }
     public static JButton getMenuButtonLog(){

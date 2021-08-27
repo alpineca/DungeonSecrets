@@ -220,7 +220,6 @@ public class MainMenuPanel extends JPanel {
             }
         });
 
-
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
