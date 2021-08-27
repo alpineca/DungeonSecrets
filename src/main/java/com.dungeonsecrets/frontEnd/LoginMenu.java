@@ -3,6 +3,7 @@ package com.dungeonsecrets.frontEnd;
 import com.dungeonsecrets.backEnd.enums.LoginResult;
 import com.dungeonsecrets.backEnd.processors.LoginProcessor;
 import com.dungeonsecrets.backEnd.processors.RegisterProcessor;
+import com.dungeonsecrets.backEnd.utility.ImmortalFont;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
@@ -23,6 +24,15 @@ public class LoginMenu extends JPanel {
     JPasswordField  passwordField   = new JPasswordField ();
     JLabel loginButton              = new JLabel("LOGIN");
     JLabel registerButton           = new JLabel("REGISTER");
+    Font immortal;
+
+    {
+        try {
+            immortal = new ImmortalFont().getFont();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public LoginMenu (){
 
