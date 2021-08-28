@@ -5,6 +5,7 @@ import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.gameGridObjects.Hero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Tile;
+import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +14,8 @@ import java.awt.event.MouseListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class GameGrid extends JPanel {
-    private Chapter1 chapter = new Chapter1();
+public class GameGrid extends JPanel implements MouseListener{
+    private Chapter1 chapter            = new Chapter1();
     private static GameGrid instance;
     private int gameGridRows = 21;
     private int gameGridCols = 32;
@@ -22,8 +23,10 @@ public class GameGrid extends JPanel {
     private GameObject hero;
     private GameObject enemy;
     private GameObject enemy2;
+
     public GameGrid(){
 
+        this.addMouseListener(this);
         this.setOpaque(false);
         this.bootstrap();
         instance = this;
@@ -87,5 +90,69 @@ public class GameGrid extends JPanel {
             grid[mRow][mCol] = monster;
         }
 
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+        int row = getGameBoardRowBasedOnCoordinates(e.getY());
+        int col = getGameBoardColBasedOnCoordinates(e.getX());
+
+        GameObject selectedElement = this.getGameBoardObject(row, col);
+
+        MenuPanel.attack.setEnabled(false);
+        if(this.isHero(selectedElement)){
+            selectedElement = this.getGameBoardObject(row, col);
+            System.out.println("Hero" + "Row: " + row + "Col: " + col);
+        }
+        if(this.isEnemy(selectedElement)){
+            selectedElement = this.getGameBoardObject(row, col);
+            System.out.println("Enemy" + "Row: " + row + "Col: " + col);
+            MenuPanel.attack.setEnabled(true);
+        }
+
+
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    private int getGameBoardRowBasedOnCoordinates(int coordinates) {
+
+        return coordinates / (ScreenResolution.getScreenHeight()/21);
+    }
+
+    private int getGameBoardColBasedOnCoordinates(int coordinates) {
+        return coordinates / ((int)((ScreenResolution.getScreenWidth())*0.8)/31);
+    }
+
+    private GameObject getGameBoardObject(int row, int col) {
+        return this.grid[row][col];
+    }
+
+    private boolean isHero(GameObject instance) {
+        return instance instanceof Hero;
+    }
+
+    private boolean isEnemy(GameObject instance) {
+        return instance instanceof Enemy;
     }
 }
