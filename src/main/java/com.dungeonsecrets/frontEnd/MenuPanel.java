@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 public class MenuPanel {
 
+    //      ACTIONS
 
     private static JPanel menuPanelActions  = new JPanel();
     public static JButton attack            = new JButton("Attack");
@@ -55,7 +56,7 @@ public class MenuPanel {
 
     }
 
-
+        //      LOG
 
     private static JPanel menuPanelLog = new JPanel();
     private static JPanel menuPanelLog(){
@@ -92,6 +93,8 @@ public class MenuPanel {
     }
 
 
+    //      OPTIONS
+
     private static JPanel menuPanelOptions  = new JPanel();
     private static JButton quitButton       = new JButton("Quit");
     private static JButton saveButton       = new JButton("Save");
@@ -103,7 +106,7 @@ public class MenuPanel {
         menuPanelOptions.setOpaque(true);
         menuPanelOptions.setLayout(null);
 
-        saveButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+        saveButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.05), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,7 +115,7 @@ public class MenuPanel {
                 }
             }
         });
-        loadButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((ScreenResolution.getScreenHeight())*0.10), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+        loadButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.15), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -121,7 +124,7 @@ public class MenuPanel {
                 }
             }
         });
-        quitButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((ScreenResolution.getScreenHeight())*0.20), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+        quitButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.25), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

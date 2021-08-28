@@ -7,6 +7,7 @@ import java.net.URL;
 public class MusicManager {
 
     public static MusicThread music;
+
     public static Clip clip;
 
     public MusicManager(String musicPath) {
@@ -23,7 +24,7 @@ public class MusicManager {
             FloatControl gainControl =
                     (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             gainControl.setValue(-15.0f);
-            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
 
             clip.start();
 

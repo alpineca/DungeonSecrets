@@ -4,12 +4,12 @@ public class MusicThread extends Thread{
 
     @Override
     public void run(){
-        System.out.println("Music thread is running");
+        //System.out.println("Music thread is running");
     }
 
     public void startMusic(String musicPath){
-        System.out.println("Music thread is running");
-        MusicManager music = new MusicManager(musicPath);
+       // System.out.println("Music thread is running:2");
+        new MusicManager(musicPath);
 
     }
 
@@ -18,5 +18,10 @@ public class MusicThread extends Thread{
         MusicManager.stop();
 
     }
+
+
+//    MusicThread.stopMusic();      STOP
+//    MusicManager.music = new MusicThread();      START NEW
+//    MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");     ADD FILE
 
 }
