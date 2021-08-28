@@ -2,6 +2,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.processors.APIConnect;
 import com.dungeonsecrets.backEnd.processors.Character;
+import com.dungeonsecrets.backEnd.processors.CreateHero;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
@@ -13,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 
 public class CreateCharacter extends JPanel {
 
@@ -65,11 +67,6 @@ public class CreateCharacter extends JPanel {
             classBox.addItem(innerObj.get("name"));
         }
 
-//        classBox.addItem("Warrior");
-//        classBox.addItem("Mage");
-//        classBox.addItem("Archer");
-//        classBox.addItem("Priest");
-
         backButton.setForeground(new Color(111,0,0));
         backButton.setText("Back");
         backButton.setFont(new Font("Immortal",Font.BOLD,30));
@@ -121,7 +118,15 @@ public class CreateCharacter extends JPanel {
                     messageLabel.setText("Try Again!");
                 }
                 else {
-                    ChooseCharacterPanel.characterModel.addElement(new Character(nameField.getText(), classBox.getSelectedItem().toString()));
+//                    ChooseCharacterPanel.characterModel.addElement(new Character(nameField.getText(), classBox.getSelectedItem().toString()));
+                    String heroName     = nameField.getText();
+                    String heroClass    = classBox.getSelectedItem().toString();
+                    try {
+                        CreateHero.addToDB(heroName, heroClass);
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+
                     MainFrame.closeCreateCharactersMenu();
                     MainFrame.openChooseCharacterMenu();
                 }
