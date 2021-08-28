@@ -5,12 +5,12 @@ import java.awt.*;
 
 public class BackgroundWithoutLogo extends JPanel {
 
-
+    public static String path = "src/main/resources/imgs/MainMenuBackground.jpg";
     Image background;
 
     public BackgroundWithoutLogo(){
 
-        background = new ImageIcon("src/main/resources/imgs/MainMenuBackground.jpg").getImage();
+        background = new ImageIcon(path).getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);

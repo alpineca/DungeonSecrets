@@ -2,13 +2,13 @@ package com.dungeonsecrets.backEnd.gameGridObjects;
 
 import com.dungeonsecrets.backEnd.enums.MoveDirection;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
-import com.dungeonsecrets.frontEnd.SidePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class Enemy extends GameObject{
+public class Enemy extends GameObject {
 
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
@@ -38,16 +38,9 @@ public class Enemy extends GameObject{
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
-
-        System.out.println("test:"+tileWidth);
-        System.out.println("test:"+tileHeight);
-        System.out.println("test:"+tileX);
-        System.out.println("test:"+tileY);
-
         g.drawImage(iconToShow, tileX, tileY, tileWidth, tileHeight, null);
 //        g.setColor(Color.black);
 //        g.drawRect(tileX, tileY, tileWidth, tileHeight);
-
     }
 
     public void setOrientation(MoveDirection moveToDirection){
@@ -78,7 +71,5 @@ public class Enemy extends GameObject{
     public void setCol(int col){
         super.col = col;
     }
-
-
 
 }

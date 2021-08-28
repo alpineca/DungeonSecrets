@@ -8,10 +8,12 @@ import com.dungeonsecrets.backEnd.gameGridObjects.Tile;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class GameGrid extends JPanel{
+public class GameGrid extends JPanel {
     private Chapter1 chapter = new Chapter1();
     private static GameGrid instance;
     private int gameGridRows = 21;

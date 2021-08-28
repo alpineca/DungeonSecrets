@@ -17,7 +17,7 @@ public class MainFrame {
     private static JFrame mainFrame                                 = new JFrame();
     private static MainMenuPanel mainMenuPanel                      = new MainMenuPanel();
     private static MultiPlayerMenuPanel multiPlayerMenu             = new MultiPlayerMenuPanel();
-    private static EncyclopediaMenuPanel encyclopediaMenu            = new EncyclopediaMenuPanel();
+    private static EncyclopediaMenuPanel encyclopediaMenu           = new EncyclopediaMenuPanel();
     private static LoginMenu loginMenu                              = new LoginMenu();
     private static RegisterMenu registerMenu                        = new RegisterMenu();
     private static GameLayout mainLayout                            = new GameLayout();

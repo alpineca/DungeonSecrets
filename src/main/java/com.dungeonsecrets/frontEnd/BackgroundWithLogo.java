@@ -9,7 +9,7 @@ public class BackgroundWithLogo extends JPanel {
 
     public BackgroundWithLogo(){
 
-        background = new ImageIcon("src/main/resources/imgs/MenuBackgroundWithLogo.jpg").getImage();
+        background = new ImageIcon( "src/main/resources/imgs/MenuBackgroundWithLogo.jpg").getImage();
 
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
