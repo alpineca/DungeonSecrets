@@ -22,7 +22,7 @@ public class CreateHero {
                 "`player_name`, " +
                 "`race`, " +
                 "`alignment`, " +
-                "`expirience_points`, " +
+                "`experience_points`, " +
                 "`strength`," +
                 " `dexterity`, " +
                 "`constitution`, " +
