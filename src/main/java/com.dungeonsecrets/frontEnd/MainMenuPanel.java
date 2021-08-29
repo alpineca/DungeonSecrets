@@ -20,6 +20,9 @@ public class MainMenuPanel extends JPanel {
     JLabel charactersButton                                     = new JLabel();
     JLabel EncyclopediaButton                                   = new JLabel();
     JLabel quitButton                                           = new JLabel();
+    JLabel Logo                                                 = new JLabel();
+    JPanel LogoPanel                                            = new JPanel();
+    public int counter = 0;
 
     public MainMenuPanel(){
 
@@ -220,14 +223,67 @@ public class MainMenuPanel extends JPanel {
             }
         });
 
+        ImageIcon onlyLogo = new ImageIcon("src/main/resources/imgs/OnlyLogo.png");
+
+        Logo.setVisible(false);
+        Logo.setOpaque(false);
+        Logo.setBounds((int)(ScreenResolution.getScreenWidth()*0.30),(int)(ScreenResolution.getScreenHeight()*0.0),(int)(ScreenResolution.getScreenWidth()*0.50),(int)(ScreenResolution.getScreenHeight()*0.60));
+        Logo.setIcon(onlyLogo);
+
+        LogoPanel.setBounds((int)(ScreenResolution.getScreenWidth()*0.30),(int)(ScreenResolution.getScreenHeight()*0.0),(int)(ScreenResolution.getScreenWidth()*0.50),(int)(ScreenResolution.getScreenHeight()*0.45));
+        LogoPanel.setOpaque(false);
+        LogoPanel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                counter++;
+                if(counter == 10){
+
+                    MusicThread.stopMusic();
+                    MusicManager.music = new MusicThread();
+                    MusicManager.music.startMusic("soundResources/CharacterCreationMenuMusic.wav");
+                    Logo.setVisible(true);
+                }
+                if(counter == 20){
+                    MusicThread.stopMusic();
+                    MusicManager.music = new MusicThread();
+                    MusicManager.music.startMusic("soundResources/MainMenuMusic.wav");
+                    Logo.setVisible(false);
+                    counter = 0;
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
+        this.add(LogoPanel);
         this.add(quitButton);
         this.add(EncyclopediaButton);
         this.add(charactersButton);
         this.add(multiPlayerButton);
         this.add(singlePlayerButton);
+        this.add(Logo);
         this.add(mainMenuBackground);
 
     }

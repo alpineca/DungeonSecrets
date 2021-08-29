@@ -8,6 +8,8 @@ public abstract class GameObject {
 
     protected int row;
     protected int col;
+    protected int maxHP;
+    protected int currentHp;
 
     public GameObject(int row, int col) {
 
@@ -15,6 +17,20 @@ public abstract class GameObject {
         this.col    = col;
 
     }
+    public int getMaxHP() {
+        return maxHP;
+    }
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
+    }
+
+    public int getCurrentHp() {
+        return currentHp;
+    }
+    public void setCurrentHp(int currentHp) {
+        this.currentHp = currentHp;
+    }
+
 
     public int getRow(){
         return row;

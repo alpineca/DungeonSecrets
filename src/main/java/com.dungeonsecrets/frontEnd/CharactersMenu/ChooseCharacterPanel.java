@@ -70,6 +70,8 @@ public class ChooseCharacterPanel extends JPanel {
             }
         });
 
+
+
         selectButton.setBounds(1080,670,200,50);
         selectButton.setForeground(new Color(111,0,0));
         selectButton.setBackground(new Color(196,153,80));
