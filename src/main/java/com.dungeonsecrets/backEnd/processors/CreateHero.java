@@ -74,7 +74,6 @@ public class CreateHero {
                 "'2', '5', '5', '5', '5', '4', '78', " +
                 "'8', '9', '8', '7')";
 
-
         try {
             int userId = CurrentUser.getInstance().getUser_id();
             Connection connection = ConnectDatabase.getConnection();
