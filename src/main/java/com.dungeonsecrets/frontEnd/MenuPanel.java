@@ -125,6 +125,9 @@ public class MenuPanel {
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == saveButton){
                     new ButtonClickSound();
+
+                    GameGrid.getInstance().saveHero();
+
                 }
             }
         });

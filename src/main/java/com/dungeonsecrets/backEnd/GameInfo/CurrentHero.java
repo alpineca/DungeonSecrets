@@ -61,22 +61,30 @@ public class CurrentHero {
             Connection connection = ConnectDatabase.getConnection();
             PreparedStatement st  = connection.prepareStatement(selectHero);
 
-//            st.setString(1, username);
-//            st.setString(2, password);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 this.col                = rs.getInt("col");
                 this.row                = rs.getInt("row");
-                this.hero_id            = hero_id;
+                this.hero_id            = rs.getInt("hero_id");
                 this.character_name     = heroName;
-                System.out.println("*****************");
-                System.out.println("Hero name: " + character_name + "; Hero ID: " + hero_id);
-                System.out.println("Hero col: "  + col + "; Hero Col: " + row);
-                System.out.println("*****************");
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
 
+    }
+
+    public void saveHero(int row, int col) {
+        String selectHero   = "UPDATE `heroes` SET `row` = '" + row
+                            + "', `col` = '" + col + "' WHERE `hero_id` = '"
+                            + this.hero_id + "'";
+        try {
+            Connection connection = ConnectDatabase.getConnection();
+            PreparedStatement st  = connection.prepareStatement(selectHero);
+
+            st.executeUpdate();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
     }
 }

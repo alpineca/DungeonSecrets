@@ -95,6 +95,11 @@ public class GameGrid extends JPanel implements MouseListener{
 
     }
 
+    public void saveHero(){
+        CurrentHero.getInstance().saveHero(hero.getRow(), hero.getCol());
+        System.out.println("FOR SAVE: hero.getRow: "+ hero.getRow() +", hero.getCol: "+ hero.getCol());
+    }
+
     public static GameObject selectedEnemy;
     @Override
     public void mouseClicked(MouseEvent e) {
