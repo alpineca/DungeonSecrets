@@ -124,14 +124,19 @@ public class SidePanel {
         return enemyName();
     }
 
-    private static JProgressBar enemyHealth(){
-        JProgressBar enemyHealth = new JProgressBar(0,100);  //Min/Max Health
+    public static JProgressBar enemyHealth = new JProgressBar(0,500);//Min/Max Health
 
-        enemyHealth.setValue(100);
+    public static JProgressBar enemyHealth(){
+
+        enemyHealth.setValue(500);
         enemyHealth.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.20),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
         enemyHealth.setStringPainted(true);
+        enemyHealth.setString(enemyHealth.getValue()+"");
         enemyHealth.setForeground(Color.red);
         enemyHealth.setBackground(Color.black);
+        enemyHealth.setVisible(true);
+
+        System.out.println(enemyHealth.getValue());
 
         return enemyHealth;
     }

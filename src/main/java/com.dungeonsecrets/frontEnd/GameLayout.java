@@ -10,7 +10,7 @@ public class GameLayout extends JPanel{
         this.bootstrap();
     }
 
-    private JPanel bootstrap() {
+    public JPanel bootstrap() {
         //make the main frame
 
         this.setBounds(0, 0 , ScreenResolution.getScreenWidth(), ScreenResolution.getScreenHeight());
