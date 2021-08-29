@@ -1,5 +1,6 @@
 package com.dungeonsecrets;
 
+import com.dungeonsecrets.backEnd.processors.GetHeroList;
 import com.dungeonsecrets.backEnd.utility.ImmortalFont;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.MusicManager;
@@ -16,6 +17,7 @@ import java.util.Iterator;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        GetHeroList.getHeroes();
         MainFrame mainFrame = new MainFrame();
 
         MusicManager.music = new MusicThread();

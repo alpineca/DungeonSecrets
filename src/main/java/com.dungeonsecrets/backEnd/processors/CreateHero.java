@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class CreateHero {
 
     public static void addToDB(String name, String heroClass) throws SQLException {
-        String getUserIdQuery   = "SELECT * FROM `account` where user_name = 'alpineca'";
+        String getUserIdQuery   = "SELECT * FROM `account` where user_name = 'anonym'";
         String createHeroQuery  = "INSERT INTO `heroes` (`hero_id`, " +
                 "`user_id`, " +
                 "`row`, " +
@@ -73,7 +73,6 @@ public class CreateHero {
                 "'7', '5', '4', '5', '9', '8', '7', '21', " +
                 "'2', '5', '5', '5', '5', '4', '78', " +
                 "'8', '9', '8', '7')";
-
 
         try {
             int userId = 0;
