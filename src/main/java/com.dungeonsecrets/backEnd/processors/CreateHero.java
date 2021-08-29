@@ -1,5 +1,6 @@
 package com.dungeonsecrets.backEnd.processors;
 
+import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
 
 import java.sql.Connection;
@@ -10,7 +11,6 @@ import java.sql.SQLException;
 public class CreateHero {
 
     public static void addToDB(String name, String heroClass) throws SQLException {
-        String getUserIdQuery   = "SELECT * FROM `account` where user_name = 'alpineca'";
         String createHeroQuery  = "INSERT INTO `heroes` (`hero_id`, " +
                 "`user_id`, " +
                 "`row`, " +
@@ -76,16 +76,10 @@ public class CreateHero {
 
 
         try {
-            int userId = 0;
+            int userId = CurrentUser.getInstance().getUser_id();
             Connection connection = ConnectDatabase.getConnection();
-            PreparedStatement getUserId = connection.prepareStatement(getUserIdQuery);
-
             PreparedStatement pst = connection.prepareStatement(createHeroQuery);
-            ResultSet userSet = getUserId.executeQuery();
 
-            if(userSet.next()){
-                userId = userSet.getInt("user_id");
-            }
 
             pst.setString(1, userId + "");
             pst.setString(2, name);
