@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.Chapter1.Chapter1;
+import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.gameGridObjects.Hero;
@@ -13,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Currency;
 
 public class GameGrid extends JPanel implements MouseListener{
     private Chapter1 chapter            = new Chapter1();
@@ -67,14 +69,16 @@ public class GameGrid extends JPanel implements MouseListener{
                 grid[row][col] = new Tile(row, col);
             }
         }
-        spawnHero();
+//        spawnHero();
         spawnEnemy();
         return grid;
     }
 
-    private void spawnHero(){
-        hero = new Hero(15, 7);
-        grid[15][7] = hero;
+    public void spawnHero(){
+        int heroRow = CurrentHero.getInstance().getRow();
+        int heroCol = CurrentHero.getInstance().getCol();
+        hero = new Hero(heroRow, heroCol);
+        grid[heroRow][heroCol] = hero;
 
     }
 

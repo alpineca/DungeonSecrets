@@ -2,8 +2,8 @@ package com.dungeonsecrets.backEnd.processors;
 
 public class Character {
 
-    String characterName;
-    String characterClass;
+    private String characterName;
+    private String characterClass;
 
     public Character(String characterName, String characterClass) {
         this.characterName = characterName;
