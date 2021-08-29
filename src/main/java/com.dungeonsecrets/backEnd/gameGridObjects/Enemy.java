@@ -5,8 +5,6 @@ import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class Enemy extends GameObject {
 
@@ -17,10 +15,12 @@ public class Enemy extends GameObject {
 //    private Image iconLeft  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneLeft.png"))).getImage();
 //    private Image iconRight = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneRight.png"))).getImage();
 
-    private Image iconUpp = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
-    private Image iconDownn = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
-    private Image iconLeftt = new ImageIcon("src/main/resources/imgs/enemyOneLeft.png").getImage();
-    private Image iconRightt = new ImageIcon("src/main/resources/imgs/enemyOneRight.png").getImage();
+    private Image iconUpp       = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
+    private Image iconDownn     = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
+    private Image iconLeftt     = new ImageIcon("src/main/resources/imgs/enemyOneLeft.png").getImage();
+    private Image iconRightt    = new ImageIcon("src/main/resources/imgs/enemyOneRight.png").getImage();
+    int maxHP = 1000;
+    int currentHp = 1000;
 
     public Enemy(int row, int col) {
 
@@ -57,6 +57,23 @@ public class Enemy extends GameObject {
             iconToShow = iconRightt;
         }
     }
+
+    public int getCurrentHp() {
+        return currentHp;
+    }
+
+    public void setCurrentHp(int currentHp) {
+        this.currentHp = currentHp;
+    }
+
+    public int getMaxHP() {
+        return maxHP;
+    }
+
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
+    }
+
     public int getRow(){
         return this.row;
     }

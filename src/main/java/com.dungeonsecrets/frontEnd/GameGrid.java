@@ -12,9 +12,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Currency;
+
+import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 
 public class GameGrid extends JPanel implements MouseListener{
     private Chapter1 chapter            = new Chapter1();
@@ -23,8 +24,6 @@ public class GameGrid extends JPanel implements MouseListener{
     private int gameGridCols = 32;
     private GameObject[][] grid;
     private GameObject hero;
-    private GameObject enemy;
-    private GameObject enemy2;
 
     public GameGrid(){
 
@@ -96,6 +95,7 @@ public class GameGrid extends JPanel implements MouseListener{
 
     }
 
+    public static GameObject selectedEnemy;
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -107,15 +107,23 @@ public class GameGrid extends JPanel implements MouseListener{
         MenuPanel.attack.setEnabled(false);
         if(this.isHero(selectedElement)){
             selectedElement = this.getGameBoardObject(row, col);
-            System.out.println("Hero" + "Row: " + row + "Col: " + col);
+            System.out.println("Hero " + "Row: " + row + " Col: " + col);
         }
         if(this.isEnemy(selectedElement)){
             selectedElement = this.getGameBoardObject(row, col);
-            System.out.println("Enemy" + "Row: " + row + "Col: " + col);
+            System.out.println("Enemy " + "Row: " + row + " Col: " + col);
             MenuPanel.attack.setEnabled(true);
+
+            enemyHealth.setMaximum(selectedElement.getMaxHP());
+            enemyHealth.setValue(selectedElement.getCurrentHp());
+            selectedEnemy = selectedElement;
+            enemyHealth.setString(enemyHealth.getValue()+"");
+
         }
-
-
+        if(this.isTile(selectedElement)){
+            selectedElement = this.getGameBoardObject(row, col);
+            System.out.println("Tile " + "Row: " + row + " Col: " + col);
+        }
 
     }
 
@@ -150,6 +158,10 @@ public class GameGrid extends JPanel implements MouseListener{
 
     private GameObject getGameBoardObject(int row, int col) {
         return this.grid[row][col];
+    }
+
+    private boolean isTile(GameObject instance) {
+        return instance instanceof Tile;
     }
 
     private boolean isHero(GameObject instance) {

@@ -1,5 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
+import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
@@ -7,10 +9,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+
+import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 
 public class MenuPanel {
 
-    //      ACTIONS
+    //ACTION MENU PANEL
 
     private static JPanel menuPanelActions  = new JPanel();
     public static JButton attack            = new JButton("Attack");
@@ -20,7 +25,18 @@ public class MenuPanel {
         attack.setBounds((int) ((ScreenResolution.getScreenWidth())*0.00000), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         attack.setEnabled(false);
         attack.addActionListener(e -> new ButtonClickSound());
-        attack.addActionListener(e -> MenuPanel.openMenuPanelActions());
+        attack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int currentHP = GameGrid.selectedEnemy.getCurrentHp();
+
+                GameGrid.selectedEnemy.setCurrentHp(currentHP - 20);
+                enemyHealth.setValue(currentHP - 20);
+
+                enemyHealth.setString(enemyHealth.getValue()+"");
+
+            }
+        });
 
         menuPanelActions.setBackground(Color.yellow);
         menuPanelActions.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.40), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.60));
@@ -34,9 +50,6 @@ public class MenuPanel {
     public static JPanel getMenuPanelActions(){
         return  menuPanelActions();
     }
-
-
-
     public static void openMenuPanelActions(){
 
         if (menuPanelOptions.isVisible()){
@@ -56,7 +69,7 @@ public class MenuPanel {
 
     }
 
-        //      LOG
+    //LOG MENU PANEL
 
     private static JPanel menuPanelLog = new JPanel();
     private static JPanel menuPanelLog(){
@@ -93,7 +106,7 @@ public class MenuPanel {
     }
 
 
-    //      OPTIONS
+    //OPTIONS MENU PANEL
 
     private static JPanel menuPanelOptions  = new JPanel();
     private static JButton quitButton       = new JButton("Quit");
