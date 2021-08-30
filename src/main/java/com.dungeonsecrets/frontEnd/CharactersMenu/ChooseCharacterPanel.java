@@ -28,7 +28,7 @@ public class ChooseCharacterPanel extends JPanel {
 
 //    String username = LoginMenu.getUsername();
     public static JList<String> characterList                   = new JList<>();
-    public static DefaultListModel<String> characterModel       = new DefaultListModel<>();
+    public static DefaultListModel<String> characterModel;
     JButton selectButton                                        = new JButton("Select");
     JButton createButton                                        = new JButton("Create New Character");
     JButton backButton                                          = new JButton("Back");
@@ -40,12 +40,12 @@ public class ChooseCharacterPanel extends JPanel {
 
     public ChooseCharacterPanel(){
         ArrayList<String> heroes                            = GetHeroList.getHeroes();
+        characterModel       = new DefaultListModel<>();
+
         for (int i = 0; i < heroes.size(); i++)
         {
             characterModel.addElement(heroes.get(i));
         }
-
-//        characterModel.addElement(new Character("Player","Mage"));
 
         characterList.setModel(characterModel);
         characterList.setOpaque(false);
