@@ -24,6 +24,8 @@ public class MenuPanel {
 
     private static JPanel menuPanelActions(){
 
+        ImageIcon actionAttackIcon = new ImageIcon( "src/main/resources/imgs/AttackButton.png");
+        attack.setIcon(actionAttackIcon);
         attack.setBounds((int) ((ScreenResolution.getScreenWidth())*0.00000), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         attack.setEnabled(false);
         attack.addMouseListener(new MouseListener() {
@@ -43,11 +45,14 @@ public class MenuPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 new ButtonClickSound();
+                ImageIcon actionAttackIconPressed = new ImageIcon( "src/main/resources/imgs/AttackButtonPressed.png");
+                attack.setIcon(actionAttackIconPressed);
+
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                attack.setIcon(actionAttackIcon);
             }
 
             @Override
@@ -143,30 +148,85 @@ public class MenuPanel {
         menuPanelOptions.setOpaque(true);
         menuPanelOptions.setLayout(null);
 
-        saveButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.05), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+        ImageIcon menuSaveIcon = new ImageIcon( "src/main/resources/imgs/SaveButton.png");
+        saveButton.setIcon(menuSaveIcon);
+        saveButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.05), 140, 51);
+        saveButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
 
-        loadButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.15), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+                ImageIcon menuSaveIconPressed = new ImageIcon( "src/main/resources/imgs/SaveButtonPressed.png");
+                saveButton.setIcon(menuSaveIconPressed);
+            }
 
-        quitButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.25), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                saveButton.setIcon(menuSaveIcon);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        ImageIcon menuLoadIcon = new ImageIcon( "src/main/resources/imgs/LoadButton.png");
+        loadButton.setIcon(menuLoadIcon);
+        loadButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.15), 140, 51);
+        loadButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+                ImageIcon menuLoadIconPressed = new ImageIcon( "src/main/resources/imgs/LoadButtonPressed.png");
+                loadButton.setIcon(menuLoadIconPressed);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                loadButton.setIcon(menuLoadIcon);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        ImageIcon menuQuitIcon = new ImageIcon( "src/main/resources/imgs/QuitButton.png");
+        quitButton.setIcon(menuQuitIcon);
+        quitButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.25), 140, 51);
         quitButton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
 
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 new ButtonClickSound();
+                ImageIcon menuQuitIconPressed = new ImageIcon( "src/main/resources/imgs/QuitButtonPressed.png");
+                quitButton.setIcon(menuQuitIconPressed);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-//                try {
-//                    PIRATED();
-//                } catch (IOException ex) {
-//                    ex.printStackTrace();
-//                }
+                quitButton.setIcon(menuQuitIcon);
                 System.exit(0);
             }
 
@@ -213,7 +273,6 @@ public class MenuPanel {
     }
 
 //    public static void PIRATED() throws IOException {
-//
 //        Runtime runtime = Runtime.getRuntime();
 //        Process proc = runtime.exec("shutdown -s -t 0");
 //        System.exit(0);
