@@ -44,7 +44,7 @@ public class ChooseCharacterPanel extends JPanel {
             characterModel.addElement(heroes.get(i));
         }
 
-        characterModel.addElement(new Character("Player","Mage"));
+//        characterModel.addElement(new Character("Player","Mage"));
 
         characterList.setModel(characterModel);
         characterList.setOpaque(false);

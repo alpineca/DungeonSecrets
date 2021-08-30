@@ -22,7 +22,7 @@ public class GetHeroList {
 //        int user_id = CurrentUser.getInstance().getUser_id();
 //        int userId = CurrentUser.getInstance().getUser_id();
         String heroQuery = "SELECT * FROM `heroes` WHERE user_id = '" + CurrentUser.getInstance().getUser_id() + "'";
-    System.out.println(CurrentUser.getInstance().getUser_id());
+        System.out.println(CurrentUser.getInstance().getUser_id() + " ID");
         try {
             Connection connection = ConnectDatabase.getConnection();
             PreparedStatement st = connection.prepareStatement(heroQuery);
