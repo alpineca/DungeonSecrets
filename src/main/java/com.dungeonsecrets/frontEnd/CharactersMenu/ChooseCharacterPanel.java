@@ -27,10 +27,11 @@ public class ChooseCharacterPanel extends JPanel {
     BackgroundWithoutLogo background = new BackgroundWithoutLogo();
 
 //    String username = LoginMenu.getUsername();
-    public static JList<String> characterList                = new JList<>();
-    public static DefaultListModel<String> characterModel    = new DefaultListModel<>();
+    public static JList<String> characterList                   = new JList<>();
+    public static DefaultListModel<String> characterModel       = new DefaultListModel<>();
     JButton selectButton                                        = new JButton("Select");
     JButton createButton                                        = new JButton("Create New Character");
+    JButton backButton                                          = new JButton("Back");
     JPanel characterInfoPanel                                   = new JPanel();
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
@@ -63,34 +64,44 @@ public class ChooseCharacterPanel extends JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 
-                        MusicThread.stopMusic();
-                        MusicManager.music = new MusicThread();
-                        MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
-
                         new ButtonClickSound();
                         if(e.getSource() == selectButton){
-                            if(MainMenuPanel.isSinglePlayerSelectedOrCharacters) {
-                                MainFrame.closeChooseCharacterMenu();
-                                CurrentHero.getInstance().setHero(chosenCharacter);
-                                GameGrid.getInstance().spawnHero();
-                                MainFrame.openMainLayout();
-                            }
-                            else{
-                                MainFrame.closeChooseCharacterMenu();
-                                MainFrame.openMainMenu();
-                            }
+
+                            MusicThread.stopMusic();
+                            MusicManager.music = new MusicThread();
+                            MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
+
+                            MainFrame.closeChooseCharacterMenu();
+                            GameGrid.getInstance().spawnHero();
+                            CurrentHero.getInstance().setHero(chosenCharacter);
+                            MainFrame.openMainLayout();
+
                         }
                     }
                 });
             }
         });
 
-
+        backButton.setBounds(680,670,200,50);
+        backButton.setForeground(new Color(111,0,0));
+        backButton.setBackground(new Color(196,153,80));
+        backButton.setFocusable(false);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainFrame.closeChooseCharacterMenu();
+                MainFrame.openMainMenu();
+            }
+        });
 
         selectButton.setBounds(1080,670,200,50);
         selectButton.setForeground(new Color(111,0,0));
         selectButton.setBackground(new Color(196,153,80));
         selectButton.setFocusable(false);
+
+        if(!MainMenuPanel.isSinglePlayerSelectedOrCharacters){
+            selectButton.setVisible(false);
+        }
 
         createButton.setBounds(880,670,200,50);
         createButton.setForeground(new Color(111,0,0));
@@ -132,6 +143,7 @@ public class ChooseCharacterPanel extends JPanel {
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
+        this.add(backButton);
         this.add(createButton);
         this.add(selectButton);
         this.add(characterSplitPane);

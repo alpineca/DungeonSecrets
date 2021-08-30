@@ -14,14 +14,14 @@ import javax.swing.*;
 public class MainFrame {
 
 
-    private static JFrame mainFrame                                 = new JFrame();
-    private static MainMenuPanel mainMenuPanel                      = new MainMenuPanel();
-    private static MultiPlayerMenuPanel multiPlayerMenu             = new MultiPlayerMenuPanel();
-    private static EncyclopediaMenuPanel encyclopediaMenu           = new EncyclopediaMenuPanel();
-    private static LoginMenu loginMenu                              = new LoginMenu();
-    private static RegisterMenu registerMenu                        = new RegisterMenu();
-    private static GameLayout mainLayout                            = new GameLayout();
-    private static CreateCharacter createCharactersMenu             = new CreateCharacter();
+    private static JFrame mainFrame                         = new JFrame();
+    private static MainMenuPanel mainMenuPanel;
+    private static MultiPlayerMenuPanel multiPlayerMenu;
+    private static EncyclopediaMenuPanel encyclopediaMenu;
+    private static LoginMenu loginMenu;
+    private static RegisterMenu registerMenu;
+    private static GameLayout mainLayout                    = new GameLayout();
+    private static CreateCharacter createCharactersMenu;
     private static ChooseCharacterPanel chooseCharacterMenu;
 
     public MainFrame(){
@@ -31,23 +31,18 @@ public class MainFrame {
         mainFrame.setUndecorated(true);
         mainFrame.setLayout(null);
 
+        openLoginMenu();
 
-        mainFrame.add(createCharactersMenu);
         mainFrame.add(mainLayout);
-        mainFrame.add(registerMenu);
-        mainFrame.add(loginMenu);
-        mainFrame.add(mainMenuPanel);
-        mainFrame.add(multiPlayerMenu);
-        mainFrame.add(encyclopediaMenu);
 
 //        chooseCharacterMenu.setVisible(false);
-        createCharactersMenu.setVisible(false);
-        loginMenu.setVisible(true);
+//        createCharactersMenu.setVisible(false);
+//        loginMenu.setVisible(true);
         mainLayout.setVisible(false);
-        registerMenu.setVisible(false);
-        multiPlayerMenu.setVisible(false);
-        encyclopediaMenu.setVisible(false);
-        mainMenuPanel.setVisible(false);
+//        registerMenu.setVisible(false);
+//        multiPlayerMenu.setVisible(false);
+//        encyclopediaMenu.setVisible(false);
+//        mainMenuPanel.setVisible(false);
 
         mainFrame.setVisible(true);
 
@@ -57,86 +52,81 @@ public class MainFrame {
         chooseCharacterMenu = new ChooseCharacterPanel();
         mainFrame.add(chooseCharacterMenu);
         chooseCharacterMenu.setVisible(true);
-
     }
 
     public static void openCreateCharactersMenu(){
-        createCharactersMenu.repaint();
+        createCharactersMenu = new CreateCharacter();
+        mainFrame.add(createCharactersMenu);
         createCharactersMenu.setVisible(true);
-
     }
 
     public static void openRegisterMenu(){
-        registerMenu.repaint();
+        registerMenu = new RegisterMenu();
+        mainFrame.add(registerMenu);
         registerMenu.setVisible(true);
-
     }
 
     public static void openMainLayout(){
-        mainLayout.repaint();
         mainLayout.setVisible(true);
         mainLayout.requestFocus();
-
     }
 
     public static void openLoginMenu(){
-        loginMenu.repaint();
+        loginMenu = new LoginMenu();
+        mainFrame.add(loginMenu);
         loginMenu.setVisible(true);
-
     }
 
     public static void openMainMenu(){
-        mainMenuPanel.repaint();
+        mainMenuPanel = new MainMenuPanel();
+        mainFrame.add(mainMenuPanel);
         mainMenuPanel.setVisible(true);
-
     }
 
     public static void openMultiPlayerMenu(){
-        multiPlayerMenu.repaint();
+        multiPlayerMenu = new MultiPlayerMenuPanel();
+        mainFrame.add(multiPlayerMenu);
         multiPlayerMenu.setVisible(true);
-
     }
 
-    public static void openOptionsMenu(){
-
+    public static void openEncyclopediaMenu(){
+        encyclopediaMenu = new EncyclopediaMenuPanel();
+        mainFrame.add(encyclopediaMenu);
         encyclopediaMenu.setVisible(true);
-
     }
 
     public static void closeChooseCharacterMenu(){
         chooseCharacterMenu.setVisible(false);
-
+        mainFrame.remove(chooseCharacterMenu);
     }
 
     public static void closeCreateCharactersMenu(){
         createCharactersMenu.setVisible(false);
-
+        mainFrame.remove(createCharactersMenu);
     }
 
     public static void closeRegisterMenu(){
         registerMenu.setVisible(false);
-
+        mainFrame.remove(registerMenu);
     }
 
     public static void closeLoginMenu(){
         loginMenu.setVisible(false);
-
+        mainFrame.remove(loginMenu);
     }
 
     public static void closeMainMenu(){
         mainMenuPanel.setVisible(false);
-
+        mainFrame.remove(mainMenuPanel);
     }
 
     public static void closeMultiPlayerMenu(){
-
         multiPlayerMenu.setVisible(false);
-
+        mainFrame.remove(multiPlayerMenu);
     }
 
-    public static void closeOptionsMenu(){
-
+    public static void closeEncyclopediaMenu(){
         encyclopediaMenu.setVisible(false);
-
+        mainFrame.remove(encyclopediaMenu);
     }
 }
