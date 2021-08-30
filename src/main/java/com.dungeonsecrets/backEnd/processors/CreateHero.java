@@ -24,14 +24,14 @@ public class CreateHero {
                 "`alignment`, " +
                 "`expirience_points`, " +
                 "`strength`," +
-                " `dexterity`, " +
+                "`dexterity`, " +
                 "`constitution`, " +
                 "`intelligence`, " +
                 "`wisdom`, " +
                 "`charisma`, " +
                 "`strength_modify`," +
-                " `dexterity_modify`," +
-                " `constitution_modify`, " +
+                "`dexterity_modify`," +
+                "`constitution_modify`, " +
                 "`intelligence_modify`, " +
                 "`wisdom_modify`, " +
                 "`charisma_modify`, " +

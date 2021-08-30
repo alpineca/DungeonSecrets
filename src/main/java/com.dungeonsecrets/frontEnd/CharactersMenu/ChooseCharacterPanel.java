@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
+import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
@@ -34,10 +35,10 @@ public class ChooseCharacterPanel extends JPanel {
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
     JScrollPane characterScrollPane                             = new JScrollPane(characterList);
-    private ArrayList<String> heroes                            = GetHeroList.getHeroesList();
+//    private ArrayList<String> heroes                            = GetHeroList.getHeroes();
 
     public ChooseCharacterPanel(){
-
+        ArrayList<String> heroes                            = GetHeroList.getHeroes();
         for (int i = 0; i < heroes.size(); i++)
         {
             characterModel.addElement(heroes.get(i));
@@ -55,7 +56,7 @@ public class ChooseCharacterPanel extends JPanel {
             public void valueChanged(ListSelectionEvent e) {
                 String chosenCharacter = characterList.getSelectedValue();
 //                characterInfoLabel.setText("Name: " + chosenCharacter.getCharacterName()+ " Class: " + chosenCharacter.getCharacterClass());
-
+                characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
                 selectButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {

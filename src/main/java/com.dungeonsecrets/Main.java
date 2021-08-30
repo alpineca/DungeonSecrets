@@ -17,7 +17,6 @@ import java.util.Iterator;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        GetHeroList.getHeroes();
         MainFrame mainFrame = new MainFrame();
 
         MusicManager.music = new MusicThread();
