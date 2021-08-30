@@ -61,25 +61,25 @@ public class MainFrame {
     }
 
     public static void openRegisterMenu(){
-        registerMenu.repaint();
+        registerMenu = new RegisterMenu();
+        mainFrame.add(registerMenu);
         registerMenu.setVisible(true);
     }
 
     public static void openMainLayout(){
-        mainLayout.repaint();
         mainLayout.setVisible(true);
         mainLayout.requestFocus();
-
     }
 
     public static void openLoginMenu(){
-        loginMenu.repaint();
+        loginMenu = new LoginMenu();
+        mainFrame.add(loginMenu);
         loginMenu.setVisible(true);
-
     }
 
     public static void openMainMenu(){
-        mainMenuPanel.repaint();
+        mainMenuPanel = new MainMenuPanel();
+        mainFrame.add(mainMenuPanel);
         mainMenuPanel.setVisible(true);
     }
 
