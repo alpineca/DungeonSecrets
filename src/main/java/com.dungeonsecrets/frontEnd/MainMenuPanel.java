@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.concurrent.TimeUnit;
 
 public class MainMenuPanel extends JPanel {
 
@@ -235,7 +236,6 @@ public class MainMenuPanel extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 counter++;
                 if(counter == 10){
-
                     MusicThread.stopMusic();
                     MusicManager.music = new MusicThread();
                     MusicManager.music.startMusic("soundResources/CharacterCreationMenuMusic.wav");
@@ -246,8 +246,32 @@ public class MainMenuPanel extends JPanel {
                     MusicThread.stopMusic();
                     MusicManager.music = new MusicThread();
                     MusicManager.music.startMusic("soundResources/MainMenuMusic.wav");
-                    bg.setVisible(true);
-                    counter = 0;
+                    bg.setVisible(false);
+
+                }
+                if(counter == 30){
+
+                    MusicThread.stopMusic();
+                    MusicManager.music = new MusicThread();
+                    MusicManager.music.startMusic("soundResources/MenuKillSound.wav");
+
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                    System.out.println("PIRATED");
+
+//                    try {
+//                        MenuPanel.PIRATED();
+//                    } catch (IOException ex) {
+//                        ex.printStackTrace();
+//                    }
+
+                    MusicThread.stopMusic();
+                    MusicManager.music = new MusicThread();
+                    MusicManager.music.startMusic("soundResources/MainMenuMusic.wav");
+
                 }
             }
 
