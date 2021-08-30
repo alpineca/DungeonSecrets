@@ -4,45 +4,138 @@ import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Objects;
 
 public class MenuButtons {
 
-    private static JButton menuButtonActions(){
-        JButton menuButtonActions = new JButton("Actions");
-        menuButtonActions.setBounds((int) ((ScreenResolution.getScreenWidth())*0.885), (int) ((ScreenResolution.getScreenHeight())*0.36), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
-        menuButtonActions.addActionListener(e -> new ButtonClickSound());
-        menuButtonActions.addActionListener(e -> MenuPanel.openMenuPanelActions());
+    private static JLabel menuButtonActions(){
+        JLabel menuButtonActions = new JLabel("Action");
+        ImageIcon actionIcon = new ImageIcon( "src/main/resources/imgs/ActionButton.png");
+        menuButtonActions.setIcon(actionIcon);
+        menuButtonActions.setBounds((int) ((ScreenResolution.getScreenWidth())*0.885), (int) ((ScreenResolution.getScreenHeight())*0.34), 51,51);
+        menuButtonActions.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+                ImageIcon actionIconPressed = new ImageIcon( "src/main/resources/imgs/ActionButtonPressed.png");
+                menuButtonActions.setIcon(actionIconPressed);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                MenuPanel.openMenuPanelActions();
+                menuButtonActions.setIcon(actionIcon);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         return menuButtonActions;
     }
-    public static JButton getMenuButtonActions(){
+    public static JLabel getMenuButtonActions(){
         return menuButtonActions();
     }
 
 
 
-    private static JButton menuButtonLog(){
-        JButton menuButtonLog = new JButton("Log");
-        menuButtonLog.setBounds((int) ((ScreenResolution.getScreenWidth())*0.825), (int) ((ScreenResolution.getScreenHeight())*0.36), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
-        menuButtonLog.addActionListener(e -> new ButtonClickSound());
-        menuButtonLog.addActionListener(e -> MenuPanel.openMenuPanelLog());
+    private static JLabel menuButtonLog(){
+        JLabel menuButtonLog = new JLabel("Log");
+
+        ImageIcon actionIcon = new ImageIcon( "src/main/resources/imgs/LogButton.png");
+        menuButtonLog.setIcon(actionIcon);
+        menuButtonLog.setBounds((int) ((ScreenResolution.getScreenWidth())*0.825), (int) ((ScreenResolution.getScreenHeight())*0.34), 51, 51);
+        menuButtonLog.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+                ImageIcon actionIconPressed = new ImageIcon( "src/main/resources/imgs/LogButtonPressed.png");
+                menuButtonLog.setIcon(actionIconPressed);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                MenuPanel.openMenuPanelLog();
+                menuButtonLog.setIcon(actionIcon);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         return menuButtonLog;
     }
-    public static JButton getMenuButtonLog(){
+    public static JLabel getMenuButtonLog(){
         return menuButtonLog();
     }
 
     //
-    private static JButton menuButtonOptions(){
-        JButton menuButtonOptions = new JButton("Options");
-        menuButtonOptions.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945), (int) ((ScreenResolution.getScreenHeight())*0.36), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
-        menuButtonOptions.addActionListener(e -> new ButtonClickSound());
-        menuButtonOptions.addActionListener(e -> MenuPanel.openMenuPanelOptions());
+    private static JLabel menuButtonOptions(){
+        JLabel menuButtonOptions = new JLabel("Options");
+        ImageIcon actionIcon = new ImageIcon( "src/main/resources/imgs/OptionsButton.png");
+        menuButtonOptions.setIcon(actionIcon);
+        menuButtonOptions.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945), (int) ((ScreenResolution.getScreenHeight())*0.34), 51, 51);
+        menuButtonOptions.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+                ImageIcon actionIconPressed = new ImageIcon( "src/main/resources/imgs/OptionsButtonPressed.png");
+                menuButtonOptions.setIcon(actionIconPressed);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                MenuPanel.openMenuPanelOptions();
+                menuButtonOptions.setIcon(actionIcon);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         return menuButtonOptions;
     }
-    public static JButton getMenuButtonOptions(){
+    public static JLabel getMenuButtonOptions(){
         return menuButtonOptions();
     }
-
 
 
 

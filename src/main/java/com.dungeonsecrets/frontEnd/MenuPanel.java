@@ -9,7 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 
@@ -18,22 +20,43 @@ public class MenuPanel {
     //ACTION MENU PANEL
 
     private static JPanel menuPanelActions  = new JPanel();
-    public static JButton attack            = new JButton("Attack");
+    public static JLabel attack            = new JLabel("Attack");
 
     private static JPanel menuPanelActions(){
 
         attack.setBounds((int) ((ScreenResolution.getScreenWidth())*0.00000), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
         attack.setEnabled(false);
-        attack.addActionListener(e -> new ButtonClickSound());
-        attack.addActionListener(new ActionListener() {
+        attack.addMouseListener(new MouseListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseClicked(MouseEvent e) {
+
                 int currentHP = GameGrid.selectedEnemy.getCurrentHp();
 
                 GameGrid.selectedEnemy.setCurrentHp(currentHP - 20);
                 enemyHealth.setValue(currentHP - 20);
 
                 enemyHealth.setString(enemyHealth.getValue()+"");
+
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
 
             }
         });
@@ -108,10 +131,11 @@ public class MenuPanel {
 
     //OPTIONS MENU PANEL
 
+
     private static JPanel menuPanelOptions  = new JPanel();
-    private static JButton quitButton       = new JButton("Quit");
-    private static JButton saveButton       = new JButton("Save");
-    private static JButton loadButton       = new JButton("Load");
+    private static JLabel quitButton       = new JLabel("Quit");
+    private static JLabel saveButton       = new JLabel("Save");
+    private static JLabel loadButton       = new JLabel("Load");
     private static JPanel menuPanelOptions(){
 
         menuPanelOptions.setBackground(Color.green);
@@ -120,33 +144,42 @@ public class MenuPanel {
         menuPanelOptions.setLayout(null);
 
         saveButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.05), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource() == saveButton){
-                    new ButtonClickSound();
-                }
-            }
-        });
-        loadButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.15), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
-        loadButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource() == loadButton){
-                    new ButtonClickSound();
-                }
-            }
-        });
-        quitButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.25), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
-        quitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource() == quitButton){
-                    System.exit(0);
-                }
-            }
-        });
 
+        loadButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.15), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+
+        quitButton.setBounds((int) ((menuPanelOptions.getWidth())*0.37), (int) ((menuPanelOptions.getHeight())*0.25), (int) ((ScreenResolution.getScreenWidth())*0.05), (int) ((ScreenResolution.getScreenHeight())*0.03));
+        quitButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+//                try {
+//                    PIRATED();
+//                } catch (IOException ex) {
+//                    ex.printStackTrace();
+//                }
+                System.exit(0);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         menuPanelOptions.add(saveButton);
         menuPanelOptions.add(loadButton);
         menuPanelOptions.add(quitButton);
@@ -178,4 +211,12 @@ public class MenuPanel {
         }
 
     }
+
+//    public static void PIRATED() throws IOException {
+//
+//        Runtime runtime = Runtime.getRuntime();
+//        Process proc = runtime.exec("shutdown -s -t 0");
+//        System.exit(0);
+//
+//    }
 }
