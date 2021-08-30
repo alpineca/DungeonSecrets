@@ -22,7 +22,7 @@ public class MainFrame {
     private static RegisterMenu registerMenu                        = new RegisterMenu();
     private static GameLayout mainLayout                            = new GameLayout();
     private static CreateCharacter createCharactersMenu             = new CreateCharacter();
-    private static ChooseCharacterPanel chooseCharacterMenu         = new ChooseCharacterPanel();
+    private static ChooseCharacterPanel chooseCharacterMenu;
 
     public MainFrame(){
 
@@ -31,7 +31,7 @@ public class MainFrame {
         mainFrame.setUndecorated(true);
         mainFrame.setLayout(null);
 
-        mainFrame.add(chooseCharacterMenu);
+
         mainFrame.add(createCharactersMenu);
         mainFrame.add(mainLayout);
         mainFrame.add(registerMenu);
@@ -40,7 +40,7 @@ public class MainFrame {
         mainFrame.add(multiPlayerMenu);
         mainFrame.add(encyclopediaMenu);
 
-        chooseCharacterMenu.setVisible(false);
+//        chooseCharacterMenu.setVisible(false);
         createCharactersMenu.setVisible(false);
         loginMenu.setVisible(true);
         mainLayout.setVisible(false);
@@ -54,44 +54,45 @@ public class MainFrame {
     }
 
     public static void openChooseCharacterMenu(){
-
+        chooseCharacterMenu = new ChooseCharacterPanel();
+        mainFrame.add(chooseCharacterMenu);
         chooseCharacterMenu.setVisible(true);
 
     }
 
     public static void openCreateCharactersMenu(){
-
+        createCharactersMenu.repaint();
         createCharactersMenu.setVisible(true);
 
     }
 
     public static void openRegisterMenu(){
-
+        registerMenu.repaint();
         registerMenu.setVisible(true);
 
     }
 
     public static void openMainLayout(){
-
+        mainLayout.repaint();
         mainLayout.setVisible(true);
         mainLayout.requestFocus();
 
     }
 
     public static void openLoginMenu(){
-
+        loginMenu.repaint();
         loginMenu.setVisible(true);
 
     }
 
     public static void openMainMenu(){
-
+        mainMenuPanel.repaint();
         mainMenuPanel.setVisible(true);
 
     }
 
     public static void openMultiPlayerMenu(){
-
+        multiPlayerMenu.repaint();
         multiPlayerMenu.setVisible(true);
 
     }
@@ -103,31 +104,26 @@ public class MainFrame {
     }
 
     public static void closeChooseCharacterMenu(){
-
         chooseCharacterMenu.setVisible(false);
 
     }
 
     public static void closeCreateCharactersMenu(){
-
         createCharactersMenu.setVisible(false);
 
     }
 
     public static void closeRegisterMenu(){
-
         registerMenu.setVisible(false);
 
     }
 
     public static void closeLoginMenu(){
-
         loginMenu.setVisible(false);
 
     }
 
     public static void closeMainMenu(){
-
         mainMenuPanel.setVisible(false);
 
     }
