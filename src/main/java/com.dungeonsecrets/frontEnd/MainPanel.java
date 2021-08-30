@@ -28,7 +28,8 @@ public class MainPanel extends JPanel implements KeyListener {
         grid.setBounds(0, 0, width, height);
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setAlignmentY(Component.CENTER_ALIGNMENT);
-
+        this.setFocusable(true);
+        this.requestFocusInWindow();
         this.add(grid);
 
     }

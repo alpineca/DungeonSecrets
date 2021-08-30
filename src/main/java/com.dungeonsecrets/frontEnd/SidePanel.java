@@ -8,7 +8,6 @@ import java.util.Objects;
 
 public class SidePanel {
 
-
     //Side Panel
     private static JPanel sidePanel() {
 
