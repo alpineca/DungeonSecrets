@@ -268,6 +268,10 @@ public class MainMenuPanel extends JPanel {
 //                        ex.printStackTrace();
 //                    }
 
+                    MusicThread.stopMusic();
+                    MusicManager.music = new MusicThread();
+                    MusicManager.music.startMusic("soundResources/MainMenuMusic.wav");
+
                 }
             }
 
