@@ -22,6 +22,7 @@ public class MainMenuPanel extends JPanel {
     JLabel quitButton                                           = new JLabel();
     JLabel Logo                                                 = new JLabel();
     JPanel LogoPanel                                            = new JPanel();
+    public static BackgroundLogo bg                             = new BackgroundLogo();
     public int counter = 0;
 
     public MainMenuPanel(){
@@ -40,11 +41,9 @@ public class MainMenuPanel extends JPanel {
             public void mouseClicked(MouseEvent e) {
 
                 new ButtonClickSound();
-
                 isSinglePlayerSelectedOrCharacters = true;
                 MainFrame.closeMainMenu();
                 MainFrame.openChooseCharacterMenu();
-
 
 //        com.dungeonsecrets.frontEnd.MainFrame.openSinglePlayerMenu();
 //        GameLayout mainLayout = new GameLayout();
@@ -223,14 +222,13 @@ public class MainMenuPanel extends JPanel {
             }
         });
 
-        ImageIcon onlyLogo = new ImageIcon("src/main/resources/imgs/OnlyLogo.png");
-
-        Logo.setVisible(false);
-        Logo.setOpaque(false);
-        Logo.setBounds((int)(ScreenResolution.getScreenWidth()*0.30),(int)(ScreenResolution.getScreenHeight()*0.0),(int)(ScreenResolution.getScreenWidth()*0.50),(int)(ScreenResolution.getScreenHeight()*0.60));
-        Logo.setIcon(onlyLogo);
-
-        LogoPanel.setBounds((int)(ScreenResolution.getScreenWidth()*0.30),(int)(ScreenResolution.getScreenHeight()*0.0),(int)(ScreenResolution.getScreenWidth()*0.50),(int)(ScreenResolution.getScreenHeight()*0.45));
+//        ImageIcon onlyLogo = new ImageIcon("src/main/resources/imgs/OnlyLogoOld.png");
+//        Logo.setVisible(false);
+//        Logo.setOpaque(false);
+//        Logo.setIcon(onlyLogo);
+//        Logo.setBounds((int)(ScreenResolution.getScreenWidth()*0.30),(int)(ScreenResolution.getScreenHeight()*0.0),(int)(ScreenResolution.getScreenWidth()*0.40),(int)(ScreenResolution.getScreenHeight()*0.50));
+//
+        LogoPanel.setBounds((int)(ScreenResolution.getScreenWidth()*0.30),(int)(ScreenResolution.getScreenHeight()*0.0),(int)(ScreenResolution.getScreenWidth()*0.40),(int)(ScreenResolution.getScreenHeight()*0.50));
         LogoPanel.setOpaque(false);
         LogoPanel.addMouseListener(new MouseListener() {
             @Override
@@ -241,13 +239,14 @@ public class MainMenuPanel extends JPanel {
                     MusicThread.stopMusic();
                     MusicManager.music = new MusicThread();
                     MusicManager.music.startMusic("soundResources/CharacterCreationMenuMusic.wav");
-                    Logo.setVisible(true);
+                    //bg = new BackgroundLogo();
+                    bg.setVisible(true);
                 }
                 if(counter == 20){
                     MusicThread.stopMusic();
                     MusicManager.music = new MusicThread();
                     MusicManager.music.startMusic("soundResources/MainMenuMusic.wav");
-                    Logo.setVisible(false);
+                    bg.setVisible(true);
                     counter = 0;
                 }
             }
@@ -277,6 +276,7 @@ public class MainMenuPanel extends JPanel {
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
+        this.add(bg);
         this.add(LogoPanel);
         this.add(quitButton);
         this.add(EncyclopediaButton);

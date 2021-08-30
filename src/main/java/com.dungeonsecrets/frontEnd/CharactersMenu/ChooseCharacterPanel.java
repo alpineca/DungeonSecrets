@@ -33,6 +33,8 @@ public class ChooseCharacterPanel extends JPanel {
 
     public ChooseCharacterPanel(){
 
+        characterModel.addElement(new Character("Player","Mage"));
+
         characterList.setModel(characterModel);
         characterList.setOpaque(false);
         characterList.setBackground(new Color(196,153,80));
