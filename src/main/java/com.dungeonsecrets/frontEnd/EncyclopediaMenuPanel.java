@@ -1,7 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
-import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
@@ -29,7 +28,7 @@ public class EncyclopediaMenuPanel extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e) {
                 new ButtonClickSound();
-                MainFrame.closeOptionsMenu();
+                MainFrame.closeEncyclopediaMenu();
                 MainFrame.openMainMenu();
             }
 

@@ -163,7 +163,7 @@ public class MainMenuPanel extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 new ButtonClickSound();
                 MainFrame.closeMainMenu();
-                MainFrame.openOptionsMenu();
+                MainFrame.openEncyclopediaMenu();
             }
 
             @Override
