@@ -1,6 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.Chapters.Chapter1;
+import com.dungeonsecrets.chapters.Chapter1;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;

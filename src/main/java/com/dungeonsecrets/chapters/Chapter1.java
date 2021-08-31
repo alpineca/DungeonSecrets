@@ -1,4 +1,4 @@
-package com.dungeonsecrets.Chapters;
+package com.dungeonsecrets.chapters;
 
 import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
