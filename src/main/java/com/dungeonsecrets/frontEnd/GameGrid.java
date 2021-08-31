@@ -2,7 +2,7 @@ package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.chapters.Chapter1;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
-import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
+import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.gameGridObjects.Hero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Tile;
@@ -178,6 +178,6 @@ public class GameGrid extends JPanel implements MouseListener{
     }
 
     private boolean isEnemy(GameObject instance) {
-        return instance instanceof Enemy;
+        return instance instanceof Monster;
     }
 }

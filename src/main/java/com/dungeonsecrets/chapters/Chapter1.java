@@ -1,6 +1,6 @@
 package com.dungeonsecrets.chapters;
 
-import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
+import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public class Chapter1 {
 
     ArrayList<GameObject> monsters = new ArrayList<>();
-    Enemy monster1 = new Enemy(5, 10);
-    Enemy monster2 = new Enemy(7, 12);
-    Enemy monster3 = new Enemy(12, 10);
+    Monster monster1 = new Monster(5, 10);
+    Monster monster2 = new Monster(7, 12);
+    Monster monster3 = new Monster(12, 10);
 
 
     public Chapter1(){
