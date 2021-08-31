@@ -20,7 +20,7 @@ public class MainFrame {
     private static EncyclopediaMenuPanel encyclopediaMenu;
     private static LoginMenu loginMenu;
     private static RegisterMenu registerMenu;
-    private static GameLayout mainLayout                    = new GameLayout();
+    private static GameLayout mainLayout;
     private static CreateCharacter createCharactersMenu;
     private static ChooseCharacterPanel chooseCharacterMenu;
 
@@ -33,12 +33,12 @@ public class MainFrame {
 
         openLoginMenu();
 
-        mainFrame.add(mainLayout);
+//        mainFrame.add(mainLayout);
 
 //        chooseCharacterMenu.setVisible(false);
 //        createCharactersMenu.setVisible(false);
 //        loginMenu.setVisible(true);
-        mainLayout.setVisible(false);
+//        mainLayout.setVisible(false);
 //        registerMenu.setVisible(false);
 //        multiPlayerMenu.setVisible(false);
 //        encyclopediaMenu.setVisible(false);
@@ -67,6 +67,9 @@ public class MainFrame {
     }
 
     public static void openMainLayout(){
+
+        mainLayout = new GameLayout();
+        mainFrame.add(mainLayout);
         mainLayout.setVisible(true);
         mainLayout.requestFocus();
     }

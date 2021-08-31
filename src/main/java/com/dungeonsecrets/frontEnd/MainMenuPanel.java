@@ -46,10 +46,6 @@ public class MainMenuPanel extends JPanel {
                 MainFrame.closeMainMenu();
                 MainFrame.openChooseCharacterMenu();
 
-//        com.dungeonsecrets.frontEnd.MainFrame.openSinglePlayerMenu();
-//        GameLayout mainLayout = new GameLayout();
-//        this.add(mainLayout);
-
             }
 
             @Override

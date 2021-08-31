@@ -67,14 +67,19 @@ public class GameGrid extends JPanel implements MouseListener{
                 grid[row][col] = new Tile(row, col);
             }
         }
-//        spawnHero();
+        spawnHero();
         spawnEnemy();
         return grid;
     }
 
     public void spawnHero(){
-        int heroRow = CurrentHero.getInstance().getRow();
-        int heroCol = CurrentHero.getInstance().getCol();
+//        int heroRow = CurrentHero.getInstance().getRow();
+//        int heroCol = CurrentHero.getInstance().getCol();
+
+        int heroRow = 20;
+        int heroCol = 8;
+        System.out.println("Current hero row: " + heroRow);
+        System.out.println("Current hero col: " + heroCol);
         hero = new Hero(heroRow, heroCol);
         grid[heroRow][heroCol] = hero;
 

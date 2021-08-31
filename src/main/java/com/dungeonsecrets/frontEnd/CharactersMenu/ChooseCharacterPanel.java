@@ -2,6 +2,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
+import com.dungeonsecrets.backEnd.objects.characterListItem;
 import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
@@ -28,7 +29,7 @@ public class ChooseCharacterPanel extends JPanel {
 
 //    String username = LoginMenu.getUsername();
     public static JList<String> characterList                   = new JList<>();
-    public static DefaultListModel<String> characterModel       = new DefaultListModel<>();
+    public static DefaultListModel<String> characterModel;
     JButton selectButton                                        = new JButton("Select");
     JButton createButton                                        = new JButton("Create New Character");
     JButton backButton                                          = new JButton("Back");
@@ -36,17 +37,17 @@ public class ChooseCharacterPanel extends JPanel {
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
     JScrollPane characterScrollPane                             = new JScrollPane(characterList);
-    private static boolean isHeroSelected                       = false;
+    private static boolean isHeroSelected                       = true;
 //    private ArrayList<String> heroes                            = GetHeroList.getHeroes();
 
     public ChooseCharacterPanel(){
-        ArrayList<String> heroes                            = GetHeroList.getHeroes();
+        ArrayList<characterListItem> heroes                            = GetHeroList.getHeroes();
+        characterModel       = new DefaultListModel<>();
+
         for (int i = 0; i < heroes.size(); i++)
         {
-            characterModel.addElement(heroes.get(i));
+            characterModel.addElement(heroes.get(i).getCharacterName());
         }
-
-//        characterModel.addElement(new Character("Player","Mage"));
 
         characterList.setModel(characterModel);
         characterList.setOpaque(false);
@@ -58,17 +59,12 @@ public class ChooseCharacterPanel extends JPanel {
         characterList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                String chosenCharacter = characterList.getSelectedValue();
-//                characterInfoLabel.setText("Name: " + chosenCharacter.getCharacterName()+ " Class: " + chosenCharacter.getCharacterClass());
-                characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
-                isHeroSelected = true;
-                CurrentHero.getInstance().setHero(chosenCharacter);
-            }
-        });
+                characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
 
-        selectButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
+                selectButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
 
                 new ButtonClickSound();
                 if(isHeroSelected) {
@@ -76,10 +72,13 @@ public class ChooseCharacterPanel extends JPanel {
                     MusicManager.music = new MusicThread();
                     MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
 
-                    MainFrame.closeChooseCharacterMenu();
-                    GameGrid.getInstance().spawnHero();
-                    MainFrame.openMainLayout();
-                }
+                            MainFrame.closeChooseCharacterMenu();
+                            CurrentHero.getInstance().setHero(chosenCharacter);
+                            MainFrame.openMainLayout();
+
+                        }
+                    }
+                });
             }
         });
 
@@ -151,6 +150,13 @@ public class ChooseCharacterPanel extends JPanel {
         this.add(characterSplitPane);
         this.add(background);
 
+    }
+
+    private characterListItem getCharacter(String character_name, ArrayList<characterListItem> heroes){
+        for(characterListItem character : heroes){
+            if(character.getCharacterName().equals(character_name)) return character;
+        }
+        return heroes.get(1);
     }
 
 
