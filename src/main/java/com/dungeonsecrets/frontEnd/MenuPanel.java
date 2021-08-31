@@ -272,6 +272,45 @@ public class MenuPanel {
 
     }
 
+    private static JPanel menuPanelInventory  = new JPanel();
+    private static JPanel menuPanelInventory(){
+
+        menuPanelInventory.setBackground(Color.pink);
+        menuPanelInventory.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.40), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.60));
+        menuPanelInventory.setOpaque(true);
+        menuPanelInventory.setLayout(null);
+
+        menuPanelInventory.setVisible(false);
+
+        return menuPanelInventory;
+
+    }
+    public static JPanel getMenuPanelInventory (){
+        return  menuPanelInventory();
+    }
+
+    public static void openMenuPanelInventory(){
+
+        if (menuPanelActions.isVisible()){
+            menuPanelActions.setVisible(false);
+        }
+
+        if (menuPanelLog.isVisible()){
+            menuPanelLog.setVisible(false);
+        }
+
+        if (menuPanelOptions.isVisible()){
+            menuPanelOptions.setVisible(false);
+        }
+        if (menuPanelInventory.isVisible()){
+            menuPanelInventory.setVisible(false);
+        }
+        else{
+            menuPanelInventory.setVisible(true);
+        }
+
+    }
+//    Proceed with caution
 //    public static void PIRATED() throws IOException {
 //        Runtime runtime = Runtime.getRuntime();
 //        Process proc = runtime.exec("shutdown -s -t 0");

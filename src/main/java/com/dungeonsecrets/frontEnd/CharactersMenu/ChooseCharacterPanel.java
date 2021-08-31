@@ -37,6 +37,8 @@ public class ChooseCharacterPanel extends JPanel {
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
     JScrollPane characterScrollPane                             = new JScrollPane(characterList);
+    private static boolean isHeroSelected                       = false;
+//    private ArrayList<String> heroes                            = GetHeroList.getHeroes();
 
     public ChooseCharacterPanel(){
         ArrayList<characterListItem> heroes                            = GetHeroList.getHeroes();
@@ -57,22 +59,21 @@ public class ChooseCharacterPanel extends JPanel {
         characterList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
-                characterInfoLabel.setText("Name: " + chosenCharacter.getCharacterName() + " LEVEL: " + chosenCharacter.getLevel());
+                String chosenCharacter = characterList.getSelectedValue();
+//                characterInfoLabel.setText("Name: " + chosenCharacter.getCharacterName()+ " Class: " + chosenCharacter.getCharacterClass());
+                characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
                 selectButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 
-                        new ButtonClickSound();
-                        if(e.getSource() == selectButton){
-
-                            MusicThread.stopMusic();
-                            MusicManager.music = new MusicThread();
-                            MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
+                new ButtonClickSound();
+                if(isHeroSelected) {
+                    MusicThread.stopMusic();
+                    MusicManager.music = new MusicThread();
+                    MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
 
                             MainFrame.closeChooseCharacterMenu();
-
-
+                            GameGrid.getInstance().spawnHero();
                             CurrentHero.getInstance().setHero(chosenCharacter);
                             MainFrame.openMainLayout();
 
@@ -81,6 +82,7 @@ public class ChooseCharacterPanel extends JPanel {
                 });
             }
         });
+
 
         backButton.setBounds(680,670,200,50);
         backButton.setForeground(new Color(111,0,0));

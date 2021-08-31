@@ -1,6 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.Chapter1.Chapter1;
+import com.dungeonsecrets.chapters.Chapter1;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
@@ -13,7 +13,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Currency;
 
 import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 
