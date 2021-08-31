@@ -1,5 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.enums.LoginResult;
 import com.dungeonsecrets.backEnd.processors.LoginProcessor;
 import com.dungeonsecrets.backEnd.processors.RegisterProcessor;
@@ -83,8 +84,6 @@ public class LoginMenu extends JPanel {
                     isLogin = LoginProcessor.doLogin(usernameField.getText(), passwordField.getText());
 
                 }
-
-
 
 //                LoginResult isLogin = AuthProcessor.doLogin(usernameField.getText(), passwordField.getText());
 

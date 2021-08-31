@@ -39,6 +39,8 @@ public class Hero extends GameObject{
     private Image iconDown = new ImageIcon("src/main/resources/imgs/hero1Down.png").getImage();
     private Image iconLeft = new ImageIcon("src/main/resources/imgs/hero1Left.png").getImage();
     private Image iconRight = new ImageIcon("src/main/resources/imgs/hero1Right.png").getImage();
+
+
     public Hero(int row, int col) {
 
         super(row, col);

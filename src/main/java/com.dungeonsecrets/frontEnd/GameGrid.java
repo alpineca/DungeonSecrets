@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.Chapter1.Chapter1;
+import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.gameGridObjects.Hero;
@@ -12,6 +13,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Currency;
 
 import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 
@@ -66,14 +68,16 @@ public class GameGrid extends JPanel implements MouseListener{
                 grid[row][col] = new Tile(row, col);
             }
         }
-        spawnHero();
+//        spawnHero();
         spawnEnemy();
         return grid;
     }
 
-    private void spawnHero(){
-        hero = new Hero(15, 7);
-        grid[15][7] = hero;
+    public void spawnHero(){
+        int heroRow = CurrentHero.getInstance().getRow();
+        int heroCol = CurrentHero.getInstance().getCol();
+        hero = new Hero(heroRow, heroCol);
+        grid[heroRow][heroCol] = hero;
 
     }
 
@@ -89,6 +93,11 @@ public class GameGrid extends JPanel implements MouseListener{
             grid[mRow][mCol] = monster;
         }
 
+    }
+
+    public void saveHero(){
+        CurrentHero.getInstance().saveHero(hero.getRow(), hero.getCol());
+        System.out.println("FOR SAVE: hero.getRow: "+ hero.getRow() +", hero.getCol: "+ hero.getCol());
     }
 
     public static GameObject selectedEnemy;
