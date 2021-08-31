@@ -137,7 +137,46 @@ public class MenuButtons {
         return menuButtonOptions();
     }
 
+    private static JLabel menuButtonInventory(){
+        JLabel menuButtonInventory = new JLabel("Inventory");
+        ImageIcon actionIcon = new ImageIcon( "src/main/resources/imgs/InventoryButton.png");
+        menuButtonInventory.setIcon(actionIcon);
+        menuButtonInventory.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945), (int) ((ScreenResolution.getScreenHeight())*0.30), 51, 51);
+        menuButtonInventory.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
 
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+                ImageIcon actionIconPressed = new ImageIcon( "src/main/resources/imgs/InventoryButtonPressed.png");
+                menuButtonInventory.setIcon(actionIconPressed);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                MenuPanel.openMenuPanelInventory();
+                menuButtonInventory.setIcon(actionIcon);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        return menuButtonInventory;
+    }
+    public static JLabel getMenuButtonInventory(){
+        return menuButtonInventory();
+    }
 
 
 
