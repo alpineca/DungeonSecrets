@@ -2,6 +2,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
+import com.dungeonsecrets.backEnd.objects.characterListItem;
 import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
@@ -36,15 +37,14 @@ public class ChooseCharacterPanel extends JPanel {
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
     JScrollPane characterScrollPane                             = new JScrollPane(characterList);
-//    private ArrayList<String> heroes                            = GetHeroList.getHeroes();
 
     public ChooseCharacterPanel(){
-        ArrayList<String> heroes                            = GetHeroList.getHeroes();
+        ArrayList<characterListItem> heroes                            = GetHeroList.getHeroes();
         characterModel       = new DefaultListModel<>();
 
         for (int i = 0; i < heroes.size(); i++)
         {
-            characterModel.addElement(heroes.get(i));
+            characterModel.addElement(heroes.get(i).getCharacterName());
         }
 
         characterList.setModel(characterModel);
@@ -57,9 +57,8 @@ public class ChooseCharacterPanel extends JPanel {
         characterList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                String chosenCharacter = characterList.getSelectedValue();
-//                characterInfoLabel.setText("Name: " + chosenCharacter.getCharacterName()+ " Class: " + chosenCharacter.getCharacterClass());
-                characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
+                characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
+                characterInfoLabel.setText("Name: " + chosenCharacter.getCharacterName() + " LEVEL: " + chosenCharacter.getLevel());
                 selectButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -72,7 +71,8 @@ public class ChooseCharacterPanel extends JPanel {
                             MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
 
                             MainFrame.closeChooseCharacterMenu();
-                            GameGrid.getInstance().spawnHero();
+
+
                             CurrentHero.getInstance().setHero(chosenCharacter);
                             MainFrame.openMainLayout();
 
@@ -149,6 +149,13 @@ public class ChooseCharacterPanel extends JPanel {
         this.add(characterSplitPane);
         this.add(background);
 
+    }
+
+    private characterListItem getCharacter(String character_name, ArrayList<characterListItem> heroes){
+        for(characterListItem character : heroes){
+            if(character.getCharacterName().equals(character_name)) return character;
+        }
+        return heroes.get(1);
     }
 
 
