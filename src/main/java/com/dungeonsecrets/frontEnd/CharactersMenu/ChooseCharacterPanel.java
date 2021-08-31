@@ -37,7 +37,7 @@ public class ChooseCharacterPanel extends JPanel {
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
     JScrollPane characterScrollPane                             = new JScrollPane(characterList);
-    private static boolean isHeroSelected                       = false;
+    private static boolean isHeroSelected                       = true;
 //    private ArrayList<String> heroes                            = GetHeroList.getHeroes();
 
     public ChooseCharacterPanel(){
@@ -59,8 +59,8 @@ public class ChooseCharacterPanel extends JPanel {
         characterList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                String chosenCharacter = characterList.getSelectedValue();
-//                characterInfoLabel.setText("Name: " + chosenCharacter.getCharacterName()+ " Class: " + chosenCharacter.getCharacterClass());
+                characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
+
                 characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
                 selectButton.addActionListener(new ActionListener() {
                     @Override
@@ -73,7 +73,6 @@ public class ChooseCharacterPanel extends JPanel {
                     MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
 
                             MainFrame.closeChooseCharacterMenu();
-                            GameGrid.getInstance().spawnHero();
                             CurrentHero.getInstance().setHero(chosenCharacter);
                             MainFrame.openMainLayout();
 
