@@ -39,7 +39,7 @@ public class Monster extends GameObject {
 
     public Monster(int row, int col) {
         super(row, col);
-        monsterInit(row, col);
+        monsterInit(this.row, this.col);
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
@@ -51,7 +51,12 @@ public class Monster extends GameObject {
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
-        g.drawImage(iconToShow, tileX, tileY, tileWidth, tileHeight, null);
+        g.drawImage(iconUpp, tileX, tileY, tileWidth, tileHeight, null);
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     public void setOrientation(MoveDirection moveToDirection){

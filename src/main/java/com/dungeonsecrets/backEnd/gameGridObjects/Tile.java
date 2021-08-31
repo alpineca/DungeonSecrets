@@ -60,6 +60,11 @@ public class Tile extends GameObject{
 
     }
 
+    @Override
+    public String getName() {
+        return null;
+    }
+
     public  int getHeight(){
         return this.height;
     }

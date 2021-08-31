@@ -39,7 +39,7 @@ public class APIConnect {
         JSONObject monster = null;
 
         try {
-            monster = readJsonFromUrl("https://www.dnd5eapi.co/api/" + index);
+            monster = readJsonFromUrl("https://www.dnd5eapi.co/api/monsters/" + index);
         } catch (IOException e) {
             e.printStackTrace();
         }

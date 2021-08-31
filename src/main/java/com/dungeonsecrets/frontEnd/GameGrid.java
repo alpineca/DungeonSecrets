@@ -30,6 +30,7 @@ public class GameGrid extends JPanel implements MouseListener{
         this.setOpaque(false);
         this.bootstrap();
         instance = this;
+        this.repaint();
 
     }
 
@@ -86,11 +87,7 @@ public class GameGrid extends JPanel implements MouseListener{
     }
 
     private void spawnEnemy(){
-//        enemy = new Enemy(7, 7);
-//        grid[7][7] = enemy;
-//        enemy2 = new Enemy(8, 7);
-//        grid[8][7] = enemy2;
-        ArrayList<GameObject> monsters = chapter.getMonsters();
+        ArrayList<Monster> monsters = chapter.getMonsters();
         for(GameObject monster : monsters){
             int mRow = monster.getRow();
             int mCol = monster.getCol();
@@ -119,8 +116,9 @@ public class GameGrid extends JPanel implements MouseListener{
             System.out.println("Hero " + "Row: " + row + " Col: " + col);
         }
         if(this.isEnemy(selectedElement)){
-            selectedElement = this.getGameBoardObject(row, col);
+            selectedElement = (Monster)this.getGameBoardObject(row, col);
             System.out.println("Enemy " + "Row: " + row + " Col: " + col);
+            System.out.println("Enemy name: " + selectedElement.getName());
             MenuPanel.attack.setEnabled(true);
 
             enemyHealth.setMaximum(selectedElement.getMaxHP());
