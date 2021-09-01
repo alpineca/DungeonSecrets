@@ -1,5 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
 import com.dungeonsecrets.chapters.Chapter1;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
@@ -15,6 +16,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
+import static com.dungeonsecrets.frontEnd.SidePanel.enemyName;
 
 public class GameGrid extends JPanel implements MouseListener{
     private Chapter1 chapter            = new Chapter1();
@@ -29,6 +31,7 @@ public class GameGrid extends JPanel implements MouseListener{
         this.addMouseListener(this);
         this.setOpaque(false);
         this.bootstrap();
+        GameSetup.getInstance().setGrid(this.grid);
         instance = this;
         this.repaint();
 
@@ -44,6 +47,8 @@ public class GameGrid extends JPanel implements MouseListener{
             }
         }
     }
+
+
     public static GameGrid getInstance(){ 
         return instance;
     }
@@ -88,6 +93,7 @@ public class GameGrid extends JPanel implements MouseListener{
 
     private void spawnEnemy(){
         ArrayList<Monster> monsters = chapter.getMonsters();
+        GameSetup.getInstance().setMonsters(monsters);
         for(GameObject monster : monsters){
             int mRow = monster.getRow();
             int mCol = monster.getCol();
@@ -117,14 +123,17 @@ public class GameGrid extends JPanel implements MouseListener{
         }
         if(this.isEnemy(selectedElement)){
             selectedElement = (Monster)this.getGameBoardObject(row, col);
-            System.out.println("Enemy " + "Row: " + row + " Col: " + col);
-            System.out.println("Enemy name: " + selectedElement.getName());
+            GameSetup.getInstance().focusMonster((Monster) selectedElement);
             MenuPanel.attack.setEnabled(true);
 
             enemyHealth.setMaximum(selectedElement.getMaxHP());
             enemyHealth.setValue(selectedElement.getCurrentHp());
             selectedEnemy = selectedElement;
             enemyHealth.setString(enemyHealth.getValue()+"");
+            enemyName.setText(GameSetup.getInstance().getMonster().getName());
+
+//            SidePanel.setEnemyName(GameSetup.getInstance().getMonster().getName());
+
 
         }
         if(this.isTile(selectedElement)){

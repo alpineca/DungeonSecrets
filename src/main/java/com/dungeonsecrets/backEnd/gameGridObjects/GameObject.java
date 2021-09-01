@@ -32,19 +32,11 @@ public abstract class GameObject {
     }
 
 
-    public int getRow(){
-        return row;
-    }
+    public abstract int getRow();
 
-    public int getCol(){
-        return col;
-    }
-    public void setRow(int row){
-        this.row = row;
-    }
-    public void setCol(int col){
-        this.col = col;
-    }
+    public abstract int getCol();
+    public abstract  void setRow(int row);
+    public abstract  void setCol(int col);
     public abstract void setOrientation(MoveDirection moveToDirection);
     public abstract void render(Graphics g);
 

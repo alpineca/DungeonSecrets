@@ -41,6 +41,26 @@ public class Tile extends GameObject{
     }
 
     @Override
+    public int getRow() {
+        return this.row;
+    }
+
+    @Override
+    public int getCol() {
+        return this.col;
+    }
+
+    @Override
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    @Override
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    @Override
     public void setOrientation(MoveDirection moveToDirection) {
 
     }
