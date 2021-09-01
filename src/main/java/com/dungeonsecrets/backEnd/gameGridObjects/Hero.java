@@ -60,6 +60,11 @@ public class Hero extends GameObject{
 
     }
 
+    @Override
+    public String getName() {
+        return null;
+    }
+
     public void setOrientation(MoveDirection moveToDirection){
         if(moveToDirection.equals(MoveDirection.UP)){
             iconToShow = iconUp;

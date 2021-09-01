@@ -35,6 +35,47 @@ public class APIConnect {
         }
     }
 
+    public static JSONObject getMonster(String index){
+        JSONObject monster = null;
+
+        try {
+            monster = readJsonFromUrl("https://www.dnd5eapi.co/api/monsters/" + index);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return monster;
+    }
+
+    public static JSONArray getMonstersIndexList(){
+        JSONObject json = null;
+
+        try {
+            json = readJsonFromUrl("https://www.dnd5eapi.co/api/monsters/");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int jsonLenght = (int) json.get("count");
+
+        JSONArray indexes = null;
+        try {
+            indexes = json.getJSONArray("results");
+
+            for (int i = 0; i < indexes.length(); i++) {
+
+                JSONObject c = indexes.getJSONObject(i);
+                // Storing  JSON item in a Variable
+                String name = c.optString("index", "");
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return indexes;
+    }
+
     public static JSONArray classesList() {
         JSONObject json = null;
 

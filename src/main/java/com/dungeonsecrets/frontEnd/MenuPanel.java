@@ -1,17 +1,12 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.backEnd.gameGridObjects.Enemy;
-import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 
 import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 

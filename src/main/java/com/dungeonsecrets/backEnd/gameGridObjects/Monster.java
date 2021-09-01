@@ -1,19 +1,34 @@
 package com.dungeonsecrets.backEnd.gameGridObjects;
 
 import com.dungeonsecrets.backEnd.enums.MoveDirection;
+import com.dungeonsecrets.backEnd.processors.APIConnect;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
-public class Enemy extends GameObject {
+public class Monster extends GameObject {
+
+    private String name;
+    private String type;
+    private int row;
+    private int col;
+    private int armor_class;
+    private int hit_points;
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int intelligence;
+    private int wisdom;
+    private int charisma;
+    private String url;
+
 
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
-//    private Image iconUp    = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneUp.png"))).getImage();
-//    private Image iconDown  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneDown.png"))).getImage();
-//    private Image iconLeft  = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneLeft.png"))).getImage();
-//    private Image iconRight = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("imgs/enemyOneRight.png"))).getImage();
 
     private Image iconUpp       = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
     private Image iconDownn     = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
@@ -22,11 +37,9 @@ public class Enemy extends GameObject {
     int maxHP = 1000;
     int currentHp = 1000;
 
-    public Enemy(int row, int col) {
-
+    public Monster(int row, int col) {
         super(row, col);
-        //iconToShow = iconUp;
-        iconToShow = iconUpp;
+        monsterInit(row, col);
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
@@ -38,9 +51,12 @@ public class Enemy extends GameObject {
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
-        g.drawImage(iconToShow, tileX, tileY, tileWidth, tileHeight, null);
-//        g.setColor(Color.black);
-//        g.drawRect(tileX, tileY, tileWidth, tileHeight);
+        g.drawImage(iconUpp, tileX, tileY, tileWidth, tileHeight, null);
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     public void setOrientation(MoveDirection moveToDirection){
@@ -56,6 +72,38 @@ public class Enemy extends GameObject {
         if(moveToDirection.equals(MoveDirection.RIGHT)){
             iconToShow = iconRightt;
         }
+    }
+
+    private String getIndex(){
+
+        JSONArray indexes = APIConnect.getMonstersIndexList();
+
+        int randomMonsterIndex = new Random().nextInt((indexes.length()) + 1);
+        JSONObject innerObj = indexes.getJSONObject(randomMonsterIndex);
+
+        return innerObj.getString("index");
+    }
+
+    private void monsterInit(int row, int col){
+        String index = getIndex();
+        JSONObject monster = APIConnect.getMonster(index);
+
+        this.row = row;
+        this.col = col;
+
+        this.name           = monster.getString("name");
+        this.type           = monster.getString("type");
+        this.armor_class    = monster.getInt("armor_class");
+        this.hit_points     = monster.getInt("hit_points");
+        this.strength       = monster.getInt("strength");
+        this.dexterity      = monster.getInt("dexterity");
+        this.constitution   = monster.getInt("constitution");
+        this.intelligence   = monster.getInt("intelligence");
+        this.wisdom         = monster.getInt("wisdom");
+        this.charisma       = monster.getInt("charisma");
+        this.url            = monster.getString("url");
+
+
     }
 
     public int getCurrentHp() {

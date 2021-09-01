@@ -48,4 +48,5 @@ public abstract class GameObject {
     public abstract void setOrientation(MoveDirection moveToDirection);
     public abstract void render(Graphics g);
 
+    public abstract String getName();
 }
