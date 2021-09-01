@@ -39,7 +39,7 @@ public class Monster extends GameObject {
 
     public Monster(int row, int col) {
         super(row, col);
-        monsterInit(this.row, this.col);
+        monsterInit(row, col);
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
