@@ -2,6 +2,7 @@ package com.dungeonsecrets.backEnd.processors;
 
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.enums.MoveDirection;
+import com.dungeonsecrets.backEnd.gameGridObjects.Tile;
 
 import java.awt.event.KeyEvent;
 
@@ -46,8 +47,16 @@ public class MoveProcessor {
             newHeroRow = lastHeroRow;
         }
 
-        hero.setCol(newHeroCol);
-        hero.setRow(newHeroRow);
+        boolean isFreeTile = grid[newHeroRow][newHeroCol] instanceof Tile;
+
+        if(isFreeTile){
+            grid[lastHeroRow][lastHeroCol] = new Tile(lastHeroRow, lastHeroCol);
+
+            hero.setCol(newHeroCol);
+            hero.setRow(newHeroRow);
+
+            grid[newHeroRow][newHeroCol] = hero;
+        }
     }
 
     private static MoveDirection selectDirection(int keyCode) {
