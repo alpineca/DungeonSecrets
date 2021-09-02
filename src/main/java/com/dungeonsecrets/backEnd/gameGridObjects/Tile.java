@@ -28,16 +28,16 @@ import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import java.awt.*;
 
 public class Tile extends GameObject{
-
-    protected int height;
-    protected int width;
+    private int row;
+    private int col;
+    private int height;
+    private int width;
 
     public Tile(int row, int col) {
-
-        super(row, col);
+        this.row = row;
+        this.col = col;
         this.height = 10;
         this.width  = 10;
-
     }
 
     @Override
@@ -72,11 +72,19 @@ public class Tile extends GameObject{
         int tileWidth   = mapWidth/31;
         int tileHeight  = mapHeight/21;
 
+
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
+//FOR GRID COORDINATES DISPLAY
+//
+//        int placementCoefficientX = (tileWidth / 2) - 10;
+//        int placementCoefficientY = (tileHeight / 2) + 7;
 //        g.setColor(Color.gray);
 //        g.drawRect(tileX, tileY, tileWidth, tileHeight);
+//        g.setColor(Color.BLACK);
+//        g.setFont(new Font("", Font.BOLD, 12));
+//        g.drawString("" +this.row + "/" + this.col, tileX + placementCoefficientX, tileY  + placementCoefficientY);
 
     }
 

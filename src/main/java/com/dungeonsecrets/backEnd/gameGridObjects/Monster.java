@@ -38,7 +38,6 @@ public class Monster extends GameObject {
     int currentHp   = 1000;
 
     public Monster(int row, int col) {
-        super(row, col);
         monsterInit(row, col);
         this.iconToShow = iconRight;
     }
@@ -49,8 +48,8 @@ public class Monster extends GameObject {
         int tileWidth   = mapWidth/31;
         int tileHeight  = mapHeight/21;
 
-        int tileX = super.col * tileWidth;
-        int tileY = super.row * tileHeight;
+        int tileX = this.col * tileWidth;
+        int tileY = this.row * tileHeight;
 
         g.drawImage(iconToShow, tileX, tileY, tileWidth, tileHeight, null);
     }
@@ -79,7 +78,7 @@ public class Monster extends GameObject {
 
         JSONArray indexes = APIConnect.getMonstersIndexList();
 
-        int randomMonsterIndex = new Random().nextInt((indexes.length()) + 1);
+        int randomMonsterIndex = new Random().nextInt(40);
         JSONObject innerObj = indexes.getJSONObject(randomMonsterIndex);
 
         return innerObj.getString("index");
@@ -125,18 +124,18 @@ public class Monster extends GameObject {
     }
 
     public int getRow(){
-        return super.row;
+        return this.row;
     }
 
     public int getCol(){
-        return super.col;
+        return this.col;
     }
 
     public void setRow(int row){
-        super.row = row;
+        this.row = row;
     }
     public void setCol(int col){
-        super.col = col;
+        this.col = col;
     }
 
 }

@@ -31,7 +31,7 @@ public class GameGrid extends JPanel implements MouseListener{
         this.addMouseListener(this);
         this.setOpaque(false);
         this.bootstrap();
-        GameSetup.getInstance().setGrid(this.grid);
+//        GameSetup.getInstance().setGrid(this.grid);
         instance = this;
         this.repaint();
 
@@ -55,6 +55,10 @@ public class GameGrid extends JPanel implements MouseListener{
 
     public GameObject[][] getGrid(){
         return grid;
+    }
+    public void setGrid(GameObject[][] updatedGrid){
+        this.grid = updatedGrid;
+        this.repaint();
     }
 
     public GameObject getHero(){
@@ -114,32 +118,36 @@ public class GameGrid extends JPanel implements MouseListener{
         int row = getGameBoardRowBasedOnCoordinates(e.getY());
         int col = getGameBoardColBasedOnCoordinates(e.getX());
 
-        GameObject selectedElement = this.getGameBoardObject(row, col);
+        System.out.println("******************");
+        System.out.println("MOUSE CLICKED: " + row + "/" + col);
+        System.out.println("******************");
 
-        MenuPanel.attack.setEnabled(false);
-        if(this.isHero(selectedElement)){
-            selectedElement = this.getGameBoardObject(row, col);
-            System.out.println("Hero " + "Row: " + row + " Col: " + col);
-        }
-        if(this.isEnemy(selectedElement)){
-            selectedElement = (Monster)this.getGameBoardObject(row, col);
-            GameSetup.getInstance().focusMonster((Monster) selectedElement);
-            MenuPanel.attack.setEnabled(true);
-
+        GameObject selectedElement = grid[row][col];
+        System.out.println("selectedElement = " + selectedElement.getName());
+//        MenuPanel.attack.setEnabled(false);
+//        if(this.isHero(selectedElement)){
+//            selectedElement = this.getGameBoardObject(row, col);
+//            System.out.println("Hero " + "Row: " + row + " Col: " + col);
+//        }
+//        if(this.isEnemy(selectedElement)){
+//            selectedElement = (Monster)this.getGameBoardObject(row, col);
+//            GameSetup.getInstance().focusMonster((Monster) selectedElement);
+//            MenuPanel.attack.setEnabled(true);
+//
             enemyHealth.setMaximum(selectedElement.getMaxHP());
             enemyHealth.setValue(selectedElement.getCurrentHp());
             selectedEnemy = selectedElement;
             enemyHealth.setString(enemyHealth.getValue()+"");
             enemyName.setText(GameSetup.getInstance().getMonster().getName());
-
-//            SidePanel.setEnemyName(GameSetup.getInstance().getMonster().getName());
-
-
-        }
-        if(this.isTile(selectedElement)){
-            selectedElement = this.getGameBoardObject(row, col);
-            System.out.println("Tile " + "Row: " + row + " Col: " + col);
-        }
+//
+////            SidePanel.setEnemyName(GameSetup.getInstance().getMonster().getName());
+//
+//
+//        }
+//        if(this.isTile(selectedElement)){
+//            selectedElement = this.getGameBoardObject(row, col);
+//            System.out.println("Tile " + "Row: " + row + " Col: " + col);
+//        }
 
     }
 
@@ -170,10 +178,6 @@ public class GameGrid extends JPanel implements MouseListener{
 
     private int getGameBoardColBasedOnCoordinates(int coordinates) {
         return coordinates / ((int)((ScreenResolution.getScreenWidth())*0.8)/31);
-    }
-
-    private GameObject getGameBoardObject(int row, int col) {
-        return this.grid[row][col];
     }
 
     private boolean isTile(GameObject instance) {

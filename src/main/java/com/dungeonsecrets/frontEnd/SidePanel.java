@@ -11,6 +11,7 @@ public class SidePanel {
 
     private static String selectedEnemyName = "";
 
+
     //Side Panel
     private static JPanel sidePanel() {
 

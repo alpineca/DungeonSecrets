@@ -33,6 +33,9 @@ import java.util.Objects;
 
 public class Hero extends GameObject{
 
+    private int row;
+    private int col;
+
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
     private Image iconUp    = new ImageIcon("src/main/resources/imgs/hero1Up.png"   ).getImage();
@@ -42,9 +45,9 @@ public class Hero extends GameObject{
 
 
     public Hero(int row, int col) {
-
-        super(row, col);
-        iconToShow = iconUp;
+        this.row    = row;
+        this.col    = col;
+        iconToShow  = iconUp;
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
@@ -88,10 +91,10 @@ public class Hero extends GameObject{
     }
 
     public void setRow(int row){
-        super.row = row;
+        this.row = row;
     }
     public void setCol(int col){
-        super.col = col;
+        this.col = col;
     }
 }
 

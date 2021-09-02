@@ -1,7 +1,6 @@
 package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.processors.APIConnect;
-import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.processors.CreateHero;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;

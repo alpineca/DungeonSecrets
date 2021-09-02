@@ -46,8 +46,10 @@ public class MainPanel extends JPanel implements KeyListener {
         GameObject hero     = GameGrid.getInstance().getHero();
         GameObject[][] grid = GameGrid.getInstance().getGrid();
 
-        MoveProcessor.doMove(hero, grid, e.getKeyCode());
         MonsterMoveProcessor.moveAllMonsters();
+        MoveProcessor.doMove(hero, grid, e.getKeyCode());
+
+//        GameGrid.getInstance().setGrid(grid);
         GameGrid.getInstance().repaint();
     }
 

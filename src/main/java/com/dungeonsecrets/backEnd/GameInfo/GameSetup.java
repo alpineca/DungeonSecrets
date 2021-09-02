@@ -9,7 +9,7 @@ public class GameSetup {
 
     private ArrayList<Monster> monsters;
     private Monster focusedMonster;
-    private GameObject[][] grid;
+//    private GameObject[][] grid;
     private static GameSetup instance;
 
     private GameSetup(){
@@ -24,13 +24,13 @@ public class GameSetup {
         return this.monsters;
     }
 
-    public void setGrid(GameObject[][] grid){
-        this.grid = grid;
-    }
-
-    public GameObject[][] getGrid(){
-        return this.grid;
-    }
+//    public void setGrid(GameObject[][] grid){
+//        this.grid = grid;
+//    }
+//
+//    public GameObject[][] getGrid(){
+//        return this.grid;
+//    }
 
     public Monster getMonster(){
         return focusedMonster;

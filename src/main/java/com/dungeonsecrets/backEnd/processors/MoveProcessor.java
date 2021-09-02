@@ -6,6 +6,7 @@ import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
 import com.dungeonsecrets.backEnd.gameGridObjects.Tile;
 import com.dungeonsecrets.frontEnd.GameGrid;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
@@ -58,8 +59,8 @@ public class MoveProcessor {
         if(isFreeTile){
             grid[lastHeroRow][lastHeroCol] = new Tile(lastHeroRow, lastHeroCol);
 
-            hero.setCol(newHeroCol);
             hero.setRow(newHeroRow);
+            hero.setCol(newHeroCol);
 
             grid[newHeroRow][newHeroCol] = hero;
         }
@@ -93,10 +94,15 @@ public class MoveProcessor {
             newMonsterRow = lastMonsterRow + 1;
             monster.setOrientation(direction);
         }
+        if(direction.equals(MoveDirection.IDKNW)){
+            return;
+        }
 
         System.out.println(" *******  *********  ******** ");
-        System.out.println(monster.getName() + " moved to:");
+        System.out.println(monster.getName() + " moved from:");
         System.out.println("ROW: " + lastMonsterRow + " , COL: " + lastMonsterCol);
+        System.out.println(monster.getName() + " moved to:");
+        System.out.println("ROW: " + newMonsterRow + " , COL: " + newMonsterCol);
 
         if(newMonsterCol < 0 || newMonsterCol > gameGridCols) {
             newMonsterCol = lastMonsterCol;
@@ -110,12 +116,13 @@ public class MoveProcessor {
         if(isFreeTile){
             grid[lastMonsterRow][lastMonsterCol] = new Tile(lastMonsterRow, lastMonsterCol);
 
-            monster.setCol(newMonsterCol);
             monster.setRow(newMonsterRow);
+            monster.setCol(newMonsterCol);
 
             grid[newMonsterRow][newMonsterCol] = monster;
+//            GameGrid.getInstance().setGrid(grid);
         }
-        GameGrid.getInstance().repaint();
+//        GameGrid.getInstance().repaint();
     }
 
     private static MoveDirection selectDirection(int keyCode) {
@@ -132,7 +139,7 @@ public class MoveProcessor {
             return MoveDirection.DOWN;
         }
         if(keyCode == 666){
-            int randomDirection = new Random().nextInt(4);
+            int randomDirection = new Random().nextInt(7);
             if(randomDirection == 0){
                 return MoveDirection.LEFT;
             }
@@ -144,6 +151,9 @@ public class MoveProcessor {
             }
             if(randomDirection == 3){
                 return MoveDirection.DOWN;
+            }
+            if(randomDirection > 3){
+                return MoveDirection.IDKNW;
             }
         }
         return MoveDirection.IDKNW;
