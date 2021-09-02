@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
+import com.dungeonsecrets.backEnd.processors.GridObjectSelector;
 import com.dungeonsecrets.chapters.Chapter1;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
@@ -118,12 +119,8 @@ public class GameGrid extends JPanel implements MouseListener{
         int row = getGameBoardRowBasedOnCoordinates(e.getY());
         int col = getGameBoardColBasedOnCoordinates(e.getX());
 
-        System.out.println("******************");
-        System.out.println("MOUSE CLICKED: " + row + "/" + col);
-        System.out.println("******************");
 
-        GameObject selectedElement = grid[row][col];
-        System.out.println("selectedElement = " + selectedElement.getName());
+        GameObject selectedElement = GridObjectSelector.selectedGridObject(row, col);
 //        MenuPanel.attack.setEnabled(false);
 //        if(this.isHero(selectedElement)){
 //            selectedElement = this.getGameBoardObject(row, col);
@@ -138,7 +135,7 @@ public class GameGrid extends JPanel implements MouseListener{
             enemyHealth.setValue(selectedElement.getCurrentHp());
             selectedEnemy = selectedElement;
             enemyHealth.setString(enemyHealth.getValue()+"");
-            enemyName.setText(GameSetup.getInstance().getMonster().getName());
+            enemyName.setText(selectedElement.getName());
 //
 ////            SidePanel.setEnemyName(GameSetup.getInstance().getMonster().getName());
 //
