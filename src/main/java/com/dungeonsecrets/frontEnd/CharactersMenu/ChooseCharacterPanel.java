@@ -3,7 +3,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.objects.characterListItem;
-import com.dungeonsecrets.backEnd.processors.Character;
+//import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;

@@ -30,16 +30,16 @@ public class Monster extends GameObject {
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
 
-    private Image iconUpp       = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
-    private Image iconDownn     = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
-    private Image iconLeftt     = new ImageIcon("src/main/resources/imgs/enemyOneLeft.png").getImage();
-    private Image iconRightt    = new ImageIcon("src/main/resources/imgs/enemyOneRight.png").getImage();
-    int maxHP = 1000;
-    int currentHp = 1000;
+    private Image iconUp    = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
+    private Image iconDown  = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
+    private Image iconLeft  = new ImageIcon("src/main/resources/imgs/enemyOneLeft.png").getImage();
+    private Image iconRight = new ImageIcon("src/main/resources/imgs/enemyOneRight.png").getImage();
+    int maxHP       = 1000;
+    int currentHp   = 1000;
 
     public Monster(int row, int col) {
-        super(row, col);
         monsterInit(row, col);
+        this.iconToShow = iconRight;
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
@@ -51,7 +51,7 @@ public class Monster extends GameObject {
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
-        g.drawImage(iconUpp, tileX, tileY, tileWidth, tileHeight, null);
+        g.drawImage(iconToShow, tileX, tileY, tileWidth, tileHeight, null);
     }
 
     @Override
@@ -61,16 +61,16 @@ public class Monster extends GameObject {
 
     public void setOrientation(MoveDirection moveToDirection){
         if(moveToDirection.equals(MoveDirection.UP)){
-            iconToShow = iconUpp;
+            iconToShow = iconUp;
         }
         if(moveToDirection.equals(MoveDirection.DOWN)){
-            iconToShow = iconDownn;
+            iconToShow = iconDown;
         }
         if(moveToDirection.equals(MoveDirection.LEFT)){
-            iconToShow = iconLeftt;
+            iconToShow = iconLeft;
         }
         if(moveToDirection.equals(MoveDirection.RIGHT)){
-            iconToShow = iconRightt;
+            iconToShow = iconRight;
         }
     }
 
@@ -78,7 +78,7 @@ public class Monster extends GameObject {
 
         JSONArray indexes = APIConnect.getMonstersIndexList();
 
-        int randomMonsterIndex = new Random().nextInt((indexes.length()) + 1);
+        int randomMonsterIndex = new Random().nextInt(40);
         JSONObject innerObj = indexes.getJSONObject(randomMonsterIndex);
 
         return innerObj.getString("index");
@@ -87,6 +87,7 @@ public class Monster extends GameObject {
     private void monsterInit(int row, int col){
         String index = getIndex();
         JSONObject monster = APIConnect.getMonster(index);
+        orientation = MoveDirection.DOWN;
 
         this.row = row;
         this.col = col;
@@ -131,10 +132,10 @@ public class Monster extends GameObject {
     }
 
     public void setRow(int row){
-        super.row = row;
+        this.row = row;
     }
     public void setCol(int col){
-        super.col = col;
+        this.col = col;
     }
 
 }

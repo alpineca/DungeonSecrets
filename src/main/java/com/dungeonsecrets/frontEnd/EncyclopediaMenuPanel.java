@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.frontEnd.MainFrame.EncyclopediaPanel;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
@@ -13,9 +14,11 @@ public class EncyclopediaMenuPanel extends JPanel{
 
     BackgroundWithoutLogo background = new BackgroundWithoutLogo();
     JLabel backButton = new JLabel();
-    JLabel title = new JLabel("Encyclopedia");
+    JPanel encyclopediaPanel = new EncyclopediaPanel();
 
     public EncyclopediaMenuPanel(){
+
+        encyclopediaPanel.setVisible(true);
 
         backButton.setForeground(new Color(111,0,0));
         backButton.setText("Back");
@@ -53,16 +56,12 @@ public class EncyclopediaMenuPanel extends JPanel{
             }
         });
 
-        title.setBounds(540,0,200,50);
-        title.setFont(new Font("Immortal",Font.BOLD,30));
-        title.setHorizontalAlignment(JLabel.CENTER);
-
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
         this.add(backButton);
-        this.add(title);
         this.add(background);
+        this.add(encyclopediaPanel);
 
         this.setVisible(true);
 

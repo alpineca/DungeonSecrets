@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.processors.MonsterMoveProcessor;
 import com.dungeonsecrets.backEnd.processors.MoveProcessor;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
@@ -37,11 +38,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-//        GameObject hero     = GameGrid.getInstance().getHero();
-//        GameObject[][] grid = GameGrid.getInstance().getGrid();
-//
-//        MoveProcessor.doMove(hero, grid, e.getKeyChar());
-//        this.repaint();
+
     }
 
     @Override
@@ -49,8 +46,11 @@ public class MainPanel extends JPanel implements KeyListener {
         GameObject hero     = GameGrid.getInstance().getHero();
         GameObject[][] grid = GameGrid.getInstance().getGrid();
 
+        MonsterMoveProcessor.moveAllMonsters();
         MoveProcessor.doMove(hero, grid, e.getKeyCode());
-        this.repaint();
+
+//        GameGrid.getInstance().setGrid(grid);
+        GameGrid.getInstance().repaint();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
@@ -8,18 +9,25 @@ import java.util.Objects;
 
 public class SidePanel {
 
+    private static String selectedEnemyName = "";
+
+
     //Side Panel
     private static JPanel sidePanel() {
 
         JPanel sidePanel = new JPanel();
 
-        sidePanel.setBackground(Color.gray);
+        sidePanel.setBackground(Color.DARK_GRAY);
         sidePanel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.20), (int) ((ScreenResolution.getScreenHeight())*1.00));
        // sidePanel.setBounds(1570, 0, 370, 1080);
         sidePanel.setLayout(null);
 
         return sidePanel;
 
+    }
+
+    public static void setEnemyName(String name){
+        selectedEnemyName = name;
     }
 
 
@@ -52,8 +60,10 @@ public class SidePanel {
 
         JLabel heroName = new JLabel();
 
-        heroName.setText("Hero Name");
-        heroName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.07),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
+        heroName.setText(CurrentHero.getInstance().getCharacter_name());
+        heroName.setFont(new Font("Immortal",Font.BOLD,20));
+        heroName.setForeground(new Color(245, 170, 7));
+        heroName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.04),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
 
         return heroName;
     }
@@ -109,14 +119,13 @@ public class SidePanel {
     public static JLabel getEnemyLabel() {
         return enemyLabel();
     }
+    public static JLabel enemyName = new JLabel();
+    public static JLabel enemyName(){
 
-    private static JLabel enemyName(){
-
-        JLabel enemyName = new JLabel();
-
-        enemyName.setText("Enemy Name 6");
-        enemyName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.25),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
-
+        enemyName.setText("");
+        enemyName.setFont(new Font("Immortal",Font.BOLD,20));
+        enemyName.setForeground(new Color(245, 170, 7));
+        enemyName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.22),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
         return enemyName;
     }
     public static JLabel getEnemyName() {

@@ -5,16 +5,10 @@ import com.dungeonsecrets.backEnd.enums.MoveDirection;
 import java.awt.*;
 
 public abstract class GameObject {
-
-    protected int row;
-    protected int col;
     protected int maxHP;
     protected int currentHp;
 
-    public GameObject(int row, int col) {
-
-        this.row    = row;
-        this.col    = col;
+    public GameObject() {
 
     }
     public int getMaxHP() {
@@ -32,19 +26,11 @@ public abstract class GameObject {
     }
 
 
-    public int getRow(){
-        return row;
-    }
+    public abstract int getRow();
 
-    public int getCol(){
-        return col;
-    }
-    public void setRow(int row){
-        this.row = row;
-    }
-    public void setCol(int col){
-        this.col = col;
-    }
+    public abstract int getCol();
+    public abstract  void setRow(int row);
+    public abstract  void setCol(int col);
     public abstract void setOrientation(MoveDirection moveToDirection);
     public abstract void render(Graphics g);
 
