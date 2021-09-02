@@ -1,5 +1,6 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.gameGridObjects.InventoryTile;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
@@ -75,6 +76,9 @@ public class MenuPanel {
     }
     public static void openMenuPanelActions(){
 
+        if (menuPanelInventory.isVisible()){
+            menuPanelInventory.setVisible(false);
+        }
         if (menuPanelOptions.isVisible()){
             menuPanelOptions.setVisible(false);
         }
@@ -110,6 +114,9 @@ public class MenuPanel {
 
 
     public static void openMenuPanelLog(){
+        if (menuPanelInventory.isVisible()){
+            menuPanelInventory.setVisible(false);
+        }
 
         if (menuPanelOptions.isVisible()){
             menuPanelOptions.setVisible(false);
@@ -250,6 +257,9 @@ public class MenuPanel {
 
     public static void openMenuPanelOptions(){
 
+        if (menuPanelInventory.isVisible()){
+            menuPanelInventory.setVisible(false);
+        }
         if (menuPanelActions.isVisible()){
             menuPanelActions.setVisible(false);
         }
@@ -267,14 +277,22 @@ public class MenuPanel {
 
     }
 
+    private static InventoryGrid inventory;
     private static JPanel menuPanelInventory  = new JPanel();
     private static JPanel menuPanelInventory(){
+
+
+        inventory = new InventoryGrid();
+        inventory.setVisible(true);
+        inventory.setForeground(new Color(255, 255, 255));
+        inventory.setBounds(0, 0, (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.60));
 
         menuPanelInventory.setBackground(Color.pink);
         menuPanelInventory.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.40), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.60));
         menuPanelInventory.setOpaque(true);
         menuPanelInventory.setLayout(null);
 
+        menuPanelInventory.add(inventory);
         menuPanelInventory.setVisible(false);
 
         return menuPanelInventory;

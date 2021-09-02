@@ -37,7 +37,7 @@ public class ChooseCharacterPanel extends JPanel {
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
     JScrollPane characterScrollPane                             = new JScrollPane(characterList);
-    private static boolean isHeroSelected                       = true;
+    private static boolean isHeroSelected                       = false;
 //    private ArrayList<String> heroes                            = GetHeroList.getHeroes();
 
     public ChooseCharacterPanel(){
@@ -62,9 +62,14 @@ public class ChooseCharacterPanel extends JPanel {
                 characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
 
                 characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
-                selectButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
+                CurrentHero.getInstance().setHero(chosenCharacter);
+                isHeroSelected = true;
+                //put the select button outside in order to fix the "double tap" bug
+            }
+        });
+        selectButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
                 new ButtonClickSound();
                 if(isHeroSelected) {
@@ -72,13 +77,10 @@ public class ChooseCharacterPanel extends JPanel {
                     MusicManager.music = new MusicThread();
                     MusicManager.music.startMusic("soundResources/CalmOutdoors.wav");
 
-                            MainFrame.closeChooseCharacterMenu();
-                            CurrentHero.getInstance().setHero(chosenCharacter);
-                            MainFrame.openMainLayout();
+                    MainFrame.closeChooseCharacterMenu();
+                    MainFrame.openMainLayout();
 
-                        }
-                    }
-                });
+                }
             }
         });
 

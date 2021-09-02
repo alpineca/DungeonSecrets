@@ -141,7 +141,7 @@ public class MenuButtons {
         JLabel menuButtonInventory = new JLabel("Inventory");
         ImageIcon actionIcon = new ImageIcon( "src/main/resources/imgs/InventoryButton.png");
         menuButtonInventory.setIcon(actionIcon);
-        menuButtonInventory.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945), (int) ((ScreenResolution.getScreenHeight())*0.30), 51, 51);
+        menuButtonInventory.setBounds((int) ((ScreenResolution.getScreenWidth())*0.855), (int) ((ScreenResolution.getScreenHeight())*0.34), 51, 51);
         menuButtonInventory.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
