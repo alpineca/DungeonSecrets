@@ -35,8 +35,8 @@ public class Tile extends GameObject{
     public Tile(int row, int col) {
 
         super(row, col);
-        this.height = 10;
-        this.width  = 10;
+//        this.height = 10;
+//        this.width  = 10;
 
     }
 
@@ -55,8 +55,8 @@ public class Tile extends GameObject{
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
-//        g.setColor(Color.gray);
-//        g.drawRect(tileX, tileY, tileWidth, tileHeight);
+        g.setColor(Color.gray);
+        g.drawRect(tileX, tileY, tileWidth, tileHeight);
 
     }
 
