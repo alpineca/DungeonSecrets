@@ -108,10 +108,6 @@ public class SidePanel {
         ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/enemy.PNG")));
         JLabel enemyLabel = new JLabel();
 
-       // enemyLabel.setText("Enemy Name");
-       // enemyLabel.setHorizontalTextPosition(JLabel.CENTER);
-       // enemyLabel.setVerticalTextPosition(JLabel.BOTTOM);
-
         enemyLabel.setIcon(icon);
         enemyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.19),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
         return enemyLabel;
@@ -123,9 +119,9 @@ public class SidePanel {
     public static JLabel enemyName(){
 
         enemyName.setText("");
-        enemyName.setFont(new Font("Immortal",Font.BOLD,20));
+        enemyName.setFont(new Font("Immortal",Font.PLAIN,15));
         enemyName.setForeground(new Color(245, 170, 7));
-        enemyName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.22),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
+        enemyName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.22),(int) ((ScreenResolution.getScreenWidth())*0.15),(int) ((ScreenResolution.getScreenHeight())*0.11));
         return enemyName;
     }
     public static JLabel getEnemyName() {
