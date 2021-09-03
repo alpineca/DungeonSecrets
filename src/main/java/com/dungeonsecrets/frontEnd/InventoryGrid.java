@@ -13,7 +13,7 @@ import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 public class InventoryGrid extends JPanel implements MouseListener{
 
     private static InventoryGrid instance;
-    private int inventoryGridRows = 13;
+    private int inventoryGridRows = 4;
     private int inventoryGridCols = 7;
     private ItemObjects[][] inventory;
     private ItemObjects item;
