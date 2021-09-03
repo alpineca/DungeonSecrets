@@ -61,8 +61,8 @@ public class GameLayout extends JPanel{
 
         //adding side panel to the main frame .. bars should be added in the side panel class
         this.add(SidePanel.getSidePanel());
-
         this.add(mainPanel);
+
         this.addKeyListener(mainPanel);
 
         this.add(background);

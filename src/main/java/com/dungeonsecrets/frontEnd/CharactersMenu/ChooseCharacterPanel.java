@@ -2,6 +2,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
+import com.dungeonsecrets.backEnd.gameGridObjects.Character;
 import com.dungeonsecrets.backEnd.objects.characterListItem;
 //import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
@@ -62,7 +63,7 @@ public class ChooseCharacterPanel extends JPanel {
                 characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
 
                 characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
-                CurrentHero.getInstance().setHero(chosenCharacter);
+                Character.getInstance().setHero(chosenCharacter);
                 isHeroSelected = true;
                 //put the select button outside in order to fix the "double tap" bug
             }

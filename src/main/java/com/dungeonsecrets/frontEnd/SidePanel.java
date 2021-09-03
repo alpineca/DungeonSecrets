@@ -1,9 +1,12 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
+import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class SidePanel {
 
@@ -14,12 +17,11 @@ public class SidePanel {
     private static JPanel sidePanel() {
 
         JPanel sidePanel = new JPanel();
+
         sidePanel.setBackground(Color.DARK_GRAY);
         sidePanel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.00), (int) ((ScreenResolution.getScreenWidth())*0.20), (int) ((ScreenResolution.getScreenHeight())*1.00));
+       // sidePanel.setBounds(1570, 0, 370, 1080);
         sidePanel.setLayout(null);
-
-        CharacterPanel enemyPanel = new CharacterPanel();
-        sidePanel.add(enemyPanel);
 
         return sidePanel;
 
@@ -37,66 +39,151 @@ public class SidePanel {
 
 
     //HERO PANEL
-//    private static JLabel heroLabel(){
-//
-//        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/hero_avatar.png")));
-//
-//        JLabel heroLabel = new JLabel();
-////        heroLabel.setText("Hero Name");
-////        heroLabel.setHorizontalTextPosition(JLabel.CENTER);
-////        heroLabel.setVerticalTextPosition(JLabel.BOTTOM);
-//        heroLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.01),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
-//
-//        heroLabel.setIcon(icon);
-//
-//        return heroLabel;
-//    }
-//    public static JLabel getHeroLabel() {
-//        return heroLabel();
-//    }
-//
-//    private static JLabel heroName(){
-//
-//        JLabel heroName = new JLabel();
-//
-//        heroName.setText(CurrentHero.getInstance().getCharacter_name());
-//        heroName.setFont(new Font("Immortal",Font.BOLD,20));
-//        heroName.setForeground(new Color(245, 170, 7));
-//        heroName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.04),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
-//
-//        return heroName;
-//    }
-//    public static JLabel getHeroName() {
-//        return heroName();
-//    }
-//
-//    private static JProgressBar heroHealth(){
-//        JProgressBar heroHealth = new JProgressBar(0,100);  //Min/Max Health
-//
-//        heroHealth.setValue(100);
-//        heroHealth.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.02),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
-//        heroHealth.setStringPainted(true);
-//        heroHealth.setForeground(Color.red);
-//        heroHealth.setBackground(Color.black);
-//
-//        return heroHealth;
-//    }
-//    public static JProgressBar getHeroHealth() {
-//        return heroHealth();
-//    }
-//
-//    private static JProgressBar heroResources(){
-//        JProgressBar heroResources = new JProgressBar(0,100);
-//        heroResources.setValue(100);
-//        heroResources.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.05),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
-//        heroResources.setStringPainted(true);
-//        heroResources.setForeground(Color.blue);
-//        heroResources.setBackground(Color.black);
-//
-//        return heroResources;
-//    }
-//    public static JProgressBar getHeroResources() {
-//        return heroResources();
-//    }
+    private static JLabel heroLabel(){
 
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/hero_avatar.png")));
+
+        JLabel heroLabel = new JLabel();
+//        heroLabel.setText("Hero Name");
+//        heroLabel.setHorizontalTextPosition(JLabel.CENTER);
+//        heroLabel.setVerticalTextPosition(JLabel.BOTTOM);
+        heroLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.01),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
+
+        heroLabel.setIcon(icon);
+
+        return heroLabel;
+    }
+    public static JLabel getHeroLabel() {
+        return heroLabel();
+    }
+
+    private static JLabel heroName(){
+
+        JLabel heroName = new JLabel();
+        String heroNameBe = GameSetup.getInstance().getCharacter().getName();
+        heroName.setText(heroNameBe);
+        heroName.setFont(new Font("Immortal",Font.BOLD,20));
+        heroName.setForeground(new Color(245, 170, 7));
+        heroName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.04),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
+
+        heroName.repaint();
+        return heroName;
+    }
+    public static JLabel getHeroName() {
+        return heroName();
+    }
+
+    private static JProgressBar heroHealth(){
+        JProgressBar heroHealth = new JProgressBar(0,100);  //Min/Max Health
+
+        heroHealth.setValue(100);
+        heroHealth.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.02),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
+        heroHealth.setStringPainted(true);
+        heroHealth.setForeground(Color.red);
+        heroHealth.setBackground(Color.black);
+
+        return heroHealth;
+    }
+    public static JProgressBar getHeroHealth() {
+        return heroHealth();
+    }
+
+    private static JProgressBar heroResources(){
+        JProgressBar heroResources = new JProgressBar(0,100);
+        heroResources.setValue(100);
+        heroResources.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.05),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
+        heroResources.setStringPainted(true);
+        heroResources.setForeground(Color.blue);
+        heroResources.setBackground(Color.black);
+
+        return heroResources;
+    }
+    public static JProgressBar getHeroResources() {
+        return heroResources();
+    }
+
+
+
+    //ENEMY PANEL
+    private static JLabel enemyLabel(){
+
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/enemy.PNG")));
+        JLabel enemyLabel = new JLabel();
+
+        enemyLabel.setIcon(icon);
+        enemyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.945),(int) ((ScreenResolution.getScreenHeight())*0.19),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
+        return enemyLabel;
+    }
+    public static JLabel getEnemyLabel() {
+        return enemyLabel();
+    }
+    public static JLabel enemyName = new JLabel();
+    public static JLabel enemyName(){
+
+        enemyName.setText("");
+        enemyName.setFont(new Font("Immortal",Font.PLAIN,15));
+        enemyName.setForeground(new Color(245, 170, 7));
+        enemyName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.22),(int) ((ScreenResolution.getScreenWidth())*0.15),(int) ((ScreenResolution.getScreenHeight())*0.11));
+        return enemyName;
+    }
+    public static JLabel getEnemyName() {
+        return enemyName();
+    }
+
+    public static JProgressBar enemyHealth = new JProgressBar(0,500);//Min/Max Health
+
+    public static JProgressBar enemyHealth(){
+
+        enemyHealth.setValue(500);
+        enemyHealth.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.20),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
+        enemyHealth.setStringPainted(true);
+        enemyHealth.setString(enemyHealth.getValue()+"");
+        enemyHealth.setForeground(Color.red);
+        enemyHealth.setBackground(Color.black);
+        enemyHealth.setVisible(true);
+
+        System.out.println(enemyHealth.getValue());
+
+        return enemyHealth;
+    }
+    public static JProgressBar getEnemyHealth() {
+        return enemyHealth();
+    }
+
+    private static JProgressBar enemyResources(){
+        JProgressBar enemyResources = new JProgressBar(0,100);
+        enemyResources.setValue(100);
+        enemyResources.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.23),(int) ((ScreenResolution.getScreenWidth())*0.12),(int) ((ScreenResolution.getScreenHeight())*0.023));
+        enemyResources.setStringPainted(true);
+        enemyResources.setForeground(Color.blue);
+        enemyResources.setBackground(Color.black);
+
+        return enemyResources;
+    }
+    public static JProgressBar getEnemyResources() {
+        return enemyResources();
+    }
+
+
+
+
+
+    //SPACE FOR CHAT, COMBAT LOG, ETC....
+
+
+//    private static JLabel emptyLabel(){
+//
+//        JLabel emptyLabel = new JLabel();
+//
+//        emptyLabel.setText("Space for chat,combat log, etc");
+//        emptyLabel.setHorizontalTextPosition(JLabel.CENTER);
+//        emptyLabel.setVerticalTextPosition(JLabel.BOTTOM);
+//
+//        emptyLabel.setBounds((int) ((ScreenResolution.getScreenWidth())*0.84),(int) ((ScreenResolution.getScreenHeight())*0.66),(int) ((ScreenResolution.getScreenWidth())*0.10),(int) ((ScreenResolution.getScreenHeight())*0.10));
+//
+//        return emptyLabel;
+//    }
+//    public static JLabel getEmptyLabel() {
+//        return emptyLabel();
+//    }
 }

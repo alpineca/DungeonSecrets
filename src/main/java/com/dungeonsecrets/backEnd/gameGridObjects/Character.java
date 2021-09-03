@@ -23,16 +23,25 @@
 package com.dungeonsecrets.backEnd.gameGridObjects;
 
 
+import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
+import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.enums.MoveDirection;
+import com.dungeonsecrets.backEnd.objects.characterListItem;
+import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.SidePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
-public class Hero extends GameObject{
-
+public class Character extends GameObject{
+    private String character_name;
+    private int hero_id;
     private int row;
     private int col;
 
@@ -43,12 +52,13 @@ public class Hero extends GameObject{
     private Image iconLeft  = new ImageIcon("src/main/resources/imgs/hero1Left.png" ).getImage();
     private Image iconRight = new ImageIcon("src/main/resources/imgs/hero1Right.png").getImage();
 
+    private static Character instance;
 
-    public Hero(int row, int col) {
-        this.row    = row;
-        this.col    = col;
-        iconToShow  = iconUp;
+
+    private Character(){
+
     }
+
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
         int mapHeight   = ScreenResolution.getScreenHeight();
@@ -63,9 +73,41 @@ public class Hero extends GameObject{
 
     }
 
+    public static Character getInstance(){
+        if(instance == null){
+            instance = new Character();
+        }
+        return instance;
+    }
+
+    public void setHero(characterListItem hero) {
+        int user_id         = CurrentUser.getInstance().getUser_id();
+        System.out.println("Current user id: " + user_id);
+        String selectHero   = "SELECT * FROM heroes WHERE hero_id = '" + hero.getHeroId() +
+                "' and character_name = '"+ hero.getCharacterName() +"'";
+        try {
+            Connection connection = ConnectDatabase.getConnection();
+            PreparedStatement st  = connection.prepareStatement(selectHero);
+
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                this.row                = rs.getInt("row");
+                this.col                = rs.getInt("col");
+                this.hero_id            = rs.getInt("hero_id");
+                this.character_name     = rs.getString("character_name");
+                this.setOrientation(orientation);
+
+
+            }
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+
+    }
+
     @Override
     public String getName() {
-        return null;
+        return this.character_name;
     }
 
     public void setOrientation(MoveDirection moveToDirection){
@@ -87,6 +129,7 @@ public class Hero extends GameObject{
     }
 
     public int getCol(){
+
         return this.col;
     }
 

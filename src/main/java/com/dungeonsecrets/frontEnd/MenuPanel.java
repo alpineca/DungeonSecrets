@@ -1,5 +1,9 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
+import com.dungeonsecrets.backEnd.gameGridObjects.InventoryTile;
+import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
+import com.dungeonsecrets.backEnd.processors.AttackMode;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
@@ -8,7 +12,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static com.dungeonsecrets.frontEnd.EnemyPanel.enemyHealth;
+import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
 
 public class MenuPanel {
 
@@ -26,13 +30,15 @@ public class MenuPanel {
         attack.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                Monster focusedMonster = GameSetup.getInstance().getFocusedMonster();
+//                int currentHP = GameGrid.selectedEnemy.getCurrentHp();
+//
+//                GameGrid.selectedEnemy.setCurrentHp(currentHP - 20);
+//                enemyHealth.setValue(currentHP - 20);
+//
+//                enemyHealth.setString(enemyHealth.getValue()+"");
+                AttackMode.attackMonster(focusedMonster);
 
-                int currentHP = GameGrid.selectedEnemy.getCurrentHp();
-
-                GameGrid.selectedEnemy.setCurrentHp(currentHP - 20);
-                enemyHealth.setValue(currentHP - 20);
-
-                enemyHealth.setString(enemyHealth.getValue()+"");
 
             }
 
