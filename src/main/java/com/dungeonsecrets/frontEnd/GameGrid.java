@@ -126,11 +126,11 @@ public class GameGrid extends JPanel implements MouseListener{
 //            System.out.println("Hero " + "Row: " + row + " Col: " + col);
 //        }
         if(this.isEnemy(selectedElement)){
-//            boolean isCloseToHero = isCloseToHero()
-            DistanceCalculation.isCloseToHero((Monster) selectedElement);
+            boolean isCloseToHero = DistanceCalculation.isCloseToHero((Monster) selectedElement);
             GameSetup.getInstance().focusMonster((Monster) selectedElement);
-            MenuPanel.attack.setEnabled(true);
-//
+            if(isCloseToHero){
+                MenuPanel.attack.setEnabled(true);
+            }
             enemyHealth.setMaximum(selectedElement.getMaxHP());
             enemyHealth.setValue(selectedElement.getCurrentHp());
             selectedEnemy = selectedElement;

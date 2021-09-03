@@ -7,8 +7,10 @@ import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
 
 public class DistanceCalculation {
 
-    public static void isCloseToHero(Monster selectedMonster){
-        GameObject character = GameSetup.getInstance().getCharacter();
+    public static boolean isCloseToHero(Monster selectedMonster){
+        GameObject character        = GameSetup.getInstance().getCharacter();
+        int minimalDistanceToAttack = 2;
+
         int charRow             = character.getRow();
         int charCol             = character.getCol();
 
@@ -20,14 +22,17 @@ public class DistanceCalculation {
 
 
         int distanceCoeficient  = rowsDistance + colsDistance;
+        if(distanceCoeficient <= minimalDistanceToAttack){
+            return true;
+        }
+//
+//        System.out.println("***************************");
+//        System.out.println("Monster possition:   " +monsterRow+"/"+monsterCol);
+//        System.out.println("Character possition: " +charRow+"/"+charCol);
+//        System.out.println("Distance: " +distanceCoeficient);
 
-        System.out.println("***************************");
-        System.out.println("Monster possition:   " +monsterRow+"/"+monsterCol);
-        System.out.println("Character possition: " +charRow+"/"+charCol);
-        System.out.println("Distance: " +distanceCoeficient);
 
-
-//        return false;
+        return false;
     }
 
     private static int rowsDistance(int a, int b){
