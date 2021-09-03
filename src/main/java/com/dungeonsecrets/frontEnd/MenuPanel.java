@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
+import static com.dungeonsecrets.frontEnd.EnemyPanel.enemyHealth;
 
 public class MenuPanel {
 

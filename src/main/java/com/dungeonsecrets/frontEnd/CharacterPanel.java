@@ -15,7 +15,7 @@ public class CharacterPanel extends JPanel {
     private static int height;
     private static int width;
     CharacterPanel(){
-        this.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.01), (int) ((ScreenResolution.getScreenWidth())*0.20), (int) ((ScreenResolution.getScreenHeight())*0.15));
+        this.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82), (int) ((ScreenResolution.getScreenHeight())*0.01), (int) ((ScreenResolution.getScreenWidth())*0.20), (int) ((ScreenResolution.getScreenHeight())*0.15));
         height = this.getHeight();
         width  = this.getWidth();
         this.setLayout(null);

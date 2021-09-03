@@ -16,7 +16,7 @@ public class EnemyPanel extends JPanel {
     private static int height;
     private static int width;
     EnemyPanel(){
-        this.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.17), (int) ((ScreenResolution.getScreenWidth())*0.20), (int) ((ScreenResolution.getScreenHeight())*0.15));
+        this.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82), (int) ((ScreenResolution.getScreenHeight())*0.17), (int) ((ScreenResolution.getScreenWidth())*0.20), (int) ((ScreenResolution.getScreenHeight())*0.15));
         height = this.getHeight();
         width  = this.getWidth();
         this.setLayout(null);
