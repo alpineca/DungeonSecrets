@@ -17,8 +17,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
-import static com.dungeonsecrets.frontEnd.SidePanel.enemyName;
+import static com.dungeonsecrets.frontEnd.EnemyPanel.enemyHealth;
+import static com.dungeonsecrets.frontEnd.EnemyPanel.enemyName;
 
 public class GameGrid extends JPanel implements MouseListener{
     private Chapter1 chapter            = new Chapter1();
