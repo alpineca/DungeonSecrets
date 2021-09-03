@@ -34,6 +34,7 @@ public class ChooseCharacterPanel extends JPanel {
     JButton selectButton                                        = new JButton("Select");
     JButton createButton                                        = new JButton("Create New Character");
     JButton backButton                                          = new JButton("Back");
+    JButton deleteButton                                        = new JButton("Delete");
     JPanel characterInfoPanel                                   = new JPanel();
     JLabel characterInfoLabel                                   = new JLabel();
     JSplitPane characterSplitPane                               = new JSplitPane();
@@ -86,7 +87,7 @@ public class ChooseCharacterPanel extends JPanel {
         });
 
 
-        backButton.setBounds(680,670,200,50);
+        backButton.setBounds((int)(ScreenResolution.getScreenWidth()*0.60),(int)(ScreenResolution.getScreenHeight()*0.955),(int)(ScreenResolution.getScreenWidth()*0.10),(int)(ScreenResolution.getScreenHeight()*0.045));
         backButton.setForeground(new Color(111,0,0));
         backButton.setBackground(new Color(196,153,80));
         backButton.setFocusable(false);
@@ -98,7 +99,22 @@ public class ChooseCharacterPanel extends JPanel {
             }
         });
 
-        selectButton.setBounds(1080,670,200,50);
+        deleteButton.setBounds((int)(ScreenResolution.getScreenWidth()*0.70),(int)(ScreenResolution.getScreenHeight()*0.955),(int)(ScreenResolution.getScreenWidth()*0.10),(int)(ScreenResolution.getScreenHeight()*0.045));
+        deleteButton.setForeground(new Color(111,0,0));
+        deleteButton.setBackground(new Color(196,153,80));
+        deleteButton.setFocusable(false);
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                new ButtonClickSound();
+                if(e.getSource() == deleteButton){
+
+                }
+            }
+        });
+
+        selectButton.setBounds((int)(ScreenResolution.getScreenWidth()*0.90),(int)(ScreenResolution.getScreenHeight()*0.955),(int)(ScreenResolution.getScreenWidth()*0.10),(int)(ScreenResolution.getScreenHeight()*0.045));
         selectButton.setForeground(new Color(111,0,0));
         selectButton.setBackground(new Color(196,153,80));
         selectButton.setFocusable(false);
@@ -107,7 +123,7 @@ public class ChooseCharacterPanel extends JPanel {
             selectButton.setVisible(false);
         }
 
-        createButton.setBounds(880,670,200,50);
+        createButton.setBounds((int)(ScreenResolution.getScreenWidth()*0.80),(int)(ScreenResolution.getScreenHeight()*0.955),(int)(ScreenResolution.getScreenWidth()*0.10),(int)(ScreenResolution.getScreenHeight()*0.045));
         createButton.setForeground(new Color(111,0,0));
         createButton.setBackground(new Color(196,153,80));
         createButton.setFocusable(false);
@@ -147,6 +163,7 @@ public class ChooseCharacterPanel extends JPanel {
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setLayout(null);
 
+        this.add(deleteButton);
         this.add(backButton);
         this.add(createButton);
         this.add(selectButton);
