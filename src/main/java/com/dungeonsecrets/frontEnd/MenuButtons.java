@@ -178,7 +178,46 @@ public class MenuButtons {
         return menuButtonInventory();
     }
 
+    private static JLabel menuButtonEncyclopedia(){
+        JLabel menuButtonEncyclopedia = new JLabel("Encyclopedia");
+        ImageIcon actionIcon = new ImageIcon( "src/main/resources/imgs/EncyclopediaButton.png");
+        menuButtonEncyclopedia.setIcon(actionIcon);
+        menuButtonEncyclopedia.setBounds((int) ((ScreenResolution.getScreenWidth())*0.915), (int) ((ScreenResolution.getScreenHeight())*0.34), 51, 51);
+        menuButtonEncyclopedia.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
 
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                new ButtonClickSound();
+                ImageIcon actionIconPressed = new ImageIcon( "src/main/resources/imgs/EncyclopediaButtonPressed.png");
+                menuButtonEncyclopedia.setIcon(actionIconPressed);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                MenuPanel.openMenuPanelEncyclopedia();
+                menuButtonEncyclopedia.setIcon(actionIcon);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        return menuButtonEncyclopedia;
+    }
+    public static JLabel getMenuButtonEncyclopedia(){
+        return menuButtonEncyclopedia();
+    }
 
 
 }
