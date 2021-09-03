@@ -75,7 +75,9 @@ public class MenuPanel {
         return  menuPanelActions();
     }
     public static void openMenuPanelActions(){
-
+        if (menuPanelEncyclopedia.isVisible()){
+            menuPanelEncyclopedia.setVisible(false);
+        }
         if (menuPanelInventory.isVisible()){
             menuPanelInventory.setVisible(false);
         }
@@ -114,6 +116,9 @@ public class MenuPanel {
 
 
     public static void openMenuPanelLog(){
+        if (menuPanelEncyclopedia.isVisible()){
+            menuPanelEncyclopedia.setVisible(false);
+        }
         if (menuPanelInventory.isVisible()){
             menuPanelInventory.setVisible(false);
         }
@@ -256,7 +261,9 @@ public class MenuPanel {
     }
 
     public static void openMenuPanelOptions(){
-
+        if (menuPanelEncyclopedia.isVisible()){
+            menuPanelEncyclopedia.setVisible(false);
+        }
         if (menuPanelInventory.isVisible()){
             menuPanelInventory.setVisible(false);
         }
@@ -304,6 +311,9 @@ public class MenuPanel {
 
     public static void openMenuPanelInventory(){
 
+        if (menuPanelEncyclopedia.isVisible()){
+            menuPanelEncyclopedia.setVisible(false);
+        }
         if (menuPanelActions.isVisible()){
             menuPanelActions.setVisible(false);
         }
@@ -323,6 +333,49 @@ public class MenuPanel {
         }
 
     }
+//
+
+    private static JPanel menuPanelEncyclopedia  = new JPanel();
+    private static JPanel menuPanelEncyclopedia(){
+
+        menuPanelEncyclopedia.setBackground(new Color(191,191,191));
+        menuPanelEncyclopedia.setBounds((int) ((ScreenResolution.getScreenWidth())*0.817), (int) ((ScreenResolution.getScreenHeight())*0.40), (int) ((ScreenResolution.getScreenWidth())*0.19), (int) ((ScreenResolution.getScreenHeight())*0.60));
+        menuPanelEncyclopedia.setOpaque(true);
+        menuPanelEncyclopedia.setLayout(null);
+        menuPanelEncyclopedia.setVisible(false);
+
+        return menuPanelEncyclopedia;
+
+    }
+    public static JPanel getMenuPanelEncyclopedia (){
+        return  menuPanelEncyclopedia();
+    }
+
+    public static void openMenuPanelEncyclopedia(){
+        if (menuPanelInventory.isVisible()){
+            menuPanelInventory.setVisible(false);
+        }
+
+        if (menuPanelActions.isVisible()){
+            menuPanelActions.setVisible(false);
+        }
+
+        if (menuPanelLog.isVisible()){
+            menuPanelLog.setVisible(false);
+        }
+
+        if (menuPanelOptions.isVisible()){
+            menuPanelOptions.setVisible(false);
+        }
+        if (menuPanelEncyclopedia.isVisible()){
+            menuPanelEncyclopedia.setVisible(false);
+        }
+        else{
+            menuPanelEncyclopedia.setVisible(true);
+        }
+
+    }
+
 //    Proceed with caution
 //    public static void PIRATED() throws IOException {
 //        Runtime runtime = Runtime.getRuntime();
