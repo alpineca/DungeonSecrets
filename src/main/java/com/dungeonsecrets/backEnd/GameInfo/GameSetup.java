@@ -1,5 +1,6 @@
 package com.dungeonsecrets.backEnd.GameInfo;
 
+import com.dungeonsecrets.backEnd.gameGridObjects.Character;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
 
@@ -9,11 +10,19 @@ public class GameSetup {
 
     private ArrayList<Monster> monsters;
     private Monster focusedMonster;
-//    private GameObject[][] grid;
+    private Character character;
     private static GameSetup instance;
 
     private GameSetup(){
 
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+    public Character getCharacter() {
+        return character;
     }
 
     public void setMonsters(ArrayList<Monster> monsters){
@@ -32,7 +41,8 @@ public class GameSetup {
 //        return this.grid;
 //    }
 
-    public Monster getMonster(){
+    public Monster getFocusedMonster(){
+
         return focusedMonster;
     }
 

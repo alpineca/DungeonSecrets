@@ -7,8 +7,9 @@ import java.util.ArrayList;
 
 public class Chapter1 {
 
+    //TODO: Spawn conflict with character for fix
     ArrayList<Monster> monsters = new ArrayList<>();
-    Monster monster1 = new Monster(5, 10);
+    Monster monster1 = new Monster(5, 12);
     Monster monster2 = new Monster(8, 12);
     Monster monster3 = new Monster(12, 6);
     Monster monster4 = new Monster(11, 5);
@@ -21,6 +22,8 @@ public class Chapter1 {
 
 
     public Chapter1(){
+
+        //TODO: Array and loop
         monsters.add(monster1);
         monster1.setMaxHP(600);
         monster1.setCurrentHp(600);

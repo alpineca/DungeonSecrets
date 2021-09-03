@@ -1,16 +1,19 @@
 package com.dungeonsecrets.backEnd.GameInfo;
 
 import com.dungeonsecrets.backEnd.enums.LoginResult;
+import com.dungeonsecrets.backEnd.enums.MoveDirection;
+import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.objects.characterListItem;
 import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
 import com.dungeonsecrets.backEnd.utility.PasswordHash;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CurrentHero {
+public class CurrentHero extends GameObject {
     private String character_name;
     private int hero_id;
 
@@ -54,6 +57,22 @@ public class CurrentHero {
     public void setCol(int newCol) {
         this.col = newCol;
     }
+
+    @Override
+    public void setOrientation(MoveDirection moveToDirection) {
+
+    }
+
+    @Override
+    public void render(Graphics g) {
+
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
     public void setHero(characterListItem hero) {
         int user_id         = CurrentUser.getInstance().getUser_id();
         System.out.println("Current user id: " + user_id);

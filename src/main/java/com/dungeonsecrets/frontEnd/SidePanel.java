@@ -1,6 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
+import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
@@ -59,12 +60,13 @@ public class SidePanel {
     private static JLabel heroName(){
 
         JLabel heroName = new JLabel();
-
-        heroName.setText(CurrentHero.getInstance().getCharacter_name());
+        String heroNameBe = GameSetup.getInstance().getCharacter().getName();
+        heroName.setText(heroNameBe);
         heroName.setFont(new Font("Immortal",Font.BOLD,20));
         heroName.setForeground(new Color(245, 170, 7));
         heroName.setBounds((int) ((ScreenResolution.getScreenWidth())*0.82),(int) ((ScreenResolution.getScreenHeight())*0.04),(int) ((ScreenResolution.getScreenWidth())*0.05),(int) ((ScreenResolution.getScreenHeight())*0.11));
 
+        heroName.repaint();
         return heroName;
     }
     public static JLabel getHeroName() {
