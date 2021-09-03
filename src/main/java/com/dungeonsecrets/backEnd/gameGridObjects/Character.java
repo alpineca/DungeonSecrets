@@ -42,6 +42,7 @@ import java.util.Objects;
 public class Character extends GameObject{
     private String character_name;
     private int hero_id;
+    private int uniqie_item_id;
     private int row;
     private int col;
 
@@ -110,6 +111,7 @@ public class Character extends GameObject{
         return this.character_name;
     }
 
+
     public void setOrientation(MoveDirection moveToDirection){
         if(moveToDirection.equals(MoveDirection.UP)){
             iconToShow = iconUp;
@@ -138,6 +140,13 @@ public class Character extends GameObject{
     }
     public void setCol(int col){
         this.col = col;
+    }
+
+    public int getHeroId() {
+        return this.hero_id;
+    }
+    public int getUniqueId() {
+        return this.uniqie_item_id;
     }
 }
 

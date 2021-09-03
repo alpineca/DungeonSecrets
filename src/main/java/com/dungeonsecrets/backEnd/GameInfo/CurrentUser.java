@@ -3,6 +3,7 @@ package com.dungeonsecrets.backEnd.GameInfo;
 public class CurrentUser {
     private String username;
     private int user_id;
+    private int hero_id;
     private static CurrentUser instance = new CurrentUser();
 
 
@@ -29,5 +30,8 @@ public class CurrentUser {
 
     public int getUser_id() {
         return this.user_id;
+    }
+    public int getHero_id() {
+        return this.hero_id;
     }
 }
