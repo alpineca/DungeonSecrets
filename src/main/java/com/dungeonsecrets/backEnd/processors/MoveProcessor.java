@@ -42,10 +42,10 @@ public class MoveProcessor {
             newHeroRow = lastHeroRow + 1;
             hero.setOrientation(direction);
         }
-
-        System.out.println(" *******  *********  ******** ");
-        System.out.println(hero.getName() + " moved to:");
-        System.out.println("ROW: " + lastHeroRow + " , COL: " + lastHeroCol);
+//
+//        System.out.println(" *******  *********  ******** ");
+//        System.out.println(hero.getName() + " moved to:");
+//        System.out.println("ROW: " + lastHeroRow + " , COL: " + lastHeroCol);
 
         if(newHeroCol < 0 || newHeroCol > gameGridCols) {
             newHeroCol = lastHeroCol;
@@ -98,11 +98,11 @@ public class MoveProcessor {
             return;
         }
 
-        System.out.println(" *******  *********  ******** ");
-        System.out.println(monster.getName() + " moved from:");
-        System.out.println("ROW: " + lastMonsterRow + " , COL: " + lastMonsterCol);
-        System.out.println(monster.getName() + " moved to:");
-        System.out.println("ROW: " + newMonsterRow + " , COL: " + newMonsterCol);
+//        System.out.println(" *******  *********  ******** ");
+//        System.out.println(monster.getName() + " moved from:");
+//        System.out.println("ROW: " + lastMonsterRow + " , COL: " + lastMonsterCol);
+//        System.out.println(monster.getName() + " moved to:");
+//        System.out.println("ROW: " + newMonsterRow + " , COL: " + newMonsterCol);
 
         if(newMonsterCol < 0 || newMonsterCol > gameGridCols) {
             newMonsterCol = lastMonsterCol;

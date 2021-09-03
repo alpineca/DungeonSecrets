@@ -33,6 +33,9 @@ public class Tile extends GameObject{
     private int height;
     private int width;
 
+    //Only for testing purposes
+    private boolean showGridCoordinates = true;
+
     public Tile(int row, int col) {
         this.row = row;
         this.col = col;
@@ -76,15 +79,17 @@ public class Tile extends GameObject{
         int tileX = this.col * tileWidth;
         int tileY = this.row * tileHeight;
 
-//FOR GRID COORDINATES DISPLAY
-//
-//        int placementCoefficientX = (tileWidth / 2) - 10;
-//        int placementCoefficientY = (tileHeight / 2) + 7;
-//        g.setColor(Color.gray);
-//        g.drawRect(tileX, tileY, tileWidth, tileHeight);
-//        g.setColor(Color.BLACK);
-//        g.setFont(new Font("", Font.BOLD, 12));
-//        g.drawString("" +this.row + "/" + this.col, tileX + placementCoefficientX, tileY  + placementCoefficientY);
+        //Only for testing purposes
+        if(showGridCoordinates){
+            int placementCoefficientX = (tileWidth / 2) - 10;
+            int placementCoefficientY = (tileHeight / 2) + 7;
+            g.setColor(Color.gray);
+            g.drawRect(tileX, tileY, tileWidth, tileHeight);
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("", Font.BOLD, 12));
+            g.drawString("" +this.row + "/" + this.col, tileX + placementCoefficientX, tileY  + placementCoefficientY);
+        }
+
 
     }
 

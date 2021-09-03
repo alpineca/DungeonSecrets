@@ -1,5 +1,7 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
+import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 import com.dungeonsecrets.backEnd.processors.MonsterMoveProcessor;
 import com.dungeonsecrets.backEnd.processors.MoveProcessor;
@@ -43,7 +45,7 @@ public class MainPanel extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        GameObject hero     = GameGrid.getInstance().getHero();
+        GameObject hero     = GameSetup.getInstance().getCharacter();
         GameObject[][] grid = GameGrid.getInstance().getGrid();
 
         MonsterMoveProcessor.moveAllMonsters();
