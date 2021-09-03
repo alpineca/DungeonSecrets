@@ -1,6 +1,5 @@
 package com.dungeonsecrets.frontEnd;
 
-import com.dungeonsecrets.backEnd.gameGridObjects.InventoryTile;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.sound.ButtonClickSound;
 
@@ -9,7 +8,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static com.dungeonsecrets.frontEnd.SidePanel.enemyHealth;
+import static com.dungeonsecrets.frontEnd.EnemyPanel.enemyHealth;
 
 public class MenuPanel {
 
@@ -34,7 +33,6 @@ public class MenuPanel {
                 enemyHealth.setValue(currentHP - 20);
 
                 enemyHealth.setString(enemyHealth.getValue()+"");
-
 
             }
 
