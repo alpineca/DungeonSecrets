@@ -1,6 +1,5 @@
 package com.dungeonsecrets.frontEnd.CharactersMenu;
 
-import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.gameGridObjects.Character;
 import com.dungeonsecrets.backEnd.objects.characterListItem;
@@ -8,8 +7,6 @@ import com.dungeonsecrets.backEnd.objects.characterListItem;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;
-import com.dungeonsecrets.frontEnd.GameGrid;
-import com.dungeonsecrets.frontEnd.LoginMenu;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.frontEnd.MainMenuPanel;
 import com.dungeonsecrets.sound.ButtonClickSound;
@@ -62,7 +59,7 @@ public class ChooseCharacterPanel extends JPanel {
             public void valueChanged(ListSelectionEvent e) {
                 characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
 
-                characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUser_id());
+                characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUserId());
                 Character.getInstance().setHero(chosenCharacter);
                 isHeroSelected = true;
                 //put the select button outside in order to fix the "double tap" bug

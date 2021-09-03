@@ -23,13 +23,11 @@
 package com.dungeonsecrets.backEnd.gameGridObjects;
 
 
-import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.enums.MoveDirection;
 import com.dungeonsecrets.backEnd.objects.characterListItem;
 import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
-import com.dungeonsecrets.frontEnd.SidePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,13 +35,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class Character extends GameObject{
     private String character_name;
     private int hero_id;
     private int row;
     private int col;
+    private int hitPoints;
+    private int armorPoints;
+    private int maxHP       = 1000;
+    private int currentHp   = 1000;
 
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
@@ -81,7 +82,7 @@ public class Character extends GameObject{
     }
 
     public void setHero(characterListItem hero) {
-        int user_id         = CurrentUser.getInstance().getUser_id();
+        int user_id         = CurrentUser.getInstance().getUserId();
         System.out.println("Current user id: " + user_id);
         String selectHero   = "SELECT * FROM heroes WHERE hero_id = '" + hero.getHeroId() +
                 "' and character_name = '"+ hero.getCharacterName() +"'";

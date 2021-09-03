@@ -23,8 +23,8 @@ public class GetHeroList {
     }
 
     private static ArrayList<characterListItem> extractFromDB(){
-        String heroQuery = "SELECT * FROM `heroes` WHERE user_id = '" + CurrentUser.getInstance().getUser_id() + "'";
-        System.out.println(CurrentUser.getInstance().getUser_id() + " ID");
+        String heroQuery = "SELECT * FROM `heroes` WHERE user_id = '" + CurrentUser.getInstance().getUserId() + "'";
+        System.out.println(CurrentUser.getInstance().getUserId() + " ID");
         try {
             Connection connection = ConnectDatabase.getConnection();
             PreparedStatement st = connection.prepareStatement(heroQuery);
