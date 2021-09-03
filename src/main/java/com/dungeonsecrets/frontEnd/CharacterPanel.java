@@ -51,7 +51,7 @@ public class CharacterPanel extends JPanel {
         characterName.setText("Character");
         characterName.setFont(new Font("Immortal",Font.PLAIN,15));
         characterName.setForeground(new Color(245, 170, 7));
-        characterName.setBounds((int)(width*0.65),(int)(height*0.70),(int)(width*0.30),(int)(height*0.40));
+        characterName.setBounds((int)(width*0.05),(int)(height*0.65),(int)(width*0.30),(int)(height*0.40));
         return characterName;
     }
     public static JLabel getCharacterName() {

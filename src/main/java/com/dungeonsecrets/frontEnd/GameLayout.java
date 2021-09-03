@@ -11,52 +11,37 @@ public class GameLayout extends JPanel{
     }
 
     public JPanel bootstrap() {
-        //make the main frame
 
         this.setBounds(0, 0 , ScreenResolution.getScreenWidth(), ScreenResolution.getScreenHeight());
         this.setLayout(null);
-       // this.setBackground(Color.darkGray);
         this.setVisible(true);
 
-        //layering panels
 
-
+        //ADDING MENU BUTTONS
         this.add(MenuButtons.getMenuButtonOptions());
         this.add(MenuButtons.getMenuButtonActions());
         this.add(MenuButtons.getMenuButtonLog());
         this.add(MenuButtons.getMenuButtonInventory());
         this.add(MenuButtons.getMenuButtonEncyclopedia());
-        //this.add(MenuPanel.getMenuPanel());
 
+        //ADDING MENU PANELS
         this.add(MenuPanel.getMenuPanelOptions());
         this.add(MenuPanel.getMenuPanelActions());
         this.add(MenuPanel.getMenuPanelLog());
         this.add(MenuPanel.getMenuPanelInventory());
         this.add(MenuPanel.getMenuPanelEncyclopedia());
 
+        // GAME ELEMENTS
         MainPanel mainPanel = new MainPanel();
-
-
         BackGround background = new BackGround();
         this.add(background);
 
-
-        //hero health overlaps side panel. I dont know how to do this better
-        this.add(SidePanel.getHeroLabel());
-        this.add(SidePanel.getHeroName());
-        this.add(SidePanel.getHeroHealth());
-        this.add(SidePanel.getHeroResources());
-
-        this.add(SidePanel.getEnemyLabel());
-        this.add(SidePanel.getEnemyName());
-        this.add(SidePanel.getEnemyHealth());
-        this.add(SidePanel.getEnemyResources());
+        CharacterPanel characterPanel = new CharacterPanel();
+        this.add(characterPanel);
+        EnemyPanel enemyPanel = new EnemyPanel();
+        this.add(enemyPanel);
 
 
-
-       // this.add(SidePanel.getEmptyLabel());
-
-        //adding side panel to the main frame .. bars should be added in the side panel class
         this.add(SidePanel.getSidePanel());
         this.add(mainPanel);
 
