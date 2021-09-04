@@ -47,7 +47,7 @@ public class Item extends ItemObjects{
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     public String getDmg() {
