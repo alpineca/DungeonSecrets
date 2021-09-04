@@ -15,6 +15,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MainPanel extends JPanel implements KeyListener {
+    MonsterAction move = new MonsterAction();
+
+    Thread monsterAction = new Thread(move);
 
 
 
@@ -51,11 +54,13 @@ public class MainPanel extends JPanel implements KeyListener {
         GameObject[][] grid = GameGrid.getInstance().getGrid();
 
         if(TurnSelector.getInstance().isItsPlayerTurn()){
+//            monsterAction = new Thread(move);
             MoveProcessor.doMove(hero, grid, e.getKeyCode());
             this.repaint();
             TurnSelector.getInstance().toggle();
+            moveMonsters();
         }
-        MonsterAction.moveMonsters();
+//        MonsterAction.moveMonsters();
         GameGrid.getInstance().repaint();
     }
 
@@ -63,5 +68,12 @@ public class MainPanel extends JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
 //        System.out.println(GameGrid.getInstance().getHero().getRow());
 //        System.out.println("keyReleased");
+    }
+
+    private void moveMonsters(){
+        new Thread(() -> {
+            MonsterAction.moveMonsters();
+            this.repaint();
+        }).start();
     }
 }

@@ -1,14 +1,27 @@
 package com.dungeonsecrets.backEnd.processors;
 
-public class MonsterAction {
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+public class MonsterAction implements Runnable{
+
+    public MonsterAction(){
+
+    }
 
     public static void moveMonsters(){
-//        try {
-//            Thread.sleep(800);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        int randomDecisionTime = new Random().nextInt(3);
+        try {
+            TimeUnit.SECONDS.sleep(randomDecisionTime);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         MonsterMoveProcessor.moveAllMonsters();
         TurnSelector.getInstance().toggle();
+    }
+
+    @Override
+    public void run() {
+        moveMonsters();
     }
 }
