@@ -106,7 +106,7 @@ public class ChooseCharacterPanel extends JPanel {
 
                 new ButtonClickSound();
                 if(e.getSource() == deleteButton){
-
+                    System.out.println("FOR DELETE ID: "+Character.getInstance().getHeroId());
                 }
             }
         });

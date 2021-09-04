@@ -29,6 +29,8 @@ public class Monster extends GameObject {
 
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
+    private Monster instance;
+    private boolean isAlive = true;
 
     private Image iconUp    = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
     private Image iconDown  = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
@@ -40,6 +42,7 @@ public class Monster extends GameObject {
     public Monster(int row, int col) {
         monsterInit(row, col);
         this.iconToShow = iconRight;
+        instance = this;
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
@@ -105,6 +108,15 @@ public class Monster extends GameObject {
         this.url            = monster.getString("url");
 
 
+    }
+    public void kill(){
+        this.isAlive = false;
+        this.row     = -1;
+        this.col     = -1;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
     }
 
     public int getCurrentHp() {

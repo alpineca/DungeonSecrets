@@ -22,6 +22,16 @@ public class Main {
         MusicManager.music = new MusicThread();
         MusicManager.music.startMusic("soundResources/MainMenuMusic.wav");
 
+
+//        String hit_dice = "18d10";
+//        String[] hit_dice_param = hit_dice.split("d");
+//        int dicesCount = Integer.parseInt(hit_dice_param[0]);
+//        int diceWalls  = Integer.parseInt(hit_dice_param[1]);
+//
+//        System.out.println("Hit dice: " + hit_dice);
+//        System.out.println("Dices count: " + dicesCount);
+//        System.out.println("Dice walls: " + diceWalls);
+
     }
 
 }

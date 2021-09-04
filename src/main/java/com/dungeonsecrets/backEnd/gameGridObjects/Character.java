@@ -133,6 +133,10 @@ public class Character extends GameObject{
 
         return this.col;
     }
+    public int getHeroId(){
+        return this.hero_id;
+    }
+
 
     public void setRow(int row){
         this.row = row;
