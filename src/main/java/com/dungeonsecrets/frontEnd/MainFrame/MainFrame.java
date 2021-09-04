@@ -1,13 +1,8 @@
 package com.dungeonsecrets.frontEnd.MainFrame;
 
+import com.dungeonsecrets.frontEnd.*;
 import com.dungeonsecrets.frontEnd.CharactersMenu.ChooseCharacterPanel;
 import com.dungeonsecrets.frontEnd.CharactersMenu.CreateCharacter;
-import com.dungeonsecrets.frontEnd.MainMenuPanel;
-import com.dungeonsecrets.frontEnd.MultiPlayerMenuPanel;
-import com.dungeonsecrets.frontEnd.EncyclopediaMenuPanel;
-import com.dungeonsecrets.frontEnd.GameLayout;
-import com.dungeonsecrets.frontEnd.LoginMenu;
-import com.dungeonsecrets.frontEnd.RegisterMenu;
 
 import javax.swing.*;
 
@@ -23,6 +18,7 @@ public class MainFrame {
     private static GameLayout mainLayout;
     private static CreateCharacter createCharactersMenu;
     private static ChooseCharacterPanel chooseCharacterMenu;
+    private static GameOverPanel gameOverPanel;
 
     public MainFrame(){
 
@@ -34,7 +30,6 @@ public class MainFrame {
         openLoginMenu();
 
 //        mainFrame.add(mainLayout);
-
 //        chooseCharacterMenu.setVisible(false);
 //        createCharactersMenu.setVisible(false);
 //        loginMenu.setVisible(true);
@@ -43,9 +38,13 @@ public class MainFrame {
 //        multiPlayerMenu.setVisible(false);
 //        encyclopediaMenu.setVisible(false);
 //        mainMenuPanel.setVisible(false);
-
         mainFrame.setVisible(true);
 
+    }
+    public static void openGameOverMenu(){
+        gameOverPanel = new GameOverPanel();
+        mainFrame.add(gameOverPanel);
+        gameOverPanel.setVisible(true);
     }
 
     public static void openChooseCharacterMenu(){
@@ -96,6 +95,11 @@ public class MainFrame {
         encyclopediaMenu = new EncyclopediaMenuPanel();
         mainFrame.add(encyclopediaMenu);
         encyclopediaMenu.setVisible(true);
+    }
+
+    public static void closeGameOverMenu(){
+        gameOverPanel.setVisible(false);
+        mainFrame.remove(gameOverPanel);
     }
 
     public static void closeChooseCharacterMenu(){

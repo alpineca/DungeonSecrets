@@ -19,7 +19,7 @@ public class MenuPanel {
     //ACTION MENU PANEL
 
     private static JPanel menuPanelActions  = new JPanel();
-    public static JLabel attack            = new JLabel("Attack");
+    public static JLabel attack            = new JLabel();
 
     private static JPanel menuPanelActions(){
 

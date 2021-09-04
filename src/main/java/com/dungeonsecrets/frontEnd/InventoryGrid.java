@@ -1,15 +1,18 @@
 package com.dungeonsecrets.frontEnd;
 
+import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
 import com.dungeonsecrets.backEnd.gameGridObjects.*;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
+import com.dungeonsecrets.chapters.Chapter1;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class InventoryGrid extends JPanel implements MouseListener{
-
+    private Chapter1 chapter            = new Chapter1();
     private static InventoryGrid instance;
     private int inventoryGridRows = 4;
     private int inventoryGridCols = 7;
@@ -64,19 +67,27 @@ public class InventoryGrid extends JPanel implements MouseListener{
         return inventory;
     }
 
-
     private void spawnItem(){
 
-        int itemRow = 0;
-        int itemCol = 0;
-        System.out.println("Current item row: " + itemRow);
-        System.out.println("Current item col: " + itemCol);
-        item = new Item(itemRow, itemCol);
-        inventory[itemRow][itemCol] = item;
+        ArrayList<Item> items = chapter.getItems();
+        for(ItemObjects item : items){
+            int iRow = item.getRow();
+            int iCol = item.getCol();
+            inventory[iRow][iCol] = item;
+        }
+//
+//        int itemRow = 0;
+//        int itemCol = 0;
+//        System.out.println("Current item row: " + itemRow);
+//        System.out.println("Current item col: " + itemCol);
+//        item = new Item(itemRow, itemCol);
+//        inventory[itemRow][itemCol] = item;
 
     }
 
-//    public static GameObject selectedEnemy;
+
+
+    //    public static GameObject selectedEnemy;
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -91,8 +102,23 @@ public class InventoryGrid extends JPanel implements MouseListener{
             System.out.println("Inventory Tile " + "Row: " + row + " Col: " + col);
         }
 
-    }
+        if(this.isItem(selectedElement)){
+            selectedElement = this.getInventoryObject(row, col);
+            System.out.println(selectedElement.getName() + " Row: " + row + " Col: " + col);
+            System.out.println("DMG: " + selectedElement.getDmg());
 
+            if(SwingUtilities.isRightMouseButton(e) && selectedElement.isEquipped()){
+                selectedElement.setEquipped(false);
+                selectedElement.setIcon(new ImageIcon("src/main/resources/imgs/Steel_Dagger.png").getImage());
+                repaint();
+            }else if(SwingUtilities.isRightMouseButton(e) && !selectedElement.isEquipped()){
+                selectedElement.setEquipped(true);
+                selectedElement.setIcon(new ImageIcon("src/main/resources/imgs/Steel_Dagger_Equipped.png").getImage());
+                repaint();
+            }
+        }
+
+    }
     @Override
     public void mousePressed(MouseEvent e) {
 
@@ -129,6 +155,11 @@ public class InventoryGrid extends JPanel implements MouseListener{
     private boolean isInventoryTile(ItemObjects instance) {
         return instance instanceof InventoryTile;
     }
+
+    private boolean isItem(ItemObjects instance) {
+        return instance instanceof Item;
+    }
+
 
 }
 

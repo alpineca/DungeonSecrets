@@ -4,6 +4,7 @@ import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.gameGridObjects.Character;
 import com.dungeonsecrets.backEnd.objects.characterListItem;
 //import com.dungeonsecrets.backEnd.processors.Character;
+import com.dungeonsecrets.backEnd.processors.DeleteCharacter;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 import com.dungeonsecrets.frontEnd.BackgroundWithoutLogo;
@@ -106,7 +107,10 @@ public class ChooseCharacterPanel extends JPanel {
 
                 new ButtonClickSound();
                 if(e.getSource() == deleteButton){
-                    System.out.println("FOR DELETE ID: "+Character.getInstance().getHeroId());
+                    int user_id = CurrentUser.getInstance().getUser_id();
+                    int hero_id = Character.getInstance().getHeroId();
+                    int unique_item_id = Character.getInstance().getUniqueId();
+                    DeleteCharacter.deleteHeroes(user_id, hero_id, unique_item_id);
                 }
             }
         });

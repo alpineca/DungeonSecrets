@@ -132,10 +132,10 @@ public class RegisterMenu extends JPanel{
                         @Override
                         public void run() {
                             MainFrame.closeRegisterMenu();
-                            MainFrame.openLoginMenu();
+
                         }
                     };
-
+                    MainFrame.openLoginMenu();
                     timer.schedule(task, 2000);
                 }
             }
