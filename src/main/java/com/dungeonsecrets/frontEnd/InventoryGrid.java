@@ -105,15 +105,14 @@ public class InventoryGrid extends JPanel implements MouseListener{
         if(this.isItem(selectedElement)){
             selectedElement = this.getInventoryObject(row, col);
             System.out.println(selectedElement.getName() + " Row: " + row + " Col: " + col);
-            System.out.println("DMG: " + selectedElement.getDmg());
 
             if(SwingUtilities.isRightMouseButton(e) && selectedElement.isEquipped()){
                 selectedElement.setEquipped(false);
-                selectedElement.setIcon(new ImageIcon("src/main/resources/imgs/Steel_Dagger.png").getImage());
+                selectedElement.setIcon(new ImageIcon("src/main/resources/imgs/Itemz/"+selectedElement.getName()+".png").getImage());
                 repaint();
             }else if(SwingUtilities.isRightMouseButton(e) && !selectedElement.isEquipped()){
                 selectedElement.setEquipped(true);
-                selectedElement.setIcon(new ImageIcon("src/main/resources/imgs/Steel_Dagger_Equipped.png").getImage());
+                selectedElement.setIcon(new ImageIcon("src/main/resources/imgs/Itemz/"+selectedElement.getName()+" Equipped.png").getImage());
                 repaint();
             }
         }

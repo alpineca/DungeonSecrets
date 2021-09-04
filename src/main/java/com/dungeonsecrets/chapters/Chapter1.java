@@ -24,14 +24,37 @@ public class Chapter1 {
 
     ArrayList<Item> items = new ArrayList<>();
     Item steelDagger = new Item(0,0);
-
+    Item Iris = new Item(0,1);
+    Item steelDagger2 = new Item(0,2);
+    Item steelDagger3 = new Item(0,3);
+    Item steelDagger4 = new Item(1,4);
 
     public Chapter1(){
 
         items.add(steelDagger);
         steelDagger.setDmg("1d4");
         steelDagger.setName("Steel Dagger");
-        steelDagger.setIcon(new ImageIcon("src/main/resources/imgs/Steel_Dagger.png").getImage());
+        steelDagger.setIcon(new ImageIcon("src/main/resources/imgs/Itemz/Steel Dagger.png").getImage());
+
+        items.add(Iris);
+        Iris.setDmg("1d8");
+        Iris.setName("Iris");
+        Iris.setIcon(new ImageIcon("src/main/resources/imgs/Itemz/Iris.png").getImage());
+
+        items.add(steelDagger2);
+        steelDagger2.setDmg("1d4");
+        steelDagger2.setName("Steel Dagger");
+        steelDagger2.setIcon(new ImageIcon("src/main/resources/imgs/Itemz/Steel Dagger.png").getImage());
+
+        items.add(steelDagger3);
+        steelDagger3.setDmg("1d4");
+        steelDagger3.setName("Steel Dagger");
+        steelDagger3.setIcon(new ImageIcon("src/main/resources/imgs/Itemz/Steel Dagger.png").getImage());
+
+        items.add(steelDagger4);
+        steelDagger4.setDmg("1d4");
+        steelDagger4.setName("Steel Dagger");
+        steelDagger4.setIcon(new ImageIcon("src/main/resources/imgs/Itemz/Steel Dagger.png").getImage());
 
         //TODO: Array and loop
         monsters.add(monster1);
