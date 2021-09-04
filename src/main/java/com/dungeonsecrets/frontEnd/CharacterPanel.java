@@ -36,10 +36,11 @@ public class CharacterPanel extends JPanel {
 
 
     private static JLabel characterLabel(){
-        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/hero_avatar.PNG")));
+        //ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/hero_avatar.PNG")));
+        ImageIcon icon = new ImageIcon( "src/main/resources/imgs/hero_avatar.PNG");
         JLabel characterLabel = new JLabel();
         characterLabel.setIcon(icon);
-        characterLabel.setBounds((int)(width*0.65),(int)(height*0.03),(int)(width*0.30),(int)(height*0.70));
+        characterLabel.setBounds((int)(width*0.63),(int)(height*0.03),(int)(width*0.30),(int)(height*0.70));
         return characterLabel;
     }
     public static JLabel getCharacterLabel() {

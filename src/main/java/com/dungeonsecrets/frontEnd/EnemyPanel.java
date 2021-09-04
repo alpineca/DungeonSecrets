@@ -37,10 +37,11 @@ public class EnemyPanel extends JPanel {
 
 
     private static JLabel enemyLabel(){
-        ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/enemy.PNG")));
+      //  ImageIcon icon = new ImageIcon(Objects.requireNonNull(SidePanel.class.getResource("/imgs/enemy.PNG")));
+        ImageIcon icon = new ImageIcon( "src/main/resources/imgs/enemy.PNG");
         JLabel enemyLabel = new JLabel();
         enemyLabel.setIcon(icon);
-        enemyLabel.setBounds((int)(width*0.65),(int)(height*0.03),(int)(width*0.30),(int)(height*0.70));
+        enemyLabel.setBounds((int)(width*0.63),(int)(height*0.03),(int)(width*0.30),(int)(height*0.70));
         return enemyLabel;
     }
     public static JLabel getEnemyLabel() {

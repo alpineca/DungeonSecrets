@@ -14,8 +14,8 @@ public class InventoryTile extends ItemObjects{
     public InventoryTile(int row, int col) {
 
         super(row, col);
-        this.height = 50;
-        this.width  = 50;
+        this.height = (int)((ScreenResolution.getScreenHeight())*0.046);
+        this.width  = (int)((ScreenResolution.getScreenWidth())*0.026);
 
     }
 
