@@ -1,11 +1,11 @@
 package com.dungeonsecrets.backEnd.objects;
 
-public class characterListItem {
+public class CharacterListItem {
     private String character_name;
     private int hero_id;
     private int level;
 
-    public characterListItem(String character_name, int hero_id, int level){
+    public CharacterListItem(String character_name, int hero_id, int level){
         this.character_name = character_name;
         this.hero_id        = hero_id;
         this.level          = level;

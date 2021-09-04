@@ -2,7 +2,7 @@ package com.dungeonsecrets.frontEnd.CharactersMenu;
 
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
 import com.dungeonsecrets.backEnd.gameGridObjects.Character;
-import com.dungeonsecrets.backEnd.objects.characterListItem;
+import com.dungeonsecrets.backEnd.objects.CharacterListItem;
 //import com.dungeonsecrets.backEnd.processors.Character;
 import com.dungeonsecrets.backEnd.processors.DeleteCharacter;
 import com.dungeonsecrets.backEnd.processors.GetHeroList;
@@ -41,7 +41,7 @@ public class ChooseCharacterPanel extends JPanel {
 //    private ArrayList<String> heroes                            = GetHeroList.getHeroes();
 
     public ChooseCharacterPanel(){
-        ArrayList<characterListItem> heroes                            = GetHeroList.getHeroes();
+        ArrayList<CharacterListItem> heroes                            = GetHeroList.getHeroes();
         characterModel       = new DefaultListModel<>();
 
         for (int i = 0; i < heroes.size(); i++)
@@ -59,7 +59,7 @@ public class ChooseCharacterPanel extends JPanel {
         characterList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                characterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
+                CharacterListItem chosenCharacter = getCharacter(characterList.getSelectedValue(), heroes);
 
                 characterInfoLabel.setText("Name: " + CurrentUser.getInstance().getUsername()+ " ID: " + CurrentUser.getInstance().getUserId());
                 Character.getInstance().setHero(chosenCharacter);
@@ -107,7 +107,7 @@ public class ChooseCharacterPanel extends JPanel {
 
                 new ButtonClickSound();
                 if(e.getSource() == deleteButton){
-                    int user_id = CurrentUser.getInstance().getUser_id();
+                    int user_id = CurrentUser.getInstance().getUserId();
                     int hero_id = Character.getInstance().getHeroId();
                     int unique_item_id = Character.getInstance().getUniqueId();
                     DeleteCharacter.deleteHeroes(user_id, hero_id, unique_item_id);
@@ -173,8 +173,8 @@ public class ChooseCharacterPanel extends JPanel {
 
     }
 
-    private characterListItem getCharacter(String character_name, ArrayList<characterListItem> heroes){
-        for(characterListItem character : heroes){
+    private CharacterListItem getCharacter(String character_name, ArrayList<CharacterListItem> heroes){
+        for(CharacterListItem character : heroes){
             if(character.getCharacterName().equals(character_name)) return character;
         }
         return heroes.get(1);

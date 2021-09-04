@@ -2,7 +2,7 @@ package com.dungeonsecrets.backEnd.GameInfo;
 
 import com.dungeonsecrets.backEnd.enums.MoveDirection;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
-import com.dungeonsecrets.backEnd.objects.characterListItem;
+import com.dungeonsecrets.backEnd.objects.CharacterListItem;
 import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
 
 import java.awt.*;
@@ -71,7 +71,7 @@ public class CurrentHero extends GameObject {
         return null;
     }
 
-    public void setHero(characterListItem hero) {
+    public void setHero(CharacterListItem hero) {
         int user_id         = CurrentUser.getInstance().getUserId();
         System.out.println("Current user id: " + user_id);
         String selectHero   = "SELECT * FROM heroes WHERE hero_id = '" + hero.getHeroId() +
