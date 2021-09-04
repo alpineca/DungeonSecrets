@@ -3,8 +3,10 @@ package com.dungeonsecrets.frontEnd;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.processors.MonsterAction;
 import com.dungeonsecrets.backEnd.processors.MonsterMoveProcessor;
 import com.dungeonsecrets.backEnd.processors.MoveProcessor;
+import com.dungeonsecrets.backEnd.processors.TurnSelector;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
@@ -13,6 +15,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MainPanel extends JPanel implements KeyListener {
+    MonsterAction move = new MonsterAction();
+
+    Thread monsterAction = new Thread(move);
 
 
 
@@ -48,10 +53,14 @@ public class MainPanel extends JPanel implements KeyListener {
         GameObject hero     = GameSetup.getInstance().getCharacter();
         GameObject[][] grid = GameGrid.getInstance().getGrid();
 
-        MonsterMoveProcessor.moveAllMonsters();
-        MoveProcessor.doMove(hero, grid, e.getKeyCode());
-
-//        GameGrid.getInstance().setGrid(grid);
+        if(TurnSelector.getInstance().isItsPlayerTurn()){
+//            monsterAction = new Thread(move);
+            MoveProcessor.doMove(hero, grid, e.getKeyCode());
+            this.repaint();
+            TurnSelector.getInstance().toggle();
+            moveMonsters();
+        }
+//        MonsterAction.moveMonsters();
         GameGrid.getInstance().repaint();
     }
 
@@ -59,5 +68,12 @@ public class MainPanel extends JPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
 //        System.out.println(GameGrid.getInstance().getHero().getRow());
 //        System.out.println("keyReleased");
+    }
+
+    private void moveMonsters(){
+        new Thread(() -> {
+            MonsterAction.moveMonsters();
+            this.repaint();
+        }).start();
     }
 }

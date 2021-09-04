@@ -53,7 +53,7 @@ public class EnemyPanel extends JPanel {
         enemyName.setText("Enemy");
         enemyName.setFont(new Font("Immortal",Font.PLAIN,15));
         enemyName.setForeground(new Color(245, 170, 7));
-        enemyName.setBounds((int)(width*0.05),(int)(height*0.65),(int)(width*0.30),(int)(height*0.40));
+        enemyName.setBounds((int)(width*0.05),(int)(height*0.62),(int)(width*0.35),(int)(height*0.40));
         return enemyName;
     }
     public static JLabel getEnemyName() {

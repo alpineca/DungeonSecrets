@@ -15,8 +15,11 @@ public class MonsterMoveProcessor {
         GameObject[][] grid         = GameGrid.getInstance().getGrid();
 
         for(Monster monster : monsters){
-            int randomMoveKeyCode = 666;
-            MoveProcessor.doMoveMonsters(monster, grid, randomMoveKeyCode);
+            if(monster.isAlive()){
+                int randomMoveKeyCode = 666;
+                MoveProcessor.doMoveMonsters(monster, grid, randomMoveKeyCode);
+            }
+
         }
 
 

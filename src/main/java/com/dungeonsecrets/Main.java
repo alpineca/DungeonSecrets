@@ -1,5 +1,7 @@
 package com.dungeonsecrets;
 
+import com.dungeonsecrets.backEnd.objects.HitDice;
+import com.dungeonsecrets.backEnd.processors.TurnSelector;
 import com.dungeonsecrets.frontEnd.MainFrame.MainFrame;
 import com.dungeonsecrets.sound.MusicManager;
 import com.dungeonsecrets.sound.MusicThread;

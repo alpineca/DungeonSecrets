@@ -18,9 +18,9 @@ public class CurrentUser {
     }
 
     public static CurrentUser getInstance(){
-//        if(instance == null){
-//            instance = new CurrentUser();
-//        }
+        if(instance == null){
+            instance = new CurrentUser();
+        }
         return instance;
     }
 
@@ -28,7 +28,7 @@ public class CurrentUser {
         return username;
     }
 
-    public int getUser_id() {
+    public int getUserId() {
         return this.user_id;
     }
     public int getHero_id() {

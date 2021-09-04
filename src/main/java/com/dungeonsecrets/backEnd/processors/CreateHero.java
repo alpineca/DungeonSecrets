@@ -5,7 +5,6 @@ import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CreateHero {
@@ -22,7 +21,7 @@ public class CreateHero {
                 "`player_name`, " +
                 "`race`, " +
                 "`alignment`, " +
-                "`expirience_points`, " +
+                "`experience_points`, " +
                 "`strength`," +
                 "`dexterity`, " +
                 "`constitution`, " +
@@ -75,7 +74,7 @@ public class CreateHero {
                 "'8', '9', '8', '7')";
 
         try {
-            int userId = CurrentUser.getInstance().getUser_id();
+            int userId = CurrentUser.getInstance().getUserId();
             Connection connection = ConnectDatabase.getConnection();
             PreparedStatement pst = connection.prepareStatement(createHeroQuery);
 

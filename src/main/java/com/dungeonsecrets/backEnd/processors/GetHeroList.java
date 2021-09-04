@@ -1,7 +1,7 @@
 package com.dungeonsecrets.backEnd.processors;
 
 import com.dungeonsecrets.backEnd.GameInfo.CurrentUser;
-import com.dungeonsecrets.backEnd.objects.characterListItem;
+import com.dungeonsecrets.backEnd.objects.CharacterListItem;
 import com.dungeonsecrets.backEnd.utility.ConnectDatabase;
 
 import java.sql.Connection;
@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class GetHeroList {
 
-    private static ArrayList<characterListItem> heroes = new ArrayList<>();
+    private static ArrayList<CharacterListItem> heroes = new ArrayList<>();
 
-    public static ArrayList<characterListItem> getHeroes() {
+    public static ArrayList<CharacterListItem> getHeroes() {
 
         if(heroes.isEmpty()){
             heroes = extractFromDB();
@@ -22,9 +22,9 @@ public class GetHeroList {
         return heroes;
     }
 
-    private static ArrayList<characterListItem> extractFromDB(){
-        String heroQuery = "SELECT * FROM `heroes` WHERE user_id = '" + CurrentUser.getInstance().getUser_id() + "'";
-        System.out.println(CurrentUser.getInstance().getUser_id() + " ID");
+    private static ArrayList<CharacterListItem> extractFromDB(){
+        String heroQuery = "SELECT * FROM `heroes` WHERE user_id = '" + CurrentUser.getInstance().getUserId() + "'";
+        System.out.println(CurrentUser.getInstance().getUserId() + " ID");
         try {
             Connection connection = ConnectDatabase.getConnection();
             PreparedStatement st = connection.prepareStatement(heroQuery);
@@ -35,7 +35,7 @@ public class GetHeroList {
                 String character_name   = rs.getString("character_name");
                 int hero_id             = rs.getInt("hero_id");
                 int level               = rs.getInt("level");
-                heroes.add(new characterListItem(character_name, hero_id, level));
+                heroes.add(new CharacterListItem(character_name, hero_id, level));
             }
         } catch (Exception e) {
             e.printStackTrace();

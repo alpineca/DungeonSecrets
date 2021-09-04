@@ -18,17 +18,14 @@ public class Monster extends GameObject {
     private int col;
     private int armor_class;
     private int hit_points;
-    private int strength;
-    private int dexterity;
-    private int constitution;
-    private int intelligence;
-    private int wisdom;
-    private int charisma;
+    private String hit_dice;
     private String url;
 
 
     private static MoveDirection orientation = MoveDirection.UP;
     private Image iconToShow;
+    private Monster instance;
+    private boolean isAlive = true;
 
     private Image iconUp    = new ImageIcon("src/main/resources/imgs/enemyOneUp.png").getImage();
     private Image iconDown  = new ImageIcon("src/main/resources/imgs/enemyOneDown.png").getImage();
@@ -40,6 +37,7 @@ public class Monster extends GameObject {
     public Monster(int row, int col) {
         monsterInit(row, col);
         this.iconToShow = iconRight;
+        instance = this;
     }
     public void render(Graphics g) {
         int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
@@ -78,7 +76,7 @@ public class Monster extends GameObject {
 
         JSONArray indexes = APIConnect.getMonstersIndexList();
 
-        int randomMonsterIndex = new Random().nextInt(40);
+        int randomMonsterIndex = new Random().nextInt(indexes.length());
         JSONObject innerObj = indexes.getJSONObject(randomMonsterIndex);
 
         return innerObj.getString("index");
@@ -96,15 +94,18 @@ public class Monster extends GameObject {
         this.type           = monster.getString("type");
         this.armor_class    = monster.getInt("armor_class");
         this.hit_points     = monster.getInt("hit_points");
-        this.strength       = monster.getInt("strength");
-        this.dexterity      = monster.getInt("dexterity");
-        this.constitution   = monster.getInt("constitution");
-        this.intelligence   = monster.getInt("intelligence");
-        this.wisdom         = monster.getInt("wisdom");
-        this.charisma       = monster.getInt("charisma");
+        this.hit_dice       = monster.getString("hit_dice");
         this.url            = monster.getString("url");
 
+    }
+    public void kill(){
+        this.isAlive = false;
+        this.row     = -1;
+        this.col     = -1;
+    }
 
+    public boolean isAlive() {
+        return isAlive;
     }
 
     public int getCurrentHp() {

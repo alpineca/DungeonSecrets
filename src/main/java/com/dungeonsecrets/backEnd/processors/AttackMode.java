@@ -12,6 +12,10 @@ public class AttackMode {
         System.out.println("********************");
         System.out.println("********************");
         System.out.println(charName+" attacks -> "+monsName);
+        System.out.println("********************");
+
+        focusedMonster.kill();
+        System.out.println(focusedMonster.getName()+" is DEAD====> RIP ");
 
 
     }
