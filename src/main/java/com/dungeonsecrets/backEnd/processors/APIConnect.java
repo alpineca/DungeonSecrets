@@ -51,7 +51,7 @@ public class APIConnect {
         JSONObject json = null;
 
         try {
-            json = readJsonFromUrl("https://www.dnd5eapi.co/api/monsters/");
+            json = readJsonFromUrl("https://www.dnd5eapi.co/api/monsters?challenge_rating=1");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class APIConnect {
         try {
             indexes = json.getJSONArray("results");
 
-            for (int i = 0; i < 40; i++) {
+            for (int i = 0; i < indexes.length(); i++) {
 
                 JSONObject c = indexes.getJSONObject(i);
                 // Storing  JSON item in a Variable

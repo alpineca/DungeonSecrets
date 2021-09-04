@@ -3,8 +3,10 @@ package com.dungeonsecrets.frontEnd;
 import com.dungeonsecrets.backEnd.GameInfo.CurrentHero;
 import com.dungeonsecrets.backEnd.GameInfo.GameSetup;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
+import com.dungeonsecrets.backEnd.processors.MonsterAction;
 import com.dungeonsecrets.backEnd.processors.MonsterMoveProcessor;
 import com.dungeonsecrets.backEnd.processors.MoveProcessor;
+import com.dungeonsecrets.backEnd.processors.TurnSelector;
 import com.dungeonsecrets.backEnd.utility.ScreenResolution;
 
 import javax.swing.*;
@@ -48,10 +50,12 @@ public class MainPanel extends JPanel implements KeyListener {
         GameObject hero     = GameSetup.getInstance().getCharacter();
         GameObject[][] grid = GameGrid.getInstance().getGrid();
 
-        MonsterMoveProcessor.moveAllMonsters();
-        MoveProcessor.doMove(hero, grid, e.getKeyCode());
-
-//        GameGrid.getInstance().setGrid(grid);
+        if(TurnSelector.getInstance().isItsPlayerTurn()){
+            MoveProcessor.doMove(hero, grid, e.getKeyCode());
+            this.repaint();
+            TurnSelector.getInstance().toggle();
+        }
+        MonsterAction.moveMonsters();
         GameGrid.getInstance().repaint();
     }
 

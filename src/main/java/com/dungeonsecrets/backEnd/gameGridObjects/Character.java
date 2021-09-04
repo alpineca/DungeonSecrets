@@ -39,6 +39,7 @@ import java.sql.SQLException;
 public class Character extends GameObject{
     private String character_name;
     private int hero_id;
+    //TODO DELETE THIS
     private int uniqie_item_id;
     private int row;
     private int col;
