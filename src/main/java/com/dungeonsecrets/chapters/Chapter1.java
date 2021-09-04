@@ -1,8 +1,10 @@
 package com.dungeonsecrets.chapters;
 
+import com.dungeonsecrets.backEnd.gameGridObjects.Item;
 import com.dungeonsecrets.backEnd.gameGridObjects.Monster;
 import com.dungeonsecrets.backEnd.gameGridObjects.GameObject;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Chapter1 {
@@ -20,8 +22,16 @@ public class Chapter1 {
     Monster monster9 = new Monster(7, 15);
     Monster monster10 = new Monster(16, 7);
 
+    ArrayList<Item> items = new ArrayList<>();
+    Item steelDagger = new Item(0,0);
+
 
     public Chapter1(){
+
+        items.add(steelDagger);
+        steelDagger.setDmg("1d4");
+        steelDagger.setName("Steel Dagger");
+        steelDagger.setIcon(new ImageIcon("src/main/resources/imgs/Steel_Dagger.png").getImage());
 
         //TODO: Array and loop
         monsters.add(monster1);
@@ -68,6 +78,11 @@ public class Chapter1 {
     public ArrayList<Monster> getMonsters(){
         return monsters;
     }
+
+    public ArrayList<Item> getItems(){
+        return items;
+    }
+
 
 
 

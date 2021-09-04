@@ -22,7 +22,7 @@ public class EnemyPanel extends JPanel {
         this.setLayout(null);
         this.setVisible(true);
         this.setOpaque(true);
-        this.setBackground(Color.red);
+        this.setBackground(Color.gray);
 
         this.add(getEnemyLabel());
 
