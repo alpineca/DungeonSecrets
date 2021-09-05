@@ -14,18 +14,13 @@ public class InventoryTile extends ItemObjects{
     public InventoryTile(int row, int col) {
 
         super(row, col);
-        this.height = (int)((ScreenResolution.getScreenHeight())*0.046);
-        this.width  = (int)((ScreenResolution.getScreenWidth())*0.026);
+        this.height = (int)((ScreenResolution.getScreenHeight())*0.0546);//58
+        this.width  = (int)((ScreenResolution.getScreenWidth())*0.031);//59
 
     }
 
 
     public void render(Graphics g) {
-        int mapWidth    = (int)((ScreenResolution.getScreenWidth())*0.8);
-        int mapHeight   = ScreenResolution.getScreenHeight();
-
-//        int tileWidth   = mapWidth/width;
-//        int tileHeight  = mapHeight/height;
 
         int tileX = this.col * width;
         int tileY = this.row * height;
