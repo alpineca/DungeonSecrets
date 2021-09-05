@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class InventoryGrid extends JPanel implements MouseListener{
     private Chapter1 chapter            = new Chapter1();
     private static InventoryGrid instance;
-    private int inventoryGridRows = 4;
-    private int inventoryGridCols = 7;
+    private int inventoryGridRows = 5;
+    private int inventoryGridCols = 6;
     private ItemObjects[][] inventory;
     private ItemObjects item;
 
@@ -140,11 +140,11 @@ public class InventoryGrid extends JPanel implements MouseListener{
 
     private int getInventoryRowBasedOnCoordinates(int coordinates) {
 
-        return coordinates / ((int) ((ScreenResolution.getScreenHeight())*0.60)/13);
+        return coordinates / ((int)((ScreenResolution.getScreenHeight())*0.280)/5);
     }
 
     private int getInventoryColBasedOnCoordinates(int coordinates) {
-        return coordinates / ((int) ((ScreenResolution.getScreenWidth())*0.19)/7);
+        return coordinates / ((int) ((ScreenResolution.getScreenWidth())*0.185)/6);
     }
 
     private ItemObjects getInventoryObject(int row, int col) {

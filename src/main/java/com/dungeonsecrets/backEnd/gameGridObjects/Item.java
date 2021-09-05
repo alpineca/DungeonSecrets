@@ -32,8 +32,8 @@ public class Item extends ItemObjects{
     @Override
     public void render(Graphics g) {
 
-        int width    = 50;
-        int height   = 50;
+        int height = (int)((ScreenResolution.getScreenHeight())*0.0546);
+        int width  = (int)((ScreenResolution.getScreenWidth())*0.031);
 
 //        int tileWidth   = mapWidth/31;
 //        int tileHeight  = mapHeight/21;

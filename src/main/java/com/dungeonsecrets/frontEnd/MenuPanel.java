@@ -309,6 +309,13 @@ public class MenuPanel {
         return menuPanelInventory;
 
     }
+
+    public static int getInventoryPanelWidth(){
+        return menuPanelInventory.getWidth();
+    }
+    public static int getInventoryPanelHeight(){
+        return menuPanelInventory.getHeight();
+    }
     public static JPanel getMenuPanelInventory (){
         return  menuPanelInventory();
     }
